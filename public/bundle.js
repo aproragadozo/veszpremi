@@ -373,65 +373,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-2015, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
-
-
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
-var invariant = function(condition, format, a, b, c, d, e, f) {
-  if (process.env.NODE_ENV !== 'production') {
-    if (format === undefined) {
-      throw new Error('invariant requires an error message argument');
-    }
-  }
-
-  if (!condition) {
-    var error;
-    if (format === undefined) {
-      error = new Error(
-        'Minified exception occurred; use the non-minified dev environment ' +
-        'for the full error message and additional helpful warnings.'
-      );
-    } else {
-      var args = [a, b, c, d, e, f];
-      var argIndex = 0;
-      error = new Error(
-        format.replace(/%s/g, function() { return args[argIndex++]; })
-      );
-      error.name = 'Invariant Violation';
-    }
-
-    error.framesToPop = 1; // we don't care about invariant's own frame
-    throw error;
-  }
-};
-
-module.exports = invariant;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-
-/***/ }),
-/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2181,6 +2122,65 @@ var styled = _styled(StyledComponent, constructWithOptions);
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(84)(module)))
 
 /***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+
+
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
+var invariant = function(condition, format, a, b, c, d, e, f) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (format === undefined) {
+      throw new Error('invariant requires an error message argument');
+    }
+  }
+
+  if (!condition) {
+    var error;
+    if (format === undefined) {
+      error = new Error(
+        'Minified exception occurred; use the non-minified dev environment ' +
+        'for the full error message and additional helpful warnings.'
+      );
+    } else {
+      var args = [a, b, c, d, e, f];
+      var argIndex = 0;
+      error = new Error(
+        format.replace(/%s/g, function() { return args[argIndex++]; })
+      );
+      error.name = 'Invariant Violation';
+    }
+
+    error.framesToPop = 1; // we don't care about invariant's own frame
+    throw error;
+  }
+};
+
+module.exports = invariant;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2997,7 +2997,7 @@ exports.default = createTransitionManager;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
@@ -3967,7 +3967,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -4086,7 +4086,7 @@ Link.contextTypes = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
@@ -4303,18 +4303,16 @@ var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n        grid-row: wrapperFooter;\n        grid-column: wrapperCol / span 6;\n        display: grid;\n        grid-template-rows: repeat(2, [r] minmax(4vmax, 40px));\n        grid-template-columns: [spacer] 1fr repeat(3, [c] 4vmax);\n        grid-gap: 1vmax;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: bottom;\n            grid-column: col 5 / span 2;\n            grid-template-rows: [row] 1fr;\n            grid-template-columns: [spacer] 1fr repeat(4, [c] 3vmax);\n        }\n       '], ['\n        grid-row: wrapperFooter;\n        grid-column: wrapperCol / span 6;\n        display: grid;\n        grid-template-rows: repeat(2, [r] minmax(4vmax, 40px));\n        grid-template-columns: [spacer] 1fr repeat(3, [c] 4vmax);\n        grid-gap: 1vmax;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: bottom;\n            grid-column: col 5 / span 2;\n            grid-template-rows: [row] 1fr;\n            grid-template-columns: [spacer] 1fr repeat(4, [c] 3vmax);\n        }\n       ']),
-    _templateObject2 = _taggedTemplateLiteral(['\n        background-color: #050800;\n        grid-column: c 1;\n        grid-row: r 1;\n\n        @media only screen and (min-width: 760px) {\n            background-color: #050800;\n            grid-column: c 1;\n            grid-row: row;\n        }\n       '], ['\n        background-color: #050800;\n        grid-column: c 1;\n        grid-row: r 1;\n\n        @media only screen and (min-width: 760px) {\n            background-color: #050800;\n            grid-column: c 1;\n            grid-row: row;\n        }\n       ']),
-    _templateObject3 = _taggedTemplateLiteral(['\n        background-color: #050800;\n        grid-column: c 2;\n        grid-row: r 1;\n\n        @media only screen and (min-width: 760px) {\n            background-color: #050800;\n            grid-column: c 2;\n            grid-row: row;\n        }\n       '], ['\n        background-color: #050800;\n        grid-column: c 2;\n        grid-row: r 1;\n\n        @media only screen and (min-width: 760px) {\n            background-color: #050800;\n            grid-column: c 2;\n            grid-row: row;\n        }\n       ']),
-    _templateObject4 = _taggedTemplateLiteral(['\n        background-color: #050800;\n        grid-column: c 3;\n        grid-row: r 1;\n\n        @media only screen and (min-width: 760px) {\n            background-color: #050800;\n            grid-column: c 3;\n            grid-row: row;\n        }\n       '], ['\n        background-color: #050800;\n        grid-column: c 3;\n        grid-row: r 1;\n\n        @media only screen and (min-width: 760px) {\n            background-color: #050800;\n            grid-column: c 3;\n            grid-row: row;\n        }\n       ']);
+var _templateObject = _taggedTemplateLiteral(['\ngrid-row: wrapperFooter;\ngrid-column: wrapperCol / span 6;\ndisplay: grid;\ngrid-template-rows: repeat(2, [r] minmax(4vmax, 40px));\ngrid-template-columns: [spacer] 1fr repeat(3, [c] 4vmax);\ngrid-gap: 1vmax;\n\n@media only screen and (min-width: 760px) {\n    grid-row: bottom;\n    grid-column: col 5 / span 2;\n    grid-template-rows: [row] 1fr;\n    grid-template-columns: [spacer] 1fr repeat(4, [c] 3vmax);\n}\n'], ['\ngrid-row: wrapperFooter;\ngrid-column: wrapperCol / span 6;\ndisplay: grid;\ngrid-template-rows: repeat(2, [r] minmax(4vmax, 40px));\ngrid-template-columns: [spacer] 1fr repeat(3, [c] 4vmax);\ngrid-gap: 1vmax;\n\n@media only screen and (min-width: 760px) {\n    grid-row: bottom;\n    grid-column: col 5 / span 2;\n    grid-template-rows: [row] 1fr;\n    grid-template-columns: [spacer] 1fr repeat(4, [c] 3vmax);\n}\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\nbackground-color: #050800;\ngrid-column: c 1;\ngrid-row: r 1;\n\n@media only screen and (min-width: 760px) {\n    background-color: #050800;\n    grid-column: c 1;\n    grid-row: row;\n}\n'], ['\nbackground-color: #050800;\ngrid-column: c 1;\ngrid-row: r 1;\n\n@media only screen and (min-width: 760px) {\n    background-color: #050800;\n    grid-column: c 1;\n    grid-row: row;\n}\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\nbackground-color: #050800;\ngrid-column: c 2;\ngrid-row: r 1;\n\n@media only screen and (min-width: 760px) {\n    background-color: #050800;\n    grid-column: c 2;\n    grid-row: row;\n}\n'], ['\nbackground-color: #050800;\ngrid-column: c 2;\ngrid-row: r 1;\n\n@media only screen and (min-width: 760px) {\n    background-color: #050800;\n    grid-column: c 2;\n    grid-row: row;\n}\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\nbackground-color: #050800;\ngrid-column: c 3;\ngrid-row: r 1;\n\n@media only screen and (min-width: 760px) {\n    background-color: #050800;\n    grid-column: c 3;\n    grid-row: row;\n}\n'], ['\nbackground-color: #050800;\ngrid-column: c 3;\ngrid-row: r 1;\n\n@media only screen and (min-width: 760px) {\n    background-color: #050800;\n    grid-column: c 3;\n    grid-row: row;\n}\n']);
 
-var _styledComponents = __webpack_require__(5);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -4322,7 +4320,14 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 var React = __webpack_require__(0);
+
+var FooterWrapper = _styledComponents2.default.div(_templateObject);
+var Behance = _styledComponents2.default.div(_templateObject2);
+var Facebook = _styledComponents2.default.div(_templateObject3);
+var Instagram = _styledComponents2.default.div(_templateObject4);
 
 var Footer = function (_React$Component) {
     _inherits(Footer, _React$Component);
@@ -4336,10 +4341,6 @@ var Footer = function (_React$Component) {
     _createClass(Footer, [{
         key: 'render',
         value: function render() {
-            var FooterWrapper = _styledComponents2.default.div(_templateObject);
-            var Behance = _styledComponents2.default.div(_templateObject2);
-            var Facebook = _styledComponents2.default.div(_templateObject3);
-            var Instagram = _styledComponents2.default.div(_templateObject4);
             return React.createElement(
                 FooterWrapper,
                 null,
@@ -4366,7 +4367,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n        grid-row: wrapperNav 3 / span 9;\n        grid-column: wrapperCol 1 / span 6;\n        background-image: url(https://i.kinja-img.com/gawker-media/image/upload/s--26NUHa2c--/c_fill,fl_progressive,g_center,h_900,q_80,w_1600/mf7iivareqhlu7pk8z3x.jpg);\n        background-size: cover;\n        background-position: center;\n        background-repeat: no-repeat;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: meat;\n            grid-column: cal / span 7;\n        }\n    '], ['\n        grid-row: wrapperNav 3 / span 9;\n        grid-column: wrapperCol 1 / span 6;\n        background-image: url(https://i.kinja-img.com/gawker-media/image/upload/s--26NUHa2c--/c_fill,fl_progressive,g_center,h_900,q_80,w_1600/mf7iivareqhlu7pk8z3x.jpg);\n        background-size: cover;\n        background-position: center;\n        background-repeat: no-repeat;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: meat;\n            grid-column: cal / span 7;\n        }\n    ']);
 
-var _styledComponents = __webpack_require__(5);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -4419,7 +4420,7 @@ var _templateObject = _taggedTemplateLiteral(['\n        display: grid;\n       
     _templateObject4 = _taggedTemplateLiteral(['\n        background-color: #817D7A;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 4 / span 14;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 1 / span 4;\n            grid-column: oszlop 6 / span 10;\n        }\n    '], ['\n        background-color: #817D7A;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 4 / span 14;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 1 / span 4;\n            grid-column: oszlop 6 / span 10;\n        }\n    ']),
     _templateObject5 = _taggedTemplateLiteral(['\n        background-color: #d4d3d3;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 18 / span 3;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 2 / span 2;\n            grid-column: oszlop 16 / span 5;\n            background-color: #817D7A;\n        }\n    '], ['\n        background-color: #d4d3d3;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 18 / span 3;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 2 / span 2;\n            grid-column: oszlop 16 / span 5;\n            background-color: #817D7A;\n        }\n    ']);
 
-var _styledComponents = __webpack_require__(5);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -4496,7 +4497,7 @@ var _templateObject = _taggedTemplateLiteral(['\n    grid-column: wrapperCol 1 /
     _templateObject10 = _taggedTemplateLiteral(['\n    display: none;\n\n    @media only screen and (min-width: 760px) {\n        display: grid;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 4;\n        align-items: center;\n        grid-gap: 1.5vmax;\n    }\n'], ['\n    display: none;\n\n    @media only screen and (min-width: 760px) {\n        display: grid;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 4;\n        align-items: center;\n        grid-gap: 1.5vmax;\n    }\n']),
     _templateObject11 = _taggedTemplateLiteral(['\n@media only screen and (min-width: 760px) {\n    background-color: #BBB6B2;\n        width: 100%;\n        height: 25%;\n}\n'], ['\n@media only screen and (min-width: 760px) {\n    background-color: #BBB6B2;\n        width: 100%;\n        height: 25%;\n}\n']);
 
-var _styledComponents = __webpack_require__(5);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -4584,7 +4585,7 @@ var _require = __webpack_require__(7),
     HashRouter = _require.HashRouter,
     Link = _require.Link;
 
-var _require2 = __webpack_require__(5),
+var _require2 = __webpack_require__(4),
     styled = _require2.styled;
 
 var Main = __webpack_require__(89);
@@ -22681,7 +22682,7 @@ var _warning = __webpack_require__(2);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _invariant = __webpack_require__(4);
+var _invariant = __webpack_require__(5);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -23058,7 +23059,7 @@ var _warning = __webpack_require__(2);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _invariant = __webpack_require__(4);
+var _invariant = __webpack_require__(5);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -24169,7 +24170,7 @@ module.exports = Array.isArray || function (arr) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -24273,7 +24274,7 @@ Prompt.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(72);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24404,7 +24405,7 @@ Redirect.contextTypes = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(9);
@@ -24708,7 +24709,7 @@ var createBrowserHistory = function createBrowserHistory() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(9);
@@ -25208,7 +25209,7 @@ var createMemoryHistory = function createMemoryHistory() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
@@ -25406,7 +25407,7 @@ StaticRouter.childContextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__matchPath__ = __webpack_require__(21);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27401,7 +27402,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _styledComponents = __webpack_require__(5);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -27503,7 +27504,7 @@ var _templateObject = _taggedTemplateLiteral(['\n        display: none;\n\n     
     _templateObject3 = _taggedTemplateLiteral(['\n        background-color: #BBB6B2;\n        grid-row: sor 2 / span 2;\n        grid-column: oszlop;\n        margin-left: 1vw;\n    '], ['\n        background-color: #BBB6B2;\n        grid-row: sor 2 / span 2;\n        grid-column: oszlop;\n        margin-left: 1vw;\n    ']),
     _templateObject4 = _taggedTemplateLiteral(['\n        background-color: #BBB6B2;\n        grid-row: sor 4;\n        grid-column: oszlop;\n        margin-left: 1vw;\n    '], ['\n        background-color: #BBB6B2;\n        grid-row: sor 4;\n        grid-column: oszlop;\n        margin-left: 1vw;\n    ']);
 
-var _styledComponents = __webpack_require__(5);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -27561,7 +27562,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n        height: 96vh;\n        max-height: 96vh;\n        display: grid;\n        grid-template-rows: repeat(11, [wrapperNav] minmax(5vh, 100px)) 1fr [wrapperFooter] minmax(4vmax, 60px);\n        grid-template-columns: repeat(6, [wrapperCol] 1fr);\n        grid-gap: 1vmin;\n\n        @media only screen and (min-width: 760px) {\n            grid-template-rows: [top] 80px [meat] 1fr [bottom] 3vmax;\n            grid-template-columns: [cal] 23vw repeat(6, [col] 1fr);\n            grid-gap: 1.5vmax;\n        }\n       '], ['\n        height: 96vh;\n        max-height: 96vh;\n        display: grid;\n        grid-template-rows: repeat(11, [wrapperNav] minmax(5vh, 100px)) 1fr [wrapperFooter] minmax(4vmax, 60px);\n        grid-template-columns: repeat(6, [wrapperCol] 1fr);\n        grid-gap: 1vmin;\n\n        @media only screen and (min-width: 760px) {\n            grid-template-rows: [top] 80px [meat] 1fr [bottom] 3vmax;\n            grid-template-columns: [cal] 23vw repeat(6, [col] 1fr);\n            grid-gap: 1.5vmax;\n        }\n       ']);
 
-var _styledComponents = __webpack_require__(5);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -27583,6 +27584,7 @@ var _require = __webpack_require__(7),
 var Header = __webpack_require__(92);
 var Nav = __webpack_require__(93);
 var Home = __webpack_require__(40);
+var About = __webpack_require__(96);
 var Collections = __webpack_require__(41);
 var Videos = __webpack_require__(42);
 var Footer = __webpack_require__(39);
@@ -27606,6 +27608,7 @@ var App = function (_React$Component) {
                 React.createElement(Header, null),
                 React.createElement(Nav, null),
                 React.createElement(Route, { exact: true, path: '/', component: Home }),
+                React.createElement(Route, { path: '/about', component: About }),
                 React.createElement(Route, { path: '/collections', component: Collections }),
                 React.createElement(Route, { path: '/videos', component: Videos }),
                 React.createElement(Footer, null)
@@ -27630,7 +27633,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _templateObject = _taggedTemplateLiteral(['\n  display: grid;\n  grid-gap: 1vmax;\n  grid-row: wrapperNav 1 / span 2;\n  grid-column: wrapperCol 1 / span 6;\n  grid-template-rows: repeat(2, [navButton] 1fr);\n  grid-template-columns: [logo] 50vw repeat(3, [navButton] 1fr);\n\n@media only screen and (min-width: 760px) {\n  grid-row: top;\n  grid-column: cal / span 6;\n  grid-template-rows: repeat(2, [row] 1fr);\n  grid-template-columns: [logo] 22vw [spacer] 1fr;\n}\n'], ['\n  display: grid;\n  grid-gap: 1vmax;\n  grid-row: wrapperNav 1 / span 2;\n  grid-column: wrapperCol 1 / span 6;\n  grid-template-rows: repeat(2, [navButton] 1fr);\n  grid-template-columns: [logo] 50vw repeat(3, [navButton] 1fr);\n\n@media only screen and (min-width: 760px) {\n  grid-row: top;\n  grid-column: cal / span 6;\n  grid-template-rows: repeat(2, [row] 1fr);\n  grid-template-columns: [logo] 22vw [spacer] 1fr;\n}\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n  background-color: #050505;\n  grid-row: navButton 1 / span 2;\n  grid-column: logo;\n\n  @media only screen and (min-width: 760px) {\n    grid-row: row 1 / span 2;\n}\n'], ['\n  background-color: #050505;\n  grid-row: navButton 1 / span 2;\n  grid-column: logo;\n\n  @media only screen and (min-width: 760px) {\n    grid-row: row 1 / span 2;\n}\n']);
 
-var _styledComponents = __webpack_require__(5);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -27691,7 +27694,7 @@ var _reactResponsive = __webpack_require__(94);
 
 var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
 
-var _styledComponents = __webpack_require__(5);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -27822,6 +27825,15 @@ var Menu = function (_React$Component) {
               Link,
               { to: '/videos', style: { display: "table", margin: "0 0 0 auto" } },
               'Videos'
+            )
+          ),
+          React.createElement(
+            'li',
+            { style: linkStyle },
+            React.createElement(
+              Link,
+              { to: '/about', style: { display: "table", margin: "0 0 0 auto" } },
+              'About'
             )
           )
         )
@@ -27986,6 +27998,11 @@ var Nav = function (_React$Component4) {
               Link,
               { to: '/videos' },
               'Videos'
+            ),
+            React.createElement(
+              Link,
+              { to: '/about' },
+              'About'
             )
           )
         )
@@ -28766,7 +28783,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _styledComponents = __webpack_require__(5);
+var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -28965,6 +28982,81 @@ var MobileCollections = function (_React$Component4) {
 
 ;
 module.exports = MobileCollections;
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n  display: grid;\n  grid-column: wrapperCol 1 / span 6;\n  grid-row: wrapperNav 3 / span 10;\n  grid-template-rows: repeat(4, [sor] 1fr);\n  grid-template-columns: repeat(3, [oszlop] 1fr);\n  grid-gap: 1vmin;\n\n  @media only screen and (min-width: 760px) {\n    padding: 1vmax 0 1vmax 1vmax;\n    grid-row: meat;\n    grid-column: cal / span 7;\n    grid-template-rows: repeat(4, [sor] 1fr);\n    grid-template-columns: repeat(20, [oszlop] 1fr);\n    grid-gap: 1.5vmax;\n  }\n'], ['\n  display: grid;\n  grid-column: wrapperCol 1 / span 6;\n  grid-row: wrapperNav 3 / span 10;\n  grid-template-rows: repeat(4, [sor] 1fr);\n  grid-template-columns: repeat(3, [oszlop] 1fr);\n  grid-gap: 1vmin;\n\n  @media only screen and (min-width: 760px) {\n    padding: 1vmax 0 1vmax 1vmax;\n    grid-row: meat;\n    grid-column: cal / span 7;\n    grid-template-rows: repeat(4, [sor] 1fr);\n    grid-template-columns: repeat(20, [oszlop] 1fr);\n    grid-gap: 1.5vmax;\n  }\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  background-color: #bbb6b2;\n  display: grid;\n  grid-row: sor 2 / span 2;\n  grid-column: oszlop 1 / span 3;\n\n  @media only screen and (min-width: 760px) {\n    grid-row: sor 1;\n    grid-column: oszlop 1 / span 14;\n    margin-left: 1vw;\n  }\n'], ['\n  background-color: #bbb6b2;\n  display: grid;\n  grid-row: sor 2 / span 2;\n  grid-column: oszlop 1 / span 3;\n\n  @media only screen and (min-width: 760px) {\n    grid-row: sor 1;\n    grid-column: oszlop 1 / span 14;\n    margin-left: 1vw;\n  }\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  display: grid;\n  grid-row: sor 4;\n  grid-column: oszlop 1 / span 3;\n  background-color: #bbb6b2;\n\n  @media only screen and (min-width: 760px) {\n    grid-row: sor 2 / span 2;\n    grid-column: oszlop 1 / span 14;\n    margin-left: 1vw;\n  }\n'], ['\n  display: grid;\n  grid-row: sor 4;\n  grid-column: oszlop 1 / span 3;\n  background-color: #bbb6b2;\n\n  @media only screen and (min-width: 760px) {\n    grid-row: sor 2 / span 2;\n    grid-column: oszlop 1 / span 14;\n    margin-left: 1vw;\n  }\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n  display: none;\n\n  @media only screen and (min-width: 760px) {\n    display: grid;\n    background-color: #bbb6b2;\n    grid-row: sor 4;\n    grid-column: oszlop 1 /span 14;\n    margin-left: 1vw;\n  }\n'], ['\n  display: none;\n\n  @media only screen and (min-width: 760px) {\n    display: grid;\n    background-color: #bbb6b2;\n    grid-row: sor 4;\n    grid-column: oszlop 1 /span 14;\n    margin-left: 1vw;\n  }\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n  display: grid;\n  grid-row: sor 1;\n  grid-column: oszlop 1;\n  background-color: transparent;\n\n  @media only screen and (min-width: 760px) {\n    display: grid;\n    grid-row: sor 1 / span 4;\n    grid-column: oszlop 15 / span 6;\n    grid-template-rows: repeat(4, [sor] 1fr);\n    grid-template-columns: repeat(4, [oszlop] 1fr);\n  }\n'], ['\n  display: grid;\n  grid-row: sor 1;\n  grid-column: oszlop 1;\n  background-color: transparent;\n\n  @media only screen and (min-width: 760px) {\n    display: grid;\n    grid-row: sor 1 / span 4;\n    grid-column: oszlop 15 / span 6;\n    grid-template-rows: repeat(4, [sor] 1fr);\n    grid-template-columns: repeat(4, [oszlop] 1fr);\n  }\n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n  display: block;\n  width: 100%;\n  height: 100%;\n  background-color: papayawhip;\n\n  @media only screen and (min-width: 760px) {\n    display: grid;\n    grid-row: sor 2 / span 2;\n    grid-column: oszlop 2 / span 2;\n  }\n'], ['\n  display: block;\n  width: 100%;\n  height: 100%;\n  background-color: papayawhip;\n\n  @media only screen and (min-width: 760px) {\n    display: grid;\n    grid-row: sor 2 / span 2;\n    grid-column: oszlop 2 / span 2;\n  }\n']);
+
+var _styledComponents = __webpack_require__(4);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var React = __webpack_require__(0);
+
+var AboutWrapper = _styledComponents2.default.div(_templateObject);
+
+var AboutText1 = _styledComponents2.default.div(_templateObject2);
+
+var AboutText2 = _styledComponents2.default.div(_templateObject3);
+
+var AboutText3 = _styledComponents2.default.div(_templateObject4);
+var AboutPhotoWrapper = _styledComponents2.default.div(_templateObject5);
+
+var AboutPhoto = _styledComponents2.default.div(_templateObject6);
+
+var About = function (_React$Component) {
+  _inherits(About, _React$Component);
+
+  function About() {
+    _classCallCheck(this, About);
+
+    return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).apply(this, arguments));
+  }
+
+  _createClass(About, [{
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        AboutWrapper,
+        null,
+        React.createElement(AboutText1, null),
+        React.createElement(AboutText2, null),
+        React.createElement(AboutText3, null),
+        React.createElement(
+          AboutPhotoWrapper,
+          null,
+          React.createElement(AboutPhoto, null)
+        )
+      );
+    }
+  }]);
+
+  return About;
+}(React.Component);
+
+module.exports = About;
 
 /***/ })
 /******/ ]);

@@ -141,6 +141,9 @@ class Menu extends React.Component{
           <li style ={linkStyle}>
             <Link to="/videos" style={{display: "table", margin: "0 0 0 auto"}}>Videos</Link>
           </li>
+          <li style ={linkStyle}>
+            <Link to="/about" style={{display: "table", margin: "0 0 0 auto"}}>About</Link>
+          </li>
         </ul>
       </div>
     )
@@ -283,6 +286,7 @@ class Nav extends React.Component{
             <Link to="/">Home</Link>
             <Link to="/collections">Collections</Link>
             <Link to="/videos">Videos</Link>
+            <Link to="/about">About</Link>
           </Desktop>
         </MediaQuery>
       </NewWrapper>

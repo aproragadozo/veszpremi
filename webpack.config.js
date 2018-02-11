@@ -16,7 +16,8 @@ module.exports = {
             Videos: 'app/components/Videos.jsx',
             Nav: 'app/components/Nav.jsx',
             CollectionDetails: 'app/components/CollectionDetails.jsx',
-            MobileCollections: 'app/components/MobileCollections.jsx'
+            MobileCollections: 'app/components/MobileCollections.jsx',
+            About: 'app/components/About.jsx'
         },
         extensions: ['*', '.js', '.jsx']
     },

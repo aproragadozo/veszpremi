@@ -7,6 +7,7 @@ import styled from 'styled-components';
 var Header = require('Header');
 var Nav = require('Nav');
 var Home = require('Home');
+var About = require('About');
 var Collections = require('Collections');
 var Videos = require('Videos');
 var Footer = require('Footer');
@@ -32,8 +33,9 @@ class App extends React.Component{
                     <Header/>
                     <Nav/>
                     <Route exact path="/" component={Home}/>
+                    <Route path="/about" component={About}/>
                     <Route path="/collections" component={Collections}/>
-                    {<Route path="/videos" component={Videos}/>}
+                    <Route path="/videos" component={Videos}/>
                     <Footer/>
                 </Wrapper>
                 
