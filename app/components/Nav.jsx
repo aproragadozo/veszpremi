@@ -1,6 +1,7 @@
 var React = require('react');
 var {Link} = require('react-router-dom');
 var MobileCollections = require('MobileCollections');
+var Dropdown = require('Dropdown');
 
 import MediaQuery from 'react-responsive';
 
@@ -211,44 +212,6 @@ class Nav extends React.Component{
       grid-column: col 3 / span 4;
     }
     `;
-    /*
-    var Mobile = styled.div`
-      grid-row: wrapperNav 1 / span 6;
-      grid-column: wrapperCol 6;
-      display: flex;
-      flex-direction: column;
-      justify-content: start;
-      align-items: end;
-      z-index: 5;
-
-     >a {
-      display: flex;
-      justify-content: end;
-      align-items: center;
-      text-align: right;
-      flex: 1 2 5vmin;
-      justify-self: start;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition-property: font-weight, background-color;
-      transition-duration: 0.3s;
-      background-color: transparent;
-      opacity: 0.8;
-      font-weight: normal;
-      max-height: 8vmin;
-      text-decoration: none;
-    }
-  `;
-*/
-/*
-  var Hamburger = styled.div`
-      background-color: brown;
-      width: 50%;
-      height: 8vmax;
-      cursor: pointer;
-      justify-self: start;
-    `;
-*/
   var Desktop = styled.div`
       display: grid;
       grid-template-rows: [row] 3vmax [filler] 1fr;
@@ -271,15 +234,7 @@ class Nav extends React.Component{
     return (
       <NewWrapper>
         <MediaQuery maxWidth={760}>
-        <Mobile />
-        {/*
-          <Mobile>
-            <Hamburger/>
-              <Link to="/">Home</Link>
-              <Link to="/collections">Collections</Link>
-              <Link to="/videos">Videos</Link>
-          </Mobile>
-          */}
+          <Mobile />
         </MediaQuery>
         <MediaQuery minWidth={760}>
           <Desktop>

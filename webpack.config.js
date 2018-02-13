@@ -17,6 +17,7 @@ module.exports = {
             Nav: 'app/components/Nav.jsx',
             CollectionDetails: 'app/components/CollectionDetails.jsx',
             MobileCollections: 'app/components/MobileCollections.jsx',
+            Dropdown: 'app/components/Dropdown.jsx',
             About: 'app/components/About.jsx'
         },
         extensions: ['*', '.js', '.jsx']
