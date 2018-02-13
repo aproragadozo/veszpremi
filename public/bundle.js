@@ -27621,11 +27621,7 @@ var Nav = function (_React$Component4) {
               { to: '/' },
               'Home'
             ),
-            React.createElement(
-              Link,
-              { to: '/collections' },
-              'Collections'
-            ),
+            React.createElement(Dropdown, null),
             React.createElement(
               Link,
               { to: '/videos' },
@@ -28624,7 +28620,10 @@ module.exports = MobileCollections;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral([''], ['']);
+var _templateObject = _taggedTemplateLiteral(['\n  width: 8vmax;\n  height: 4vmax;\n  background-color: #decd89;\n  display: inline-block;\n  position: relative;\n'], ['\n  width: 8vmax;\n  height: 4vmax;\n  background-color: #decd89;\n  display: inline-block;\n  position: relative;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  display: none;\n  flex-wrap: wrap;\n  width: 20vmax;\n  background-color: transparent;\n  align-items: start;\n  justify-content: space-between;\n  padding:0;\n  margin:0;\n  position: absolute;\n  top: 4vmax;\n  left: -6vmax;\n  list-style: none;\n\n  ', ':hover & {\n    display: flex;\n  }\n'], ['\n  display: none;\n  flex-wrap: wrap;\n  width: 20vmax;\n  background-color: transparent;\n  align-items: start;\n  justify-content: space-between;\n  padding:0;\n  margin:0;\n  position: absolute;\n  top: 4vmax;\n  left: -6vmax;\n  list-style: none;\n\n  ', ':hover & {\n    display: flex;\n  }\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  position: relative;\n  margin: 0.5vmax 0 0 0;\n  direction: ltr;\n  list-style-type: none;\n'], ['\n  position: relative;\n  margin: 0.5vmax 0 0 0;\n  direction: ltr;\n  list-style-type: none;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n  display: none;\n  position: absolute;\n  left: -5.5vmax;\n  top: 0.5vmin;\n  background-color: #f87e64;\n  overflow-y: scroll;\n  padding: 0.5vmax 1vmax;\n  height: 5vmax;\n  direction: rtl;\n  unicode-bidi: bidi-override;\n\n  ', ':hover & {\n    display: block;\n  }\n'], ['\n  display: none;\n  position: absolute;\n  left: -5.5vmax;\n  top: 0.5vmin;\n  background-color: #f87e64;\n  overflow-y: scroll;\n  padding: 0.5vmax 1vmax;\n  height: 5vmax;\n  direction: rtl;\n  unicode-bidi: bidi-override;\n\n  ', ':hover & {\n    display: block;\n  }\n']);
 
 var _styledComponents = __webpack_require__(4);
 
@@ -28648,13 +28647,12 @@ var _require = __webpack_require__(11),
 // ide kell majd egy kamulista is próbaképpen,
 // and everything from DropdownMenu downwards needs to be mapped
 
-var DropdownWrap = _styledComponents2.default.div(_templateObject);
-
 var DropdownButton = _styledComponents2.default.div(_templateObject);
 
-var Menu = _styledComponents2.default.ul(_templateObject);
+var Menu = _styledComponents2.default.ul(_templateObject2, DropdownButton);
+var MenuItem = _styledComponents2.default.li(_templateObject3);
 
-var SubMenu = _styledComponents2.default.ul(_templateObject);
+var SubMenu = _styledComponents2.default.ul(_templateObject4, MenuItem);
 
 var Dropdown = function (_React$Component) {
   _inherits(Dropdown, _React$Component);
@@ -28669,19 +28667,31 @@ var Dropdown = function (_React$Component) {
     key: 'render',
     value: function render() {
       return React.createElement(
-        DropdownWrap,
+        DropdownButton,
         null,
         React.createElement(
-          DropdownButton,
+          Menu,
           null,
           React.createElement(
-            Menu,
+            MenuItem,
             null,
-            React.createElement('span', null),
+            React.createElement(
+              'span',
+              { style: { display: "inline-block", backgroundColor: "mediumseagreen", padding: "2vmin 4vmax" } },
+              'alma'
+            ),
             React.createElement(
               SubMenu,
               null,
-              React.createElement('li', null)
+              React.createElement(
+                'li',
+                { style: { listStyleType: "none" } },
+                React.createElement(
+                  Link,
+                  { to: '/collections' },
+                  'barack'
+                )
+              )
             )
           )
         )
