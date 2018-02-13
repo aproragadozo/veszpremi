@@ -6,7 +6,7 @@ import styled from 'styled-components';
 // ide kell majd egy kamulista is próbaképpen,
 // and everything from DropdownMenu downwards needs to be mapped
 
-const DropdownButton = styled.div`
+const DropdownButton = styled(Link)`
   width: 8vmax;
   height: 4vmax;
   background-color: #decd89;
@@ -59,7 +59,7 @@ const SubMenu = styled.ul`
 class Dropdown extends React.Component {
   render() {
     return (
-        <DropdownButton>
+        <DropdownButton to="/collections">Collections
           <Menu>
             <MenuItem>
               <span style={{display: "inline-block", backgroundColor: "mediumseagreen", padding: "2vmin 4vmax"}}>alma</span>

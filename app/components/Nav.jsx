@@ -52,6 +52,7 @@ const NavWrapper = styled.div`
         flex: none;
         max-height: initial;
         justify-self: auto;
+        position: relative;
       }
     }
     */
