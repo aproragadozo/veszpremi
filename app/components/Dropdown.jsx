@@ -7,11 +7,11 @@ import styled from 'styled-components';
 // and everything from DropdownMenu downwards needs to be mapped
 
 const DropdownButton = styled(Link)`
-  width: 8vmax;
-  height: 4vmax;
-  background-color: #decd89;
+  background-color: #050505;
+  font-size: 0.9vw;
   display: inline-block;
   position: relative;
+  max-height: initial;
 `;
 
 const Menu = styled.ul`
@@ -24,7 +24,7 @@ const Menu = styled.ul`
   padding:0;
   margin:0;
   position: absolute;
-  top: 4vmax;
+  top: 2.6vmax;
   left: -6vmax;
   list-style: none;
 
