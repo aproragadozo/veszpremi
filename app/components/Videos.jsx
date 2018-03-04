@@ -1,6 +1,7 @@
 var React = require('react');
 
 import styled from 'styled-components';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 const VideoWrapper = styled.div`
     grid-column: wrapperCol 1 / span 6;

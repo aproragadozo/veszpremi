@@ -1,8 +1,11 @@
 var React = require('react');
 
 import styled from 'styled-components';
+import MediaQuery from 'react-responsive';
 
 var CollectionDetails = require('CollectionDetails');
+var DesktopCarousel = require('DesktopCarousel');
+var MobileCarousel = require('MobileCarousel');
 
 class Collections extends React.Component{
    render() {
@@ -21,7 +24,9 @@ class Collections extends React.Component{
         grid-gap: 1.5vmax;
     }
     `;
-
+    {/*
+        ez az, amit ki fogunk ütni a mediaquery alapján behúzott DesktopCarousellel és MobileCarousellel
+    */}
     var CollectionSlideshow = styled.div`
         grid-column: oszlop;
         grid-row: sor;
