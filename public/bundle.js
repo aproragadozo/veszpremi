@@ -30416,7 +30416,7 @@ module.exports = About;
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n        display: grid;\n        grid-column: wrapperCol 1 / span 6;\n        grid-row: wrapperNav 3 / span 10;\n        grid-template-rows: [sor] 1fr;\n        grid-template-columns: [oszlop] 1fr;\n\n    @media only screen and (min-width: 760px) {\n        grid-row: meat;\n        grid-column: cal / span 7;\n        grid-template-columns: [details] 35vw repeat(4, [meatCol] 1fr);\n        grid-template-rows: [sorr] 1fr;\n        grid-gap: 1.5vmax;\n    }\n    '], ['\n        display: grid;\n        grid-column: wrapperCol 1 / span 6;\n        grid-row: wrapperNav 3 / span 10;\n        grid-template-rows: [sor] 1fr;\n        grid-template-columns: [oszlop] 1fr;\n\n    @media only screen and (min-width: 760px) {\n        grid-row: meat;\n        grid-column: cal / span 7;\n        grid-template-columns: [details] 35vw repeat(4, [meatCol] 1fr);\n        grid-template-rows: [sorr] 1fr;\n        grid-gap: 1.5vmax;\n    }\n    ']),
-    _templateObject2 = _taggedTemplateLiteral(['\n        grid-column: oszlop;\n        grid-row: sor;\n        display: grid;\n        grid-template-rows: repeat(4, [sor] 1fr);\n        grid-template-columns: repeat(20, [oszlop] 1fr);\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sorr;\n            grid-column: meatCol 1 / span 4;\n            grid-column-gap: 1.5vmax;\n            grid-row-gap: 3.5vmax;\n            margin-left: 1vmax;\n        }\n    '], ['\n        grid-column: oszlop;\n        grid-row: sor;\n        display: grid;\n        grid-template-rows: repeat(4, [sor] 1fr);\n        grid-template-columns: repeat(20, [oszlop] 1fr);\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sorr;\n            grid-column: meatCol 1 / span 4;\n            grid-column-gap: 1.5vmax;\n            grid-row-gap: 3.5vmax;\n            margin-left: 1vmax;\n        }\n    ']),
+    _templateObject2 = _taggedTemplateLiteral(['\n        grid-column: oszlop;\n        grid-row: sor;\n        display: grid;\n        grid-template-rows: repeat(4, [sor] 1fr);\n        grid-template-columns: repeat(20, [oszlop] 1fr);\n\n        @media only screen and (min-width: 760px) {\n            position: relative;\n            grid-row: sorr;\n            grid-column: meatCol 1 / span 4;\n            grid-column-gap: 1.5vmax;\n            grid-row-gap: 3.5vmax;\n            margin-left: 1vmax;\n        }\n    '], ['\n        grid-column: oszlop;\n        grid-row: sor;\n        display: grid;\n        grid-template-rows: repeat(4, [sor] 1fr);\n        grid-template-columns: repeat(20, [oszlop] 1fr);\n\n        @media only screen and (min-width: 760px) {\n            position: relative;\n            grid-row: sorr;\n            grid-column: meatCol 1 / span 4;\n            grid-column-gap: 1.5vmax;\n            grid-row-gap: 3.5vmax;\n            margin-left: 1vmax;\n        }\n    ']),
     _templateObject3 = _taggedTemplateLiteral(['\n        background-color: #d4d3d3;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 1 / span 3;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 2 / span 2;\n            grid-column: oszlop 1 / span 5;\n            background-color: #817D7A;\n        }\n    '], ['\n        background-color: #d4d3d3;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 1 / span 3;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 2 / span 2;\n            grid-column: oszlop 1 / span 5;\n            background-color: #817D7A;\n        }\n    ']),
     _templateObject4 = _taggedTemplateLiteral(['\n        background-color: #817D7A;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 4 / span 14;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 1 / span 4;\n            grid-column: oszlop 6 / span 10;\n        }\n    '], ['\n        background-color: #817D7A;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 4 / span 14;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 1 / span 4;\n            grid-column: oszlop 6 / span 10;\n        }\n    ']),
     _templateObject5 = _taggedTemplateLiteral(['\n        background-color: #d4d3d3;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 18 / span 3;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 2 / span 2;\n            grid-column: oszlop 16 / span 5;\n            background-color: #817D7A;\n        }\n    '], ['\n        background-color: #d4d3d3;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 18 / span 3;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 2 / span 2;\n            grid-column: oszlop 16 / span 5;\n            background-color: #817D7A;\n        }\n    ']);
@@ -30470,11 +30470,14 @@ var Collections = function (_React$Component) {
                 null,
                 React.createElement(CollectionDetails, null),
                 React.createElement(
-                    CollectionSlideshow,
-                    null,
-                    React.createElement(SlideshowBack, null),
-                    React.createElement(SlideshowCurrent, null),
-                    React.createElement(SlideshowForward, null)
+                    _reactResponsive2.default,
+                    { maxWidth: 760 },
+                    React.createElement(MobileCarousel, null)
+                ),
+                React.createElement(
+                    _reactResponsive2.default,
+                    { minWidth: 760 },
+                    React.createElement(DesktopCarousel, null)
                 )
             );
         }
@@ -30555,6 +30558,11 @@ module.exports = CollectionDetails;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _templateObject = _taggedTemplateLiteral(['\n  display: grid;\n  position: relative;\n  grid-row: sorr;\n  grid-column: meatCol 1 / span 4;\n  grid-column-gap: 1.5vmax;\n  grid-row-gap: 3.5vmax;\n  margin-left: 1vmax;\n'], ['\n  display: grid;\n  position: relative;\n  grid-row: sorr;\n  grid-column: meatCol 1 / span 4;\n  grid-column-gap: 1.5vmax;\n  grid-row-gap: 3.5vmax;\n  margin-left: 1vmax;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  position: absolute;\n  width: calc(25% - (calc(1.5vmax / 2)));\n  height: calc(50% - calc(3.5vmax / 2));\n  top: calc(25% + calc(3.5vmax / 4));\n  background-color: #817D7A;\n'], ['\n  position: absolute;\n  width: calc(25% - (calc(1.5vmax / 2)));\n  height: calc(50% - calc(3.5vmax / 2));\n  top: calc(25% + calc(3.5vmax / 4));\n  background-color: #817D7A;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  width: calc(50% - 1vmax);\n  height: 100%;\n  left: calc(25% + (calc(1vmax / 2)));\n  position: absolute;\n  background-color: #817D7A;\n'], ['\n  width: calc(50% - 1vmax);\n  height: 100%;\n  left: calc(25% + (calc(1vmax / 2)));\n  position: absolute;\n  background-color: #817D7A;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n  position: absolute;\n  width: calc(25% - (calc(1.5vmax / 2)));\n  height: calc(50% - calc(3.5vmax / 2));\n  top: calc(25% + calc(3.5vmax / 4));\n  left: calc(75% + (calc(1.5vmax / 2)));\n  background-color: #817D7A;\n'], ['\n  position: absolute;\n  width: calc(25% - (calc(1.5vmax / 2)));\n  height: calc(50% - calc(3.5vmax / 2));\n  top: calc(25% + calc(3.5vmax / 4));\n  left: calc(75% + (calc(1.5vmax / 2)));\n  background-color: #817D7A;\n']);
+
 var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
@@ -30571,20 +30579,49 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 var React = __webpack_require__(0);
+
+var CarouselWrapper = _styledComponents2.default.div(_templateObject);
+// ezeket majd írd át img-re
+var CarouselBack = _styledComponents2.default.div(_templateObject2);
+var CarouselMain = _styledComponents2.default.div(_templateObject3);
+var CarouselForward = _styledComponents2.default.div(_templateObject4);
 
 var DesktopCarousel = function (_React$Component) {
   _inherits(DesktopCarousel, _React$Component);
 
-  function DesktopCarousel() {
+  function DesktopCarousel(props) {
     _classCallCheck(this, DesktopCarousel);
 
-    return _possibleConstructorReturn(this, (DesktopCarousel.__proto__ || Object.getPrototypeOf(DesktopCarousel)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (DesktopCarousel.__proto__ || Object.getPrototypeOf(DesktopCarousel)).call(this, props));
+
+    _this.state = {
+      items: [],
+      currentIndex: parseInt(_this.props.index),
+      direction: ""
+    };
+    return _this;
   }
 
   _createClass(DesktopCarousel, [{
     key: 'render',
-    value: function render() {}
+    value: function render() {
+      return React.createElement(
+        _CSSTransitionGroup2.default,
+        { transitionName: this.state.direction, transitionEnterTimeout: 1000, transitionLeaveTimeout: 1000, component: 'div', style: { display: "grid",
+            position: "relative",
+            gridRow: "sorr",
+            gridColumn: "meatCol 1 / span 4",
+            gridColumnGap: "1.5vmax",
+            gridRowGap: "3.5vmax",
+            marginLeft: "1vmax" } },
+        React.createElement(CarouselBack, null),
+        React.createElement(CarouselMain, null),
+        React.createElement(CarouselForward, null)
+      );
+    }
   }]);
 
   return DesktopCarousel;
@@ -31465,6 +31502,11 @@ function getTransitionProperties() {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _templateObject = _taggedTemplateLiteral(['\n  grid-column: oszlop;\n  grid-row: sor;\n  display: grid;\n  grid-template-rows: repeat(4, [sor] 1fr);\n  grid-template-columns: repeat(20, [oszlop] 1fr);\n'], ['\n  grid-column: oszlop;\n  grid-row: sor;\n  display: grid;\n  grid-template-rows: repeat(4, [sor] 1fr);\n  grid-template-columns: repeat(20, [oszlop] 1fr);\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\ndisplay: grid;\n  background-color: #d4d3d3;\n  grid-row: sor 1 / span 4;\n  grid-column: oszlop 1 / span 3;\n'], ['\ndisplay: grid;\n  background-color: #d4d3d3;\n  grid-row: sor 1 / span 4;\n  grid-column: oszlop 1 / span 3;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\ndisplay: grid;\n    background-color: #817D7A;\n    grid-row: sor 1 / span 4;\n    grid-column: oszlop 4 / span 14;\n'], ['\ndisplay: grid;\n    background-color: #817D7A;\n    grid-row: sor 1 / span 4;\n    grid-column: oszlop 4 / span 14;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\ndisplay: grid;\n    background-color: #d4d3d3;\n    grid-row: sor 1 / span 4;\n    grid-column: oszlop 18 / span 3;\n'], ['\ndisplay: grid;\n    background-color: #d4d3d3;\n    grid-row: sor 1 / span 4;\n    grid-column: oszlop 18 / span 3;\n']);
+
 var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
@@ -31481,7 +31523,14 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 var React = __webpack_require__(0);
+
+var CarouselWrapper = _styledComponents2.default.div(_templateObject);
+var CarouselBack = _styledComponents2.default.div(_templateObject2);
+var CarouselMain = _styledComponents2.default.div(_templateObject3);
+var CarouselForward = _styledComponents2.default.div(_templateObject4);
 
 var MobileCarousel = function (_React$Component) {
   _inherits(MobileCarousel, _React$Component);
@@ -31494,7 +31543,15 @@ var MobileCarousel = function (_React$Component) {
 
   _createClass(MobileCarousel, [{
     key: 'render',
-    value: function render() {}
+    value: function render() {
+      return React.createElement(
+        CarouselWrapper,
+        null,
+        React.createElement(CarouselBack, null),
+        React.createElement(CarouselMain, null),
+        React.createElement(CarouselForward, null)
+      );
+    }
   }]);
 
   return MobileCarousel;

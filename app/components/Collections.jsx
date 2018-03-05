@@ -35,6 +35,7 @@ class Collections extends React.Component{
         grid-template-columns: repeat(20, [oszlop] 1fr);
 
         @media only screen and (min-width: 760px) {
+            position: relative;
             grid-row: sorr;
             grid-column: meatCol 1 / span 4;
             grid-column-gap: 1.5vmax;
@@ -77,14 +78,19 @@ class Collections extends React.Component{
        return (
            <CollectionWrapper>
                <CollectionDetails/>
+               <MediaQuery maxWidth={760}>
+                <MobileCarousel/>
+               </MediaQuery>
+               <MediaQuery minWidth={760}>
+                <DesktopCarousel/>
+               </MediaQuery>
+               {/*
                <CollectionSlideshow>
-       {/* don't forget to make the navigation overlays just that:
-            overlays - SlideshowCurrent needs to be full-width
-        */}
                 <SlideshowBack/>
                 <SlideshowCurrent/>
                 <SlideshowForward/>
                </CollectionSlideshow>
+               */}
            </CollectionWrapper>
        )
    } 
