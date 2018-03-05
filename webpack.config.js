@@ -25,13 +25,20 @@ module.exports = {
         extensions: ['*', '.js', '.jsx']
     },
     module: {
-        loaders: [{
-            loader: 'babel-loader',
-            query: {
-                presets: ['react', 'es2015']
+        rules: [{
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['react', 'es2015']
+                    }
+                }
             },
-            test: /\.jsx?$/,
-            exclude: /(node_modules|bower_components)/
-        }]
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
+        ]
     }
 };
