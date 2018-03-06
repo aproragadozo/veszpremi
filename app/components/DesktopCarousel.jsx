@@ -21,8 +21,6 @@ const CarouselBack = styled.img`
   width: calc(25% - (calc(1.5vmax / 2)));
   height: calc(50% - calc(3.5vmax / 2));
   top: calc(25% + calc(3.5vmax / 4));
-  transition: all 1s ease-out;
-  object-fit: cover;
 `;
 const CarouselMain = styled.img`
   display: block;
@@ -30,8 +28,6 @@ const CarouselMain = styled.img`
   height: 100%;
   left: calc(25% + (calc(1vmax / 2)));
   position: absolute;
-  transition: all 1s ease-out;
-  object-fit: cover;
 `;
 const CarouselForward = styled.img`
   display: block;
@@ -40,8 +36,6 @@ const CarouselForward = styled.img`
   height: calc(50% - calc(3.5vmax / 2));
   top: calc(25% + calc(3.5vmax / 4));
   left: calc(75% + (calc(1.5vmax / 2)));
-  transition: all 1s ease-out;
-  object-fit: cover;
 `;
 
 class DesktopCarousel extends React.Component{
@@ -152,7 +146,9 @@ class DesktopCarousel extends React.Component{
   render() {
     return(
       <ReactCSSTransitionGroup transitionName={this.state.direction} transitionEnterTimeout={1000}
-      transitionLeaveTimeout={1000} component='div' style={{display: "grid",
+      transitionLeaveTimeout={1000}
+      component='div'
+      style={{display: "grid",
         position: "relative",
         gridRow: "sorr",
         gridColumn: "meatCol 1 / span 4",

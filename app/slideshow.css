@@ -1,3 +1,8 @@
+img {
+    transition: all 1s ease-out;
+    object-fit: cover;
+}
+
 .left-enter {
     opacity: 0;
     top: calc(25% + calc(3.5vmax / 4));
@@ -48,18 +53,12 @@
 .right-leave {
     opacity: 1;
     top: calc(25% + calc(3.5vmax / 4));
-    left: -25%;
-    /*
     left: calc(-1 * 25% - (calc(1.5vmax / 2)));
-    */
 }
 
 .right-leave.right-leave-active {
     opacity: 0;
-    left: -25%;
-    /*
     left: calc(-1 * 25% - (calc(1.5vmax / 2)));
-    */
     top: calc(25% + calc(3.5vmax / 4));
     transition: opacity 1s ease-out, left 1s ease-out;
 }
