@@ -11,13 +11,13 @@
     transition: opacity 1s ease-out, left 1s ease-out;
 }
 
-.left-leave {
+.left-exit {
     opacity: 1;
     top: calc(25% + calc(3.5vmax / 4));
     left: 100%;
 }
 
-.left-leave.left-leave-active {
+.left-exit.left-leave-active {
     opacity: 0;
     top: calc(25% + calc(3.5vmax / 4));
     left: 100%;
@@ -27,27 +27,39 @@
 .right-enter {
     opacity: 0;
     top: calc(25% + calc(3.5vmax / 4));
+    right: 1%;
+    /*
     right: calc(100% - calc(75% + (calc(1.5vmax / 2))));
+    */
     z-index: 0;
 }
 
 .right-enter.right-enter-active {
     opacity: 1;
     top: calc(25% + calc(3.5vmax / 4));
+    right: 1%;
+    /*
     right: calc(100% - calc(75% + (calc(1.5vmax / 2))));
+    */
     z-index: 0;
     transition: opacity 1s ease-out, right 1s ease-out, z-index 1s ease-out;
 }
 
-.right-leave {
+.right-exit {
     opacity: 1;
     top: calc(25% + calc(3.5vmax / 4));
+    left: -25%;
+    /*
     left: calc(-1 * 25% - (calc(1.5vmax / 2)));
+    */
 }
 
-.right-leave.right-leave-active {
+.right-exit.right-leave-active {
     opacity: 0;
+    left: -25%;
+    /*
     left: calc(-1 * 25% - (calc(1.5vmax / 2)));
+    */
     top: calc(25% + calc(3.5vmax / 4));
     transition: opacity 1s ease-out, left 1s ease-out;
 }

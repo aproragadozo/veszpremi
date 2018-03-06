@@ -3,7 +3,7 @@ var React = require('react');
 import $ from 'jquery';
 import styled from 'styled-components';
 import 'app/slideshow.css';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const CarouselWrapper = styled.div`
   display: grid;
@@ -151,7 +151,8 @@ class DesktopCarousel extends React.Component{
 
   render() {
     return(
-      <CSSTransitionGroup transitionName={this.state.direction} transitionEnterTimeout={1000} transitionLeaveTimeout={1000} component='div' style={{display: "grid",
+      <ReactCSSTransitionGroup transitionName={this.state.direction} transitionEnterTimeout={1000}
+      transitionLeaveTimeout={1000} component='div' style={{display: "grid",
         position: "relative",
         gridRow: "sorr",
         gridColumn: "meatCol 1 / span 4",
@@ -176,7 +177,7 @@ class DesktopCarousel extends React.Component{
           src={'https://farm' + this.state.items[this.circleIndex(this.state.currentIndex+1)].farm + ".staticflickr.com/" + this.state.items[this.circleIndex(this.state.currentIndex+1)].server + "/" + this.state.items[this.circleIndex(this.state.currentIndex+1)].id + "_" + this.state.items[this.circleIndex(this.state.currentIndex+1)].secret + '_b.jpg'}
           onClick={(e)=>this.kattJobbra(e)}/>
           */}
-    </CSSTransitionGroup>
+    </ReactCSSTransitionGroup>
     )
     
   }

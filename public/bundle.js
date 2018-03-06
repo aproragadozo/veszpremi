@@ -3629,11 +3629,11 @@ var _propTypes = __webpack_require__(3);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _TransitionGroup = __webpack_require__(105);
+var _TransitionGroup = __webpack_require__(106);
 
 var _TransitionGroup2 = _interopRequireDefault(_TransitionGroup);
 
-var _CSSTransitionGroupChild = __webpack_require__(108);
+var _CSSTransitionGroupChild = __webpack_require__(109);
 
 var _CSSTransitionGroupChild2 = _interopRequireDefault(_CSSTransitionGroupChild);
 
@@ -28178,8 +28178,8 @@ var Nav = __webpack_require__(88);
 var Home = __webpack_require__(94);
 var About = __webpack_require__(95);
 var Collections = __webpack_require__(96);
-var Videos = __webpack_require__(115);
-var Footer = __webpack_require__(116);
+var Videos = __webpack_require__(116);
+var Footer = __webpack_require__(117);
 
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
@@ -30443,7 +30443,7 @@ var React = __webpack_require__(0);
 
 var CollectionDetails = __webpack_require__(97);
 var DesktopCarousel = __webpack_require__(98);
-var MobileCarousel = __webpack_require__(114);
+var MobileCarousel = __webpack_require__(115);
 
 var Collections = function (_React$Component) {
     _inherits(Collections, _React$Component);
@@ -30573,9 +30573,9 @@ var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
 __webpack_require__(100);
 
-var _CSSTransitionGroup = __webpack_require__(23);
+var _reactAddonsCssTransitionGroup = __webpack_require__(105);
 
-var _CSSTransitionGroup2 = _interopRequireDefault(_CSSTransitionGroup);
+var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30715,8 +30715,9 @@ var DesktopCarousel = function (_React$Component) {
       var _this3 = this;
 
       return React.createElement(
-        _CSSTransitionGroup2.default,
-        { transitionName: this.state.direction, transitionEnterTimeout: 1000, transitionLeaveTimeout: 1000, component: 'div', style: { display: "grid",
+        _reactAddonsCssTransitionGroup2.default,
+        { transitionName: this.state.direction, transitionEnterTimeout: 1000,
+          transitionLeaveTimeout: 1000, component: 'div', style: { display: "grid",
             position: "relative",
             gridRow: "sorr",
             gridColumn: "meatCol 1 / span 4",
@@ -41174,7 +41175,7 @@ exports = module.exports = __webpack_require__(102)(false);
 
 
 // module
-exports.push([module.i, ".left-enter {\r\n    opacity: 0;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    left: 0;\r\n}\r\n\r\n.left-enter.left-enter-active {\r\n    opacity: 1;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    left: 0;\r\n    transition: opacity 1s ease-out, left 1s ease-out;\r\n}\r\n\r\n.left-leave {\r\n    opacity: 1;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    left: 100%;\r\n}\r\n\r\n.left-leave.left-leave-active {\r\n    opacity: 0;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    left: 100%;\r\n    transition: opacity 1s ease-out, left 1s ease-out;\r\n}\r\n\r\n.right-enter {\r\n    opacity: 0;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    right: calc(100% - calc(75% + (calc(1.5vmax / 2))));\r\n    z-index: 0;\r\n}\r\n\r\n.right-enter.right-enter-active {\r\n    opacity: 1;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    right: calc(100% - calc(75% + (calc(1.5vmax / 2))));\r\n    z-index: 0;\r\n    transition: opacity 1s ease-out, right 1s ease-out, z-index 1s ease-out;\r\n}\r\n\r\n.right-leave {\r\n    opacity: 1;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    left: calc(-1 * 25% - (calc(1.5vmax / 2)));\r\n}\r\n\r\n.right-leave.right-leave-active {\r\n    opacity: 0;\r\n    left: calc(-1 * 25% - (calc(1.5vmax / 2)));\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    transition: opacity 1s ease-out, left 1s ease-out;\r\n}", ""]);
+exports.push([module.i, ".left-enter {\r\n    opacity: 0;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    left: 0;\r\n}\r\n\r\n.left-enter.left-enter-active {\r\n    opacity: 1;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    left: 0;\r\n    transition: opacity 1s ease-out, left 1s ease-out;\r\n}\r\n\r\n.left-exit {\r\n    opacity: 1;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    left: 100%;\r\n}\r\n\r\n.left-exit.left-leave-active {\r\n    opacity: 0;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    left: 100%;\r\n    transition: opacity 1s ease-out, left 1s ease-out;\r\n}\r\n\r\n.right-enter {\r\n    opacity: 0;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    right: 1%;\r\n    /*\r\n    right: calc(100% - calc(75% + (calc(1.5vmax / 2))));\r\n    */\r\n    z-index: 0;\r\n}\r\n\r\n.right-enter.right-enter-active {\r\n    opacity: 1;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    right: 1%;\r\n    /*\r\n    right: calc(100% - calc(75% + (calc(1.5vmax / 2))));\r\n    */\r\n    z-index: 0;\r\n    transition: opacity 1s ease-out, right 1s ease-out, z-index 1s ease-out;\r\n}\r\n\r\n.right-exit {\r\n    opacity: 1;\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    left: -25%;\r\n    /*\r\n    left: calc(-1 * 25% - (calc(1.5vmax / 2)));\r\n    */\r\n}\r\n\r\n.right-exit.right-leave-active {\r\n    opacity: 0;\r\n    left: -25%;\r\n    /*\r\n    left: calc(-1 * 25% - (calc(1.5vmax / 2)));\r\n    */\r\n    top: calc(25% + calc(3.5vmax / 4));\r\n    transition: opacity 1s ease-out, left 1s ease-out;\r\n}", ""]);
 
 // exports
 
@@ -41743,13 +41744,30 @@ module.exports = function (css) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+module.exports = __webpack_require__(23);
+
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _chainFunction = __webpack_require__(106);
+var _chainFunction = __webpack_require__(107);
 
 var _chainFunction2 = _interopRequireDefault(_chainFunction);
 
@@ -41765,7 +41783,7 @@ var _warning = __webpack_require__(2);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _ChildMapping = __webpack_require__(107);
+var _ChildMapping = __webpack_require__(108);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42015,7 +42033,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports) {
 
 
@@ -42041,7 +42059,7 @@ module.exports = function chain(){
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42138,7 +42156,7 @@ function mergeChildMappings(prev, next) {
 }
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42148,19 +42166,19 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _addClass = __webpack_require__(109);
+var _addClass = __webpack_require__(110);
 
 var _addClass2 = _interopRequireDefault(_addClass);
 
-var _removeClass = __webpack_require__(111);
+var _removeClass = __webpack_require__(112);
 
 var _removeClass2 = _interopRequireDefault(_removeClass);
 
-var _requestAnimationFrame = __webpack_require__(112);
+var _requestAnimationFrame = __webpack_require__(113);
 
 var _requestAnimationFrame2 = _interopRequireDefault(_requestAnimationFrame);
 
-var _properties = __webpack_require__(113);
+var _properties = __webpack_require__(114);
 
 var _react = __webpack_require__(0);
 
@@ -42374,7 +42392,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42385,7 +42403,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = addClass;
 
-var _hasClass = __webpack_require__(110);
+var _hasClass = __webpack_require__(111);
 
 var _hasClass2 = _interopRequireDefault(_hasClass);
 
@@ -42397,7 +42415,7 @@ function addClass(element, className) {
 module.exports = exports['default'];
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42413,7 +42431,7 @@ function hasClass(element, className) {
 module.exports = exports["default"];
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42428,7 +42446,7 @@ module.exports = function removeClass(element, className) {
 };
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42487,7 +42505,7 @@ exports.default = compatRaf;
 module.exports = exports['default'];
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42603,7 +42621,7 @@ function getTransitionProperties() {
 }
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42669,7 +42687,7 @@ var MobileCarousel = function (_React$Component) {
 module.exports = MobileCarousel;
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42765,7 +42783,7 @@ var Videos = function (_React$Component) {
 module.exports = Videos;
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
