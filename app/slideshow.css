@@ -11,13 +11,13 @@
     transition: opacity 1s ease-out, left 1s ease-out;
 }
 
-.left-exit {
+.left-leave {
     opacity: 1;
     top: calc(25% + calc(3.5vmax / 4));
     left: 100%;
 }
 
-.left-exit.left-leave-active {
+.left-leave.left-leave-active {
     opacity: 0;
     top: calc(25% + calc(3.5vmax / 4));
     left: 100%;
@@ -45,7 +45,7 @@
     transition: opacity 1s ease-out, right 1s ease-out, z-index 1s ease-out;
 }
 
-.right-exit {
+.right-leave {
     opacity: 1;
     top: calc(25% + calc(3.5vmax / 4));
     left: -25%;
@@ -54,7 +54,7 @@
     */
 }
 
-.right-exit.right-leave-active {
+.right-leave.right-leave-active {
     opacity: 0;
     left: -25%;
     /*
