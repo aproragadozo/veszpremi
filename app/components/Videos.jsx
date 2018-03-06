@@ -1,7 +1,9 @@
 var React = require('react');
 
 import styled from 'styled-components';
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+//import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import ReactTransitions from 'react-transitions';
+import 'react-transitions/dist/animations.css';
 
 const VideoWrapper = styled.div`
     grid-column: wrapperCol 1 / span 6;
@@ -127,10 +129,15 @@ const VideoNextItem = styled.div`
 }
 `;
 
+// experryment
+//const images = ["http://lorempicsum.com/futurama/627/300/4", "http://lorempicsum.com/nemo/627/300/4", "http://lorempicsum.com/simpsons/627/300/4", "http://lorempicsum.com/up/627/300/4"];
+
+
 class Videos extends React.Component{
    render() {
        return (
-           <VideoWrapper>
+           
+        <VideoWrapper>
                <VideoPrevBox>
                    <VideoPrevItem/>
                </VideoPrevBox>

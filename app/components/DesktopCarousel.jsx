@@ -14,7 +14,8 @@ const CarouselWrapper = styled.div`
   grid-row-gap: 3.5vmax;
   margin-left: 1vmax;
 `;
-// ezeket majd írd át img-re
+/*
+  egyelőre nézzük meg, tisztán CSS-ből hogy megy
 const CarouselBack = styled.img`
   display: block;
   position: absolute;
@@ -37,7 +38,7 @@ const CarouselForward = styled.img`
   top: calc(25% + calc(3.5vmax / 4));
   left: calc(75% + (calc(1.5vmax / 2)));
 `;
-
+*/
 class DesktopCarousel extends React.Component{
   constructor(props) {
     super(props);
@@ -152,15 +153,14 @@ class DesktopCarousel extends React.Component{
         position: "relative",
         gridRow: "sorr",
         gridColumn: "meatCol 1 / span 4",
-        gridColumnGap: "1.5vmax",
-        gridRowGap: "3.5vmax",
         marginLeft: "1vmax"}}>
-          <CarouselBack key={this.circleIndex(this.state.currentIndex)} title={this.circleIndex(this.state.currentIndex)}
+        
+          <img className="bal" key={this.circleIndex(this.state.currentIndex)} title={this.circleIndex(this.state.currentIndex)}
           src={'https://farm' + this.state.items[this.circleIndex(this.state.currentIndex)].farm + ".staticflickr.com/" + this.state.items[this.circleIndex(this.state.currentIndex)].server + "/" + this.state.items[this.circleIndex(this.state.currentIndex)].id + "_" + this.state.items[this.circleIndex(this.state.currentIndex)].secret + '_b.jpg'}
           onClick={(e)=>this.kattBalra(e)}/>
-        <CarouselMain key={this.circleIndex(this.state.currentIndex+1)} title={this.circleIndex(this.state.currentIndex+1)}
+        <img className="center" key={this.circleIndex(this.state.currentIndex+1)} title={this.circleIndex(this.state.currentIndex+1)}
           src={'https://farm' + this.state.items[this.circleIndex(this.state.currentIndex+1)].farm + ".staticflickr.com/" + this.state.items[this.circleIndex(this.state.currentIndex+1)].server + "/" + this.state.items[this.circleIndex(this.state.currentIndex+1)].id + "_" + this.state.items[this.circleIndex(this.state.currentIndex+1)].secret + '_b.jpg'}/>
-        <CarouselForward key={this.circleIndex(this.state.currentIndex+2)} title={this.circleIndex(this.state.currentIndex+2)}
+        <img className="jobb" key={this.circleIndex(this.state.currentIndex+2)} title={this.circleIndex(this.state.currentIndex+2)}
           src={'https://farm' + this.state.items[this.circleIndex(this.state.currentIndex+2)].farm + ".staticflickr.com/" + this.state.items[this.circleIndex(this.state.currentIndex+2)].server + "/" + this.state.items[this.circleIndex(this.state.currentIndex+2)].id + "_" + this.state.items[this.circleIndex(this.state.currentIndex+2)].secret + '_b.jpg'}
           onClick={(e)=>this.kattJobbra(e)}/>
         {/*
