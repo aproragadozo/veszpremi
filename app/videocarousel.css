@@ -1,0 +1,139 @@
+.videocarousel__left,
+.videocarousel__center,
+.videocarousel__right {
+    position: absolute;
+    display: inline-block;
+    height: 100%;
+    transition: all 1s ease-out;
+}
+
+.videocarousel__left,
+.videocarousel__right {
+    width: calc(25% - 1.5vmax);
+}
+
+.videocarousel__right {
+    left: calc(75% + 1.5vmax);
+}
+
+.videocarousel__lefttext,
+.videocarousel__centertext,
+.videocarousel__righttext {
+    padding: 0;
+    display: table-cell;
+    font-size: 1.5em;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.videocarousel__leftimage,
+.videocarousel__centerimage,
+.videocarousel__rightimage {
+    display: inline-block;
+    object-fit: cover;
+}
+
+.videocarousel__leftimage,
+.videocarousel__rightimage {
+    height: 50%;
+    width: 100%;
+}
+
+.videocarousel__center {
+    width: 50%;
+    left: 25%;
+}
+
+.padder-top,
+.padder-bottom {
+    display: table;
+    flex: 1;
+    min-height: 1px;
+    left: 0;
+    width: 100%;
+    height: 37.5%;
+}
+
+.padder-top {
+    top: 0;
+}
+
+.padder-bottom {
+    top: 62.5%;
+}
+
+.videocarousel__textpositioner--top,
+.videocarousel__textpositioner--bottom {
+    display: table;
+    flex: 1;
+    min-width: 1px;
+    min-height: 1px;
+    left: 0;
+    width: 68%;
+    height: calc(25% - 1vmax);
+}
+
+.videocarousel__textpositioner--top {
+    top: 0;
+}
+
+.videocarousel__textpositioner--bottom {
+    top: calc(75% + 2vmax);
+}
+
+.videocarousel__textpositioner--bottom {
+    top: calc(75% + 2vmax);
+}
+
+.videocarousel__centerimage {
+    width: 100%;
+    height: 70%;
+}
+
+.videocarousel__right {
+    left: calc(75% + 1.5vmax);
+}
+
+.bal-enter {
+    opacity: 0;
+}
+
+.bal-enter.bal-enter-active {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.bal-leave {
+    opacity: 1;
+    transform: translateX(100%);
+}
+
+.bal-leave.bal-leave-active {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.jobb-enter {
+    opacity: 0;
+    z-index: 0;
+}
+
+.jobb-enter.jobb-enter-active {
+    opacity: 1;
+    z-index: 0;
+    transition: opacity 1s ease-out, z-index 1s ease-out;
+}
+
+.jobb-leave {
+    opacity: 1;
+    transform: translateX(-100%);
+}
+
+.jobb-leave.jobb-leave-active {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
