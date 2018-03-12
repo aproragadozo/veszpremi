@@ -20,7 +20,9 @@ module.exports = {
             Dropdown: 'app/components/Dropdown.jsx',
             About: 'app/components/About.jsx',
             DesktopCarousel: 'app/components/DesktopCarousel.jsx',
-            MobileCarousel: 'app/components/MobileCarousel.jsx'
+            MobileCarousel: 'app/components/MobileCarousel.jsx',
+            DesktopVideos: 'app/components/DesktopVideos.jsx',
+            MobileVideos: 'app/components/MobileVideos.jsx'
         },
         extensions: ['*', '.js', '.jsx']
     },
