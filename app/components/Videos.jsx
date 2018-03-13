@@ -14,7 +14,7 @@ const VideoWrapper = styled.div`
     grid-template-columns: repeat(20, [oszlop] 1fr);
 
     @media only screen and (min-width: 760px) {
-        display: inline-block;
+        display: grid;
         grid-row: meat;
         grid-column: cal / span 7;
         grid-template-rows: repeat(4, [sor] 1fr);

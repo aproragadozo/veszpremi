@@ -152,7 +152,7 @@ class DesktopVideos extends React.Component {
         
         return (
             <ReactCSSTransitionGroup transitionName={this.state.direction} transitionEnterTimeout={1000}
-                transitionLeaveTimeout={1000} component="div" style={{position:"relative", width:"100%", height: "100%"}}>
+                transitionLeaveTimeout={1000} component="div" style={{display: "inline-block", position:"relative", gridRow: "sor 1 / span 4", gridColumn: "oszlop 1 / span 4"}}>
                 <Slide
                     classes={["videocarousel__left", "padder-top", "videocarousel__lefttext", "padder-bottom", "videocarousel__leftimage"]}
                     key={this.circleIndex(realIndex-1)}

@@ -12,6 +12,10 @@
     width: calc(25% - 1.5vmax);
 }
 
+.videocarousel__left {
+    z-index: 1;
+}
+
 .videocarousel__right {
     left: calc(75% + 1.5vmax);
 }
@@ -37,13 +41,14 @@
 
 .videocarousel__leftimage,
 .videocarousel__rightimage {
-    height: 50%;
+    height: 25%;
     width: 100%;
 }
 
 .videocarousel__center {
     width: 50%;
     left: 25%;
+    z-index: 1;
 }
 
 .padder-top,
@@ -51,7 +56,6 @@
     display: table;
     flex: 1;
     min-height: 1px;
-    left: 0;
     width: 100%;
     height: 37.5%;
 }
@@ -89,41 +93,41 @@
 
 .videocarousel__centerimage {
     width: 100%;
-    height: 70%;
-}
-
-.videocarousel__right {
-    left: calc(75% + 1.5vmax);
+    height: 50%;
 }
 
 .bal-enter {
     opacity: 0;
+    z-index: 1;
 }
 
 .bal-enter.bal-enter-active {
     opacity: 1;
-    transition: opacity 1s ease-out;
+    z-index: 1;
+    transition: opacity 1s ease-out, z-index 1s ease-out;
 }
 
 .bal-leave {
     opacity: 1;
+    z-index: -1;
     transform: translateX(100%);
 }
 
 .bal-leave.bal-leave-active {
     opacity: 0;
+    z-index: 0;
     transform: translateX(100%);
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    transition: opacity 1s ease-out, transform 1s ease-out, z-index 1s ease-out;
 }
 
 .jobb-enter {
     opacity: 0;
-    z-index: 0;
+    z-index: -1;
 }
 
 .jobb-enter.jobb-enter-active {
     opacity: 1;
-    z-index: 0;
+    z-index: -1;
     transition: opacity 1s ease-out, z-index 1s ease-out;
 }
 
