@@ -4,7 +4,7 @@
     position: absolute;
     display: inline-block;
     height: 100%;
-    transition: all 1s ease-out;
+    transition: all 1s ease-out, object-fit 1ms ease-out;
 }
 
 .videocarousel__left,
@@ -33,10 +33,14 @@
 }
 
 .videocarousel__leftimage,
-.videocarousel__centerimage,
 .videocarousel__rightimage {
     display: inline-block;
     object-fit: cover;
+}
+
+.videocarousel__centerimage {
+    object-fit: contain;
+    object-position: center;
 }
 
 .videocarousel__leftimage,
