@@ -1,6 +1,6 @@
 var React = require('react');
 
-var {Route} = require('react-router-dom');
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import styled from 'styled-components';
 
@@ -29,6 +29,7 @@ class App extends React.Component{
         }
        `;
        return (
+            <Router>
                 <Wrapper>
                     <Header/>
                     <Nav/>
@@ -38,7 +39,7 @@ class App extends React.Component{
                     <Route path="/videos" component={Videos}/>
                     <Footer/>
                 </Wrapper>
-                
+            </Router>
        )
    } 
 }

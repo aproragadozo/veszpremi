@@ -39006,6 +39006,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n        height: 96vh;\n        max-height: 96vh;\n        display: grid;\n        grid-template-rows: repeat(11, [wrapperNav] minmax(5vh, 100px)) 1fr [wrapperFooter] minmax(4vmax, 60px);\n        grid-template-columns: repeat(6, [wrapperCol] 1fr);\n        grid-gap: 1vmin;\n\n        @media only screen and (min-width: 760px) {\n            grid-template-rows: [top] 80px [meat] 1fr [bottom] 3vmax;\n            grid-template-columns: [cal] 23vw repeat(6, [col] 1fr);\n            grid-gap: 1.5vmax;\n        }\n       '], ['\n        height: 96vh;\n        max-height: 96vh;\n        display: grid;\n        grid-template-rows: repeat(11, [wrapperNav] minmax(5vh, 100px)) 1fr [wrapperFooter] minmax(4vmax, 60px);\n        grid-template-columns: repeat(6, [wrapperCol] 1fr);\n        grid-gap: 1vmin;\n\n        @media only screen and (min-width: 760px) {\n            grid-template-rows: [top] 80px [meat] 1fr [bottom] 3vmax;\n            grid-template-columns: [cal] 23vw repeat(6, [col] 1fr);\n            grid-gap: 1.5vmax;\n        }\n       ']);
 
+var _reactRouterDom = __webpack_require__(9);
+
 var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
@@ -39021,9 +39023,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var React = __webpack_require__(0);
-
-var _require = __webpack_require__(9),
-    Route = _require.Route;
 
 var Header = __webpack_require__(91);
 var Nav = __webpack_require__(92);
@@ -39047,15 +39046,19 @@ var App = function (_React$Component) {
         value: function render() {
             var Wrapper = _styledComponents2.default.div(_templateObject);
             return React.createElement(
-                Wrapper,
+                _reactRouterDom.BrowserRouter,
                 null,
-                React.createElement(Header, null),
-                React.createElement(Nav, null),
-                React.createElement(Route, { exact: true, path: '/', component: Home }),
-                React.createElement(Route, { path: '/about', component: About }),
-                React.createElement(Route, { path: '/collections', component: Collections }),
-                React.createElement(Route, { path: '/videos', component: Videos }),
-                React.createElement(Footer, null)
+                React.createElement(
+                    Wrapper,
+                    null,
+                    React.createElement(Header, null),
+                    React.createElement(Nav, null),
+                    React.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: Home }),
+                    React.createElement(_reactRouterDom.Route, { path: '/about', component: About }),
+                    React.createElement(_reactRouterDom.Route, { path: '/collections', component: Collections }),
+                    React.createElement(_reactRouterDom.Route, { path: '/videos', component: Videos }),
+                    React.createElement(Footer, null)
+                )
             );
         }
     }]);
