@@ -59,7 +59,7 @@ const SubMenu = styled.ul`
 class Dropdown extends React.Component {
   render() {
     return (
-        <DropdownButton to="/collections">Collections
+        <DropdownButton to="/collections/barack">Collections
           <Menu>
             <MenuItem>
               <span style={{display: "inline-block", backgroundColor: "mediumseagreen", padding: "2vmin 4vmax"}}>alma</span>

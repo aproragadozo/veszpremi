@@ -39055,7 +39055,7 @@ var App = function (_React$Component) {
                     React.createElement(Nav, null),
                     React.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: Home }),
                     React.createElement(_reactRouterDom.Route, { path: '/about', component: About }),
-                    React.createElement(_reactRouterDom.Route, { path: '/collections', component: Collections }),
+                    React.createElement(_reactRouterDom.Route, { path: '/collections/:id', component: Collections }),
                     React.createElement(_reactRouterDom.Route, { path: '/videos', component: Videos }),
                     React.createElement(Footer, null)
                 )
@@ -39692,7 +39692,7 @@ var Dropdown = function (_React$Component) {
     value: function render() {
       return React.createElement(
         DropdownButton,
-        { to: '/collections' },
+        { to: '/collections/barack' },
         'Collections',
         React.createElement(
           Menu,
@@ -39895,13 +39895,44 @@ var MobileCarousel = __webpack_require__(112);
 var Collections = function (_React$Component) {
     _inherits(Collections, _React$Component);
 
-    function Collections() {
+    function Collections(props) {
         _classCallCheck(this, Collections);
 
-        return _possibleConstructorReturn(this, (Collections.__proto__ || Object.getPrototypeOf(Collections)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Collections.__proto__ || Object.getPrototypeOf(Collections)).call(this, props));
+
+        _this.state = {
+            sets: {
+                barack: ["http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200"],
+                cekla: ["http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200"]
+            },
+            selected: []
+        };
+        _this.findCurrent = _this.findCurrent.bind(_this);
+        return _this;
     }
 
     _createClass(Collections, [{
+        key: 'findCurrent',
+        value: function findCurrent() {
+            var hash = this.props.match.params.id;
+            var sets = Object.getOwnPropertyNames(this.state.sets);
+            console.log(hash);
+            console.log(sets);
+            var selected = sets.filter(function (set) {
+                return set === hash;
+            });
+            console.log(selected);
+            // ezt kell továbbadni a DesktopCarouselnek meg a MobileCarouselnek propként
+            this.setState(function (prevState) {
+                return { selected: selected };
+            });
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.findCurrent();
+        }
+    }, {
         key: 'render',
         value: function render() {
             var CollectionWrapper = _styledComponents2.default.div(_templateObject);

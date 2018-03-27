@@ -35,7 +35,7 @@ class App extends React.Component{
                     <Nav/>
                     <Route exact path="/" component={Home}/>
                     <Route path="/about" component={About}/>
-                    <Route path="/collections" component={Collections}/>
+                    <Route path="/collections/:id" component={Collections}/>
                     <Route path="/videos" component={Videos}/>
                     <Footer/>
                 </Wrapper>

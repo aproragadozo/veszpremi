@@ -8,6 +8,44 @@ var DesktopCarousel = require('DesktopCarousel');
 var MobileCarousel = require('MobileCarousel');
 
 class Collections extends React.Component{
+    constructor(props){
+       super(props);
+       this.state = {
+           sets: {
+               barack: [
+                "http:lorempixel.com/400/200",
+                "http:lorempixel.com/400/200",
+                "http:lorempixel.com/400/200",
+                "http:lorempixel.com/400/200",
+                "http:lorempixel.com/400/200",
+                "http:lorempixel.com/400/200",
+               ],
+               cekla: [
+                "http:lorempixel.com/400/200",
+                "http:lorempixel.com/400/200",
+                "http:lorempixel.com/400/200",
+                "http:lorempixel.com/400/200",
+                "http:lorempixel.com/400/200",
+                "http:lorempixel.com/400/200",
+               ]
+            },
+            selected: []
+       }
+       this.findCurrent = this.findCurrent.bind(this);
+    }
+    findCurrent(){
+        var hash = this.props.match.params.id;
+        var sets = Object.getOwnPropertyNames(this.state.sets);
+        console.log(hash);
+        console.log(sets);
+        var selected = sets.filter(set => set === hash);
+        console.log(selected);
+        // ezt kell továbbadni a DesktopCarouselnek meg a MobileCarouselnek propként
+        this.setState((prevState) => ({selected: selected}));
+    }
+    componentDidMount(){
+        this.findCurrent();
+    }
    render() {
     var CollectionWrapper = styled.div`
         display: grid;
