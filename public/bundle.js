@@ -39902,29 +39902,78 @@ var Collections = function (_React$Component) {
 
         _this.state = {
             sets: {
-                barack: ["http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200"],
-                cekla: ["http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200", "http:lorempixel.com/400/200"]
+                barack: ["http://unsplash.it/400/200/?image=60", "http://unsplash.it/400/200/?image=1", "http://unsplash.it/400/200/?image=2", "http://unsplash.it/400/200/?image=3", "http://unsplash.it/400/200/?image=4", "http://unsplash.it/400/200/?image=5", "http://unsplash.it/400/200/?image=22"],
+                cekla: ["http://unsplash.it/400/200/?image=6", "http://unsplash.it/400/200/?image=7", "http://unsplash.it/400/200/?image=8", "http://unsplash.it/400/200/?image=9", "http://unsplash.it/400/200/?image=10", "http://unsplash.it/400/200/?image=11"]
             },
-            selected: []
+            selectedSet: [],
+            currentIndex: 3,
+            direction: ""
         };
         _this.findCurrent = _this.findCurrent.bind(_this);
+        // handlers moved up from DesktopCarousel
+        _this.kattBalra = _this.kattBalra.bind(_this);
+        _this.kattJobbra = _this.kattJobbra.bind(_this);
         return _this;
     }
 
     _createClass(Collections, [{
+        key: 'kattBalra',
+        value: function kattBalra(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            var index = this.state.currentIndex;
+            var selectedSet = this.state.selectedSet;
+            var length = selectedSet.length;
+
+            if (index < 1) {
+                index = length - 1;
+            } else {
+                index--;
+            }
+
+            this.setState({
+                currentIndex: index,
+                direction: 'left'
+            });
+        }
+    }, {
+        key: 'kattJobbra',
+        value: function kattJobbra(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            var index = this.state.currentIndex;
+            var selectedSet = this.state.selectedSet;
+            var length = selectedSet.length;
+
+            if (index === length) {
+                index = -1;
+            }
+
+            index++;
+
+            this.setState({
+                currentIndex: index,
+                direction: 'right'
+            });
+        }
+    }, {
         key: 'findCurrent',
         value: function findCurrent() {
             var hash = this.props.match.params.id;
-            var sets = Object.getOwnPropertyNames(this.state.sets);
-            console.log(hash);
-            console.log(sets);
-            var selected = sets.filter(function (set) {
-                return set === hash;
+            var selected = Object.keys(this.state.sets).filter(function (key) {
+                return key === hash;
             });
+            console.log(hash);
             console.log(selected);
+            var reallySelected = selected[0];
+            console.log(reallySelected);
+            var selectedSet = this.state.sets[reallySelected];
+            console.log(selectedSet);
             // ezt kell továbbadni a DesktopCarouselnek meg a MobileCarouselnek propként
             this.setState(function (prevState) {
-                return { selected: selected };
+                return { selectedSet: selectedSet };
             });
         }
     }, {
@@ -39955,7 +40004,12 @@ var Collections = function (_React$Component) {
                 React.createElement(
                     _reactResponsive2.default,
                     { minWidth: 760 },
-                    React.createElement(DesktopCarousel, null)
+                    React.createElement(DesktopCarousel, {
+                        selectedSet: this.state.selectedSet,
+                        currentIndex: this.state.currentIndex,
+                        direction: this.state.direction,
+                        kattBalra: this.kattBalra,
+                        kattJobbra: this.kattJobbra })
                 )
             );
         }
@@ -40094,125 +40148,129 @@ const CarouselForward = styled.img`
 var DesktopCarousel = function (_React$Component) {
   _inherits(DesktopCarousel, _React$Component);
 
-  function DesktopCarousel(props) {
+  function DesktopCarousel() {
     _classCallCheck(this, DesktopCarousel);
 
-    var _this = _possibleConstructorReturn(this, (DesktopCarousel.__proto__ || Object.getPrototypeOf(DesktopCarousel)).call(this, props));
-
-    _this.state = {
-      items: [{
-        id: "35597967915",
-        owner: "72036844@N04",
-        secret: "9cc50290b7",
-        server: "4185",
-        farm: 5,
-        title: "The Shadow Tower",
-        ispublic: 1,
-        isfriend: 0,
-        isfamily: 0
-      }, {
-        id: "35190670030",
-        owner: "92744506@N03",
-        secret: "468c980cfa",
-        server: "4242",
-        farm: 5,
-        title: "Champions Retreat",
-        ispublic: 1,
-        isfriend: 0,
-        isfamily: 0
-      }, {
-        id: "35189011430",
-        owner: "95606389@N08",
-        secret: "d8a8a96ac5",
-        server: "4262",
-        farm: 5,
-        title: "Take Note",
-        ispublic: 1,
-        isfriend: 0,
-        isfamily: 0
-      }],
-      currentIndex: 0,
-      direction: ""
-    };
-    _this.kattBalra = _this.kattBalra.bind(_this);
-    _this.kattJobbra = _this.kattJobbra.bind(_this);
-    _this.circleIndex = _this.circleIndex.bind(_this);
-    return _this;
+    return _possibleConstructorReturn(this, (DesktopCarousel.__proto__ || Object.getPrototypeOf(DesktopCarousel)).apply(this, arguments));
   }
 
   _createClass(DesktopCarousel, [{
     key: 'circleIndex',
+
+    /*
+    constructor(props) {
+      super(props);
+      
+      this.state = {
+        items: [{
+          id: "35597967915",
+          owner: "72036844@N04",
+          secret: "9cc50290b7",
+          server: "4185",
+          farm: 5,
+          title: "The Shadow Tower",
+          ispublic: 1,
+          isfriend: 0,
+          isfamily: 0
+        },
+        {
+          id: "35190670030",
+          owner: "92744506@N03",
+          secret: "468c980cfa",
+          server: "4242",
+          farm: 5,
+          title: "Champions Retreat",
+          ispublic: 1,
+          isfriend: 0,
+          isfamily: 0
+        },
+            {
+              id: "35189011430",
+          owner: "95606389@N08",
+          secret: "d8a8a96ac5",
+          server: "4262",
+          farm: 5,
+          title: "Take Note",
+          ispublic: 1,
+          isfriend: 0,
+          isfamily: 0
+        }],
+        currentIndex: 0,
+        direction: ""
+      };
+      
+      this.kattBalra = this.kattBalra.bind(this);
+      this.kattJobbra = this.kattJobbra.bind(this);
+      this.circleIndex = this.circleIndex.bind(this);
+    }
+    */
     value: function circleIndex(idx) {
       return (idx + 100) % 100;
     }
-  }, {
-    key: 'kattBalra',
-    value: function kattBalra(e) {
+    /*
+    kattBalra(e) {
       e.preventDefault();
       e.stopPropagation();
-
-      var index = this.state.currentIndex;
-      var items = this.state.items;
-      var length = items.length;
-
+      
+      let index = this.state.currentIndex;
+      let items = this.state.items;
+      let length = items.length;
+      
       if (index < 1) {
-        index = length - 1;
-      } else {
+        index = length-1;
+      }
+      else {
         index--;
       }
-
-      this.setState({
+        this.setState({
         currentIndex: index,
         direction: 'left'
       });
     }
-  }, {
-    key: 'kattJobbra',
-    value: function kattJobbra(e) {
+    
+    kattJobbra(e) {
       e.preventDefault();
       e.stopPropagation();
-
-      var index = this.state.currentIndex;
-      var items = this.state.items;
-      var length = items.length;
-
+      
+      let index = this.state.currentIndex;
+      let items = this.state.items;
+      let length = items.length;
+      
       if (index === length) {
         index = -1;
       }
-
-      index++;
-
+        index++;
+      
       this.setState({
         currentIndex: index,
         direction: 'right'
       });
     }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      _jquery2.default.ajax({
+    */
+    /*
+    componentDidMount() {
+      $.ajax({
         type: "POST",
         //you might not need to expose your flickr key like this
-        //url: "https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&format=json",
+         //url: "https://api.flickr.com/services/feeds/photos_public.gne?tags=kitten&format=json",
         url: "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=160f672f62d2f429e0f06fe9eb8cb555&tags=abstract&format=json&extras=width_b,height_b&privacy_filter=1&sort=interestingness-desc&nojsoncallback=1",
         dataType: "json",
-        success: function success(data) {
-          _this2.setState(function (prevState) {
-            return { items: data.photos.photo };
-          });
+        success: (data) =>{
+          this.setState((prevState) =>({items: data.photos.photo}));
+          
         }
       });
     }
+    */
+
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       return React.createElement(
         _reactAddonsCssTransitionGroup2.default,
-        { transitionName: this.state.direction, transitionEnterTimeout: 1000,
+        { transitionName: this.props.direction, transitionEnterTimeout: 1000,
           transitionLeaveTimeout: 1000,
           component: 'div',
           style: { display: "grid",
@@ -40220,17 +40278,17 @@ var DesktopCarousel = function (_React$Component) {
             gridRow: "sorr",
             gridColumn: "meatCol 1 / span 4",
             marginLeft: "1vmax" } },
-        React.createElement('img', { className: 'bal', key: this.circleIndex(this.state.currentIndex), title: this.circleIndex(this.state.currentIndex),
-          src: 'https://farm' + this.state.items[this.circleIndex(this.state.currentIndex)].farm + ".staticflickr.com/" + this.state.items[this.circleIndex(this.state.currentIndex)].server + "/" + this.state.items[this.circleIndex(this.state.currentIndex)].id + "_" + this.state.items[this.circleIndex(this.state.currentIndex)].secret + '_b.jpg',
+        React.createElement('img', { className: 'bal', key: this.circleIndex(this.props.currentIndex), title: this.circleIndex(this.props.currentIndex),
+          src: this.props.selectedSet[this.circleIndex(this.props.currentIndex)],
           onClick: function onClick(e) {
-            return _this3.kattBalra(e);
+            return _this2.props.kattBalra(e);
           } }),
-        React.createElement('img', { className: 'center', key: this.circleIndex(this.state.currentIndex + 1), title: this.circleIndex(this.state.currentIndex + 1),
-          src: 'https://farm' + this.state.items[this.circleIndex(this.state.currentIndex + 1)].farm + ".staticflickr.com/" + this.state.items[this.circleIndex(this.state.currentIndex + 1)].server + "/" + this.state.items[this.circleIndex(this.state.currentIndex + 1)].id + "_" + this.state.items[this.circleIndex(this.state.currentIndex + 1)].secret + '_b.jpg' }),
-        React.createElement('img', { className: 'jobb', key: this.circleIndex(this.state.currentIndex + 2), title: this.circleIndex(this.state.currentIndex + 2),
-          src: 'https://farm' + this.state.items[this.circleIndex(this.state.currentIndex + 2)].farm + ".staticflickr.com/" + this.state.items[this.circleIndex(this.state.currentIndex + 2)].server + "/" + this.state.items[this.circleIndex(this.state.currentIndex + 2)].id + "_" + this.state.items[this.circleIndex(this.state.currentIndex + 2)].secret + '_b.jpg',
+        React.createElement('img', { className: 'center', key: this.circleIndex(this.props.currentIndex + 1), title: this.circleIndex(this.props.currentIndex + 1),
+          src: this.props.selectedSet[this.circleIndex(this.props.currentIndex + 1)] }),
+        React.createElement('img', { className: 'jobb', key: this.circleIndex(this.props.currentIndex + 2), title: this.circleIndex(this.props.currentIndex + 2),
+          src: this.props.selectedSet[this.circleIndex(this.props.currentIndex + 2)],
           onClick: function onClick(e) {
-            return _this3.kattJobbra(e);
+            return _this2.props.kattJobbra(e);
           } })
       );
     }

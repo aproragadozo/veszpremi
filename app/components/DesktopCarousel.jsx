@@ -40,8 +40,10 @@ const CarouselForward = styled.img`
 `;
 */
 class DesktopCarousel extends React.Component{
+  /*
   constructor(props) {
     super(props);
+    
     this.state = {
       items: [{
         id: "35597967915",
@@ -79,16 +81,17 @@ class DesktopCarousel extends React.Component{
       currentIndex: 0,
       direction: ""
     };
+    
     this.kattBalra = this.kattBalra.bind(this);
     this.kattJobbra = this.kattJobbra.bind(this);
     this.circleIndex = this.circleIndex.bind(this);
   }
-
+  */
   circleIndex(idx)
   {
     return (idx+100)%100;
   }
-  
+  /*
   kattBalra(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -129,7 +132,8 @@ class DesktopCarousel extends React.Component{
       direction: 'right'
     });
   }
-
+  */
+  /*
   componentDidMount() {
     $.ajax({
       type: "POST",
@@ -143,10 +147,11 @@ class DesktopCarousel extends React.Component{
       }
     });
   }
+  */
 
   render() {
     return(
-      <ReactCSSTransitionGroup transitionName={this.state.direction} transitionEnterTimeout={1000}
+      <ReactCSSTransitionGroup transitionName={this.props.direction} transitionEnterTimeout={1000}
       transitionLeaveTimeout={1000}
       component='div'
       style={{display: "grid",
@@ -155,14 +160,14 @@ class DesktopCarousel extends React.Component{
         gridColumn: "meatCol 1 / span 4",
         marginLeft: "1vmax"}}>
         
-          <img className="bal" key={this.circleIndex(this.state.currentIndex)} title={this.circleIndex(this.state.currentIndex)}
-          src={'https://farm' + this.state.items[this.circleIndex(this.state.currentIndex)].farm + ".staticflickr.com/" + this.state.items[this.circleIndex(this.state.currentIndex)].server + "/" + this.state.items[this.circleIndex(this.state.currentIndex)].id + "_" + this.state.items[this.circleIndex(this.state.currentIndex)].secret + '_b.jpg'}
-          onClick={(e)=>this.kattBalra(e)}/>
-        <img className="center" key={this.circleIndex(this.state.currentIndex+1)} title={this.circleIndex(this.state.currentIndex+1)}
-          src={'https://farm' + this.state.items[this.circleIndex(this.state.currentIndex+1)].farm + ".staticflickr.com/" + this.state.items[this.circleIndex(this.state.currentIndex+1)].server + "/" + this.state.items[this.circleIndex(this.state.currentIndex+1)].id + "_" + this.state.items[this.circleIndex(this.state.currentIndex+1)].secret + '_b.jpg'}/>
-        <img className="jobb" key={this.circleIndex(this.state.currentIndex+2)} title={this.circleIndex(this.state.currentIndex+2)}
-          src={'https://farm' + this.state.items[this.circleIndex(this.state.currentIndex+2)].farm + ".staticflickr.com/" + this.state.items[this.circleIndex(this.state.currentIndex+2)].server + "/" + this.state.items[this.circleIndex(this.state.currentIndex+2)].id + "_" + this.state.items[this.circleIndex(this.state.currentIndex+2)].secret + '_b.jpg'}
-          onClick={(e)=>this.kattJobbra(e)}/>
+        <img className="bal" key={this.circleIndex(this.props.currentIndex)} title={this.circleIndex(this.props.currentIndex)}
+        src={this.props.selectedSet[this.circleIndex(this.props.currentIndex)]}
+        onClick={(e)=>this.props.kattBalra(e)}/>
+        <img className="center" key={this.circleIndex(this.props.currentIndex+1)} title={this.circleIndex(this.props.currentIndex+1)}
+          src={this.props.selectedSet[this.circleIndex(this.props.currentIndex+1)]}/>
+        <img className="jobb" key={this.circleIndex(this.props.currentIndex+2)} title={this.circleIndex(this.props.currentIndex+2)}
+          src={this.props.selectedSet[this.circleIndex(this.props.currentIndex+2)]}
+          onClick={(e)=>this.props.kattJobbra(e)}/>
         {/*
         <CarouselBack key={this.circleIndex(this.state.currentIndex-1)} title={this.circleIndex(this.state.currentIndex-1)}
           src={'https://farm' + this.state.items[this.circleIndex(this.state.currentIndex-1)].farm + ".staticflickr.com/" + this.state.items[this.circleIndex(this.state.currentIndex-1)].server + "/" + this.state.items[this.circleIndex(this.state.currentIndex-1)].id + "_" + this.state.items[this.circleIndex(this.state.currentIndex-1)].secret + '_b.jpg'}

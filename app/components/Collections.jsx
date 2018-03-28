@@ -13,35 +13,85 @@ class Collections extends React.Component{
        this.state = {
            sets: {
                barack: [
-                "http:lorempixel.com/400/200",
-                "http:lorempixel.com/400/200",
-                "http:lorempixel.com/400/200",
-                "http:lorempixel.com/400/200",
-                "http:lorempixel.com/400/200",
-                "http:lorempixel.com/400/200",
+                "http://unsplash.it/400/200/?image=60",
+                "http://unsplash.it/400/200/?image=1",
+                "http://unsplash.it/400/200/?image=2",
+                "http://unsplash.it/400/200/?image=3",
+                "http://unsplash.it/400/200/?image=4",
+                "http://unsplash.it/400/200/?image=5",
+                "http://unsplash.it/400/200/?image=22"
                ],
                cekla: [
-                "http:lorempixel.com/400/200",
-                "http:lorempixel.com/400/200",
-                "http:lorempixel.com/400/200",
-                "http:lorempixel.com/400/200",
-                "http:lorempixel.com/400/200",
-                "http:lorempixel.com/400/200",
+                "http://unsplash.it/400/200/?image=6",
+                "http://unsplash.it/400/200/?image=7",
+                "http://unsplash.it/400/200/?image=8",
+                "http://unsplash.it/400/200/?image=9",
+                "http://unsplash.it/400/200/?image=10",
+                "http://unsplash.it/400/200/?image=11",
                ]
             },
-            selected: []
+            selectedSet: [],
+            currentIndex: 3,
+            direction: ""
        }
-       this.findCurrent = this.findCurrent.bind(this);
+        this.findCurrent = this.findCurrent.bind(this);
+       // handlers moved up from DesktopCarousel
+        this.kattBalra = this.kattBalra.bind(this);
+        this.kattJobbra = this.kattJobbra.bind(this);
     }
+
+    kattBalra(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        let index = this.state.currentIndex;
+        let selectedSet = this.state.selectedSet;
+        let length = selectedSet.length;
+        
+        if (index < 1) {
+          index = length-1;
+        }
+        else {
+          index--;
+        }
+    
+        this.setState({
+          currentIndex: index,
+          direction: 'left'
+        });
+      }
+      
+      kattJobbra(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        let index = this.state.currentIndex;
+        let selectedSet = this.state.selectedSet;
+        let length = selectedSet.length;
+        
+        if (index === length) {
+          index = -1;
+        }
+    
+        index++;
+        
+        this.setState({
+          currentIndex: index,
+          direction: 'right'
+        });
+      }
+
     findCurrent(){
         var hash = this.props.match.params.id;
-        var sets = Object.getOwnPropertyNames(this.state.sets);
+        var selected = Object.keys(this.state.sets).filter(key => key === hash);
         console.log(hash);
-        console.log(sets);
-        var selected = sets.filter(set => set === hash);
         console.log(selected);
+        var reallySelected = selected[0];
+        console.log(reallySelected);
+        var selectedSet = this.state.sets[reallySelected];
+        console.log(selectedSet);
         // ezt kell továbbadni a DesktopCarouselnek meg a MobileCarouselnek propként
-        this.setState((prevState) => ({selected: selected}));
+        this.setState((prevState) => ({selectedSet: selectedSet}));
     }
     componentDidMount(){
         this.findCurrent();
@@ -120,7 +170,12 @@ class Collections extends React.Component{
                 <MobileCarousel/>
                </MediaQuery>
                <MediaQuery minWidth={760}>
-                <DesktopCarousel/>
+                <DesktopCarousel
+                    selectedSet={this.state.selectedSet}
+                    currentIndex={this.state.currentIndex}
+                    direction={this.state.direction}
+                    kattBalra={this.kattBalra}
+                    kattJobbra={this.kattJobbra}/>
                </MediaQuery>
                {/*
                <CollectionSlideshow>
