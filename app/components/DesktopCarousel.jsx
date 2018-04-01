@@ -151,14 +151,18 @@ class DesktopCarousel extends React.Component{
 
   render() {
     return(
-      <ReactCSSTransitionGroup transitionName={this.props.direction} transitionEnterTimeout={1000}
-      transitionLeaveTimeout={1000}
-      component='div'
-      style={{display: "grid",
-        position: "relative",
-        gridRow: "sorr",
-        gridColumn: "meatCol 1 / span 4",
-        marginLeft: "1vmax"}}>
+      <ReactCSSTransitionGroup
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionName={this.props.direction}
+        transitionEnterTimeout={1000}
+        transitionLeaveTimeout={1000}
+        component='div'
+        style={{display: "grid",
+          position: "relative",
+          gridRow: "sorr",
+          gridColumn: "meatCol 1 / span 4",
+          marginLeft: "1vmax"}}>
         
         <img className="bal" key={this.circleIndex(this.props.currentIndex)} title={this.circleIndex(this.props.currentIndex)}
         src={this.props.selectedSet[this.circleIndex(this.props.currentIndex)]}

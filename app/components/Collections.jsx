@@ -1,7 +1,9 @@
 var React = require('react');
 
 import styled from 'styled-components';
+import 'app/slideshow.css';
 import MediaQuery from 'react-responsive';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 var CollectionDetails = require('CollectionDetails');
 var DesktopCarousel = require('DesktopCarousel');
