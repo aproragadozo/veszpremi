@@ -207,6 +207,9 @@ class Nav extends React.Component{
     var NewWrapper = styled.div`
     grid-row: wrapperNav 1 / span 6;
     grid-column: wrapperCol 6;
+    color: #443A9E;
+    text-transform: uppercase;
+    background-color: transparent;
 
     @media only screen and (min-width: 760px) {
       grid-row: top;
@@ -220,16 +223,21 @@ class Nav extends React.Component{
       grid-row: top;
       grid-gap: 1vmax;
       grid-column: col 3 / span 4;
+      text-transform: uppercase;
+      background-color: transparent;
 
       >a {
         grid-row: row;
         display: inline-block;
-        background-color: #050505;
+        background-color: transparent;
         font-size: 0.9vw;
         flex: none;
         max-height: initial;
         justify-self: auto;
         text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+        line-height: 4vw;
       }
   `;
     return (
@@ -241,7 +249,6 @@ class Nav extends React.Component{
           <Desktop>
             <Link to="/">Home</Link>
             <Dropdown sets={this.props.sets}/>
-            {/*<Link to="/collections">Collections</Link>*/}
             <Link to="/videos">Videos</Link>
             <Link to="/about">About</Link>
           </Desktop>

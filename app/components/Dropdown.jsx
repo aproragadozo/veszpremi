@@ -4,11 +4,14 @@ var {Link} = require('react-router-dom');
 import styled from 'styled-components';
 
 const DropdownButton = styled(Link)`
-  background-color: #050505;
+  background-color: transparent;
   font-size: 0.9vw;
   display: inline-block;
   position: relative;
   max-height: initial;
+  color: #443A9E;
+  text-transform: uppercase;
+  text-decoration: none;
 `;
 
 const Menu = styled.ul`
@@ -25,6 +28,9 @@ const Menu = styled.ul`
   left: -6vmax;
   list-style: none;
   z-index: 40;
+  line-height: initial;
+  opacity: 0.6;
+  font-weight: bold;
 
   ${DropdownButton}:hover & {
     display: flex;
@@ -35,20 +41,30 @@ const MenuItem = styled.li`
   margin: 0.5vmax 0 0 0;
   direction: ltr;
   list-style-type: none;
+  background-color: #f1f1f1;
+  width: 180px;
+  transition-property: font-weight, font-size;
+  transition-duration: 0.3s;
 `;
 
 const SubMenu = styled.ul`
   display: none;
   position: absolute;
-  left: -5.5vmax;
-  top: 0.5vmin;
-  background-color: #f87e64;
-  overflow-y: scroll;
+  left: -6.5vmax;
+  top: 0;
+  background-color: transparent;
   padding: 0.5vmax 1vmax;
   height: 5vmax;
   direction: rtl;
   unicode-bidi: bidi-override;
   z-index: 45;
+  text-decoration: none;
+  
+
+  >li>a:hover {
+    font-weight: bold;
+    font-size: larger;
+  }
 
   ${MenuItem}:hover & {
     display: block;
@@ -59,11 +75,11 @@ const MenuItems = ({sets}) => (
   <Menu>
     {
       sets.map(set => (
-        <MenuItem>
-          <span style={{display: "inline-block", backgroundColor: "mediumseagreen", padding: "2vmin 4vmax"}}>{set.name}</span>
+        <MenuItem key={set.name}>
+          <span style={{display: "inline-block", backgroundColor: "transparent", padding: "2vmin 4vmax"}}>{set.name}</span>
           <SubMenu>
-          {set.sets.map(elem => (
-            <li style={{listStyleType: "none"}}>
+          {set.sets.map((elem, index) => (
+            <li style={{listStyleType: "none", textDecoration: "none"}} key={index}>
               <Link to={`/collections/_${set.name}`}>{elem}</Link>
             </li>
           ))}
@@ -79,20 +95,8 @@ const MenuItems = ({sets}) => (
 class Dropdown extends React.Component {
   render() {
     return (
-        <DropdownButton to="/collections/barack">Collections
-        <MenuItems sets={this.props.sets}/>
-        {/*
-          <Menu>
-            <MenuItem>
-              <span style={{display: "inline-block", backgroundColor: "mediumseagreen", padding: "2vmin 4vmax"}}>alma</span>
-              <SubMenu>
-                <li style={{listStyleType: "none"}}>
-                  <Link to="/collections">barack</Link>
-                </li>
-              </SubMenu>
-            </MenuItem>
-          </Menu>
-          */}
+        <DropdownButton to={`/collections/${this.props.sets[0].name}`}>Collections
+          <MenuItems sets={this.props.sets}/>
         </DropdownButton>
     )
   }

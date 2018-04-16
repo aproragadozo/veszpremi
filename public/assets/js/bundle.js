@@ -39189,8 +39189,8 @@ module.exports = Header;
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _templateObject = _taggedTemplateLiteral(['\n    grid-row: wrapperNav 2 / span 5;\n    grid-column: wrapperCol 6;\n    display: flex;\n    flex-direction: column;\n    justify-content: start;\n    z-index: 5;\n\n    >a {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      text-align: right;\n      flex: 1 2 5vmin;\n      justify-self: start;\n      text-transform: uppercase;\n      cursor: pointer;\n      transition-property: font-weight, background-color;\n      transition-duration: 0.3s;\n      background-color: transparent;\n      opacity: 0.8;\n      font-weight: normal;\n      max-height: 8vmin;\n    }\n    >a:hover {\n      background-color: #f1f1f1;\n      font-weight: bold;\n    }\n    /*\n    @media only screen and (min-width: 760px) {\n      display: grid;\n      grid-template-rows: [row] 3vmax [filler] 1fr;\n      grid-template-columns: repeat(6, [button] minmax(70px, 10vmax));\n      grid-row: top;\n      grid-gap: 1vmax;\n      grid-column: col 3 / span 4;\n\n      >a {\n        grid-row: row;\n        display: inline-block;\n        background-color: #050505;\n        font-size: 0.9vw;\n        flex: none;\n        max-height: initial;\n        justify-self: auto;\n        position: relative;\n      }\n    }\n    */\n  '], ['\n    grid-row: wrapperNav 2 / span 5;\n    grid-column: wrapperCol 6;\n    display: flex;\n    flex-direction: column;\n    justify-content: start;\n    z-index: 5;\n\n    >a {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      text-align: right;\n      flex: 1 2 5vmin;\n      justify-self: start;\n      text-transform: uppercase;\n      cursor: pointer;\n      transition-property: font-weight, background-color;\n      transition-duration: 0.3s;\n      background-color: transparent;\n      opacity: 0.8;\n      font-weight: normal;\n      max-height: 8vmin;\n    }\n    >a:hover {\n      background-color: #f1f1f1;\n      font-weight: bold;\n    }\n    /*\n    @media only screen and (min-width: 760px) {\n      display: grid;\n      grid-template-rows: [row] 3vmax [filler] 1fr;\n      grid-template-columns: repeat(6, [button] minmax(70px, 10vmax));\n      grid-row: top;\n      grid-gap: 1vmax;\n      grid-column: col 3 / span 4;\n\n      >a {\n        grid-row: row;\n        display: inline-block;\n        background-color: #050505;\n        font-size: 0.9vw;\n        flex: none;\n        max-height: initial;\n        justify-self: auto;\n        position: relative;\n      }\n    }\n    */\n  ']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    grid-row: wrapperNav 1 / span 6;\n    grid-column: wrapperCol 6;\n\n    @media only screen and (min-width: 760px) {\n      grid-row: top;\n      grid-column: col 3 / span 4;\n    }\n    '], ['\n    grid-row: wrapperNav 1 / span 6;\n    grid-column: wrapperCol 6;\n\n    @media only screen and (min-width: 760px) {\n      grid-row: top;\n      grid-column: col 3 / span 4;\n    }\n    ']),
-    _templateObject3 = _taggedTemplateLiteral(['\n      display: grid;\n      grid-template-rows: [row] 3vmax [filler] 1fr;\n      grid-template-columns: repeat(6, [button] minmax(70px, 10vmax));\n      grid-row: top;\n      grid-gap: 1vmax;\n      grid-column: col 3 / span 4;\n\n      >a {\n        grid-row: row;\n        display: inline-block;\n        background-color: #050505;\n        font-size: 0.9vw;\n        flex: none;\n        max-height: initial;\n        justify-self: auto;\n        text-decoration: none;\n      }\n  '], ['\n      display: grid;\n      grid-template-rows: [row] 3vmax [filler] 1fr;\n      grid-template-columns: repeat(6, [button] minmax(70px, 10vmax));\n      grid-row: top;\n      grid-gap: 1vmax;\n      grid-column: col 3 / span 4;\n\n      >a {\n        grid-row: row;\n        display: inline-block;\n        background-color: #050505;\n        font-size: 0.9vw;\n        flex: none;\n        max-height: initial;\n        justify-self: auto;\n        text-decoration: none;\n      }\n  ']);
+    _templateObject2 = _taggedTemplateLiteral(['\n    grid-row: wrapperNav 1 / span 6;\n    grid-column: wrapperCol 6;\n    color: #443A9E;\n    text-transform: uppercase;\n    background-color: transparent;\n\n    @media only screen and (min-width: 760px) {\n      grid-row: top;\n      grid-column: col 3 / span 4;\n    }\n    '], ['\n    grid-row: wrapperNav 1 / span 6;\n    grid-column: wrapperCol 6;\n    color: #443A9E;\n    text-transform: uppercase;\n    background-color: transparent;\n\n    @media only screen and (min-width: 760px) {\n      grid-row: top;\n      grid-column: col 3 / span 4;\n    }\n    ']),
+    _templateObject3 = _taggedTemplateLiteral(['\n      display: grid;\n      grid-template-rows: [row] 3vmax [filler] 1fr;\n      grid-template-columns: repeat(6, [button] minmax(70px, 10vmax));\n      grid-row: top;\n      grid-gap: 1vmax;\n      grid-column: col 3 / span 4;\n      text-transform: uppercase;\n      background-color: transparent;\n\n      >a {\n        grid-row: row;\n        display: inline-block;\n        background-color: transparent;\n        font-size: 0.9vw;\n        flex: none;\n        max-height: initial;\n        justify-self: auto;\n        text-decoration: none;\n        font-weight: bold;\n        text-align: center;\n        line-height: 4vw;\n      }\n  '], ['\n      display: grid;\n      grid-template-rows: [row] 3vmax [filler] 1fr;\n      grid-template-columns: repeat(6, [button] minmax(70px, 10vmax));\n      grid-row: top;\n      grid-gap: 1vmax;\n      grid-column: col 3 / span 4;\n      text-transform: uppercase;\n      background-color: transparent;\n\n      >a {\n        grid-row: row;\n        display: inline-block;\n        background-color: transparent;\n        font-size: 0.9vw;\n        flex: none;\n        max-height: initial;\n        justify-self: auto;\n        text-decoration: none;\n        font-weight: bold;\n        text-align: center;\n        line-height: 4vw;\n      }\n  ']);
 
 var _reactResponsive = __webpack_require__(23);
 
@@ -39699,10 +39699,10 @@ module.exports = MobileCollections;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  background-color: #050505;\n  font-size: 0.9vw;\n  display: inline-block;\n  position: relative;\n  max-height: initial;\n'], ['\n  background-color: #050505;\n  font-size: 0.9vw;\n  display: inline-block;\n  position: relative;\n  max-height: initial;\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n  display: none;\n  flex-wrap: wrap;\n  width: 20vmax;\n  background-color: transparent;\n  align-items: start;\n  justify-content: space-between;\n  padding:0;\n  margin:0;\n  position: absolute;\n  top: 2.6vmax;\n  left: -6vmax;\n  list-style: none;\n  z-index: 40;\n\n  ', ':hover & {\n    display: flex;\n  }\n'], ['\n  display: none;\n  flex-wrap: wrap;\n  width: 20vmax;\n  background-color: transparent;\n  align-items: start;\n  justify-content: space-between;\n  padding:0;\n  margin:0;\n  position: absolute;\n  top: 2.6vmax;\n  left: -6vmax;\n  list-style: none;\n  z-index: 40;\n\n  ', ':hover & {\n    display: flex;\n  }\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n  position: relative;\n  margin: 0.5vmax 0 0 0;\n  direction: ltr;\n  list-style-type: none;\n'], ['\n  position: relative;\n  margin: 0.5vmax 0 0 0;\n  direction: ltr;\n  list-style-type: none;\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n  display: none;\n  position: absolute;\n  left: -5.5vmax;\n  top: 0.5vmin;\n  background-color: #f87e64;\n  overflow-y: scroll;\n  padding: 0.5vmax 1vmax;\n  height: 5vmax;\n  direction: rtl;\n  unicode-bidi: bidi-override;\n  z-index: 45;\n\n  ', ':hover & {\n    display: block;\n  }\n'], ['\n  display: none;\n  position: absolute;\n  left: -5.5vmax;\n  top: 0.5vmin;\n  background-color: #f87e64;\n  overflow-y: scroll;\n  padding: 0.5vmax 1vmax;\n  height: 5vmax;\n  direction: rtl;\n  unicode-bidi: bidi-override;\n  z-index: 45;\n\n  ', ':hover & {\n    display: block;\n  }\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  background-color: transparent;\n  font-size: 0.9vw;\n  display: inline-block;\n  position: relative;\n  max-height: initial;\n  color: #443A9E;\n  text-transform: uppercase;\n  text-decoration: none;\n'], ['\n  background-color: transparent;\n  font-size: 0.9vw;\n  display: inline-block;\n  position: relative;\n  max-height: initial;\n  color: #443A9E;\n  text-transform: uppercase;\n  text-decoration: none;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  display: none;\n  flex-wrap: wrap;\n  width: 20vmax;\n  background-color: transparent;\n  align-items: start;\n  justify-content: space-between;\n  padding:0;\n  margin:0;\n  position: absolute;\n  top: 2.6vmax;\n  left: -6vmax;\n  list-style: none;\n  z-index: 40;\n  line-height: initial;\n  opacity: 0.6;\n  font-weight: bold;\n\n  ', ':hover & {\n    display: flex;\n  }\n'], ['\n  display: none;\n  flex-wrap: wrap;\n  width: 20vmax;\n  background-color: transparent;\n  align-items: start;\n  justify-content: space-between;\n  padding:0;\n  margin:0;\n  position: absolute;\n  top: 2.6vmax;\n  left: -6vmax;\n  list-style: none;\n  z-index: 40;\n  line-height: initial;\n  opacity: 0.6;\n  font-weight: bold;\n\n  ', ':hover & {\n    display: flex;\n  }\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  position: relative;\n  margin: 0.5vmax 0 0 0;\n  direction: ltr;\n  list-style-type: none;\n  background-color: #f1f1f1;\n  width: inherit;\n  transition-property: color, font-weight, font-size;\n  transition-duration: 0.3s;\n'], ['\n  position: relative;\n  margin: 0.5vmax 0 0 0;\n  direction: ltr;\n  list-style-type: none;\n  background-color: #f1f1f1;\n  width: inherit;\n  transition-property: color, font-weight, font-size;\n  transition-duration: 0.3s;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n  display: none;\n  position: absolute;\n  left: -6.5vmax;\n  top: 0;\n  background-color: transparent;\n  padding: 0.5vmax 1vmax;\n  height: 5vmax;\n  direction: rtl;\n  unicode-bidi: bidi-override;\n  z-index: 45;\n  text-decoration: none;\n  \n\n  >li>a:hover {\n    color: #f1f1f1;\n    font-weight: bold;\n    font-size: larger;\n  }\n\n  ', ':hover & {\n    display: block;\n  }\n'], ['\n  display: none;\n  position: absolute;\n  left: -6.5vmax;\n  top: 0;\n  background-color: transparent;\n  padding: 0.5vmax 1vmax;\n  height: 5vmax;\n  direction: rtl;\n  unicode-bidi: bidi-override;\n  z-index: 45;\n  text-decoration: none;\n  \n\n  >li>a:hover {\n    color: #f1f1f1;\n    font-weight: bold;\n    font-size: larger;\n  }\n\n  ', ':hover & {\n    display: block;\n  }\n']);
 
 var _styledComponents = __webpack_require__(4);
 
@@ -39738,19 +39738,19 @@ var MenuItems = function MenuItems(_ref) {
     sets.map(function (set) {
       return React.createElement(
         MenuItem,
-        null,
+        { key: set.name },
         React.createElement(
           'span',
-          { style: { display: "inline-block", backgroundColor: "mediumseagreen", padding: "2vmin 4vmax" } },
+          { style: { display: "inline-block", backgroundColor: "transparent", padding: "2vmin 4vmax" } },
           set.name
         ),
         React.createElement(
           SubMenu,
           null,
-          set.sets.map(function (elem) {
+          set.sets.map(function (elem, index) {
             return React.createElement(
               'li',
-              { style: { listStyleType: "none" } },
+              { style: { listStyleType: "none", textDecoration: "none" }, key: index },
               React.createElement(
                 Link,
                 { to: '/collections/_' + set.name },
@@ -39781,7 +39781,7 @@ var Dropdown = function (_React$Component) {
     value: function render() {
       return React.createElement(
         DropdownButton,
-        { to: '/collections/barack' },
+        { to: '/collections/' + this.props.sets[0].name },
         'Collections',
         React.createElement(MenuItems, { sets: this.props.sets })
       );
@@ -39926,11 +39926,7 @@ module.exports = About;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n        display: grid;\n        grid-column: wrapperCol 1 / span 6;\n        grid-row: wrapperNav 3 / span 10;\n        grid-template-rows: [sor] 1fr;\n        grid-template-columns: [oszlop] 1fr;\n\n    @media only screen and (min-width: 760px) {\n        grid-row: meat;\n        grid-column: cal / span 7;\n        grid-template-columns: [details] 35vw repeat(4, [meatCol] 1fr);\n        grid-template-rows: [sorr] 1fr;\n        grid-gap: 1.5vmax;\n    }\n    '], ['\n        display: grid;\n        grid-column: wrapperCol 1 / span 6;\n        grid-row: wrapperNav 3 / span 10;\n        grid-template-rows: [sor] 1fr;\n        grid-template-columns: [oszlop] 1fr;\n\n    @media only screen and (min-width: 760px) {\n        grid-row: meat;\n        grid-column: cal / span 7;\n        grid-template-columns: [details] 35vw repeat(4, [meatCol] 1fr);\n        grid-template-rows: [sorr] 1fr;\n        grid-gap: 1.5vmax;\n    }\n    ']),
-    _templateObject2 = _taggedTemplateLiteral(['\n        grid-column: oszlop;\n        grid-row: sor;\n        display: grid;\n        grid-template-rows: repeat(4, [sor] 1fr);\n        grid-template-columns: repeat(20, [oszlop] 1fr);\n\n        @media only screen and (min-width: 760px) {\n            position: relative;\n            grid-row: sorr;\n            grid-column: meatCol 1 / span 4;\n            grid-column-gap: 1.5vmax;\n            grid-row-gap: 3.5vmax;\n            margin-left: 1vmax;\n        }\n    '], ['\n        grid-column: oszlop;\n        grid-row: sor;\n        display: grid;\n        grid-template-rows: repeat(4, [sor] 1fr);\n        grid-template-columns: repeat(20, [oszlop] 1fr);\n\n        @media only screen and (min-width: 760px) {\n            position: relative;\n            grid-row: sorr;\n            grid-column: meatCol 1 / span 4;\n            grid-column-gap: 1.5vmax;\n            grid-row-gap: 3.5vmax;\n            margin-left: 1vmax;\n        }\n    ']),
-    _templateObject3 = _taggedTemplateLiteral(['\n        background-color: #d4d3d3;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 1 / span 3;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 2 / span 2;\n            grid-column: oszlop 1 / span 5;\n            background-color: #817D7A;\n        }\n    '], ['\n        background-color: #d4d3d3;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 1 / span 3;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 2 / span 2;\n            grid-column: oszlop 1 / span 5;\n            background-color: #817D7A;\n        }\n    ']),
-    _templateObject4 = _taggedTemplateLiteral(['\n        background-color: #817D7A;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 4 / span 14;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 1 / span 4;\n            grid-column: oszlop 6 / span 10;\n        }\n    '], ['\n        background-color: #817D7A;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 4 / span 14;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 1 / span 4;\n            grid-column: oszlop 6 / span 10;\n        }\n    ']),
-    _templateObject5 = _taggedTemplateLiteral(['\n        background-color: #d4d3d3;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 18 / span 3;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 2 / span 2;\n            grid-column: oszlop 16 / span 5;\n            background-color: #817D7A;\n        }\n    '], ['\n        background-color: #d4d3d3;\n        grid-row: sor 1 / span 4;\n        grid-column: oszlop 18 / span 3;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: sor 2 / span 2;\n            grid-column: oszlop 16 / span 5;\n            background-color: #817D7A;\n        }\n    ']);
+var _templateObject = _taggedTemplateLiteral(['\n        display: grid;\n        grid-column: wrapperCol 1 / span 6;\n        grid-row: wrapperNav 3 / span 10;\n        grid-template-rows: [sor] 1fr;\n        grid-template-columns: [oszlop] 1fr;\n\n    @media only screen and (min-width: 760px) {\n        grid-row: meat;\n        grid-column: cal / span 7;\n        grid-template-columns: [details] 35vw repeat(4, [meatCol] 1fr);\n        grid-template-rows: [sorr] 1fr;\n        grid-gap: 1.5vmax;\n    }\n    '], ['\n        display: grid;\n        grid-column: wrapperCol 1 / span 6;\n        grid-row: wrapperNav 3 / span 10;\n        grid-template-rows: [sor] 1fr;\n        grid-template-columns: [oszlop] 1fr;\n\n    @media only screen and (min-width: 760px) {\n        grid-row: meat;\n        grid-column: cal / span 7;\n        grid-template-columns: [details] 35vw repeat(4, [meatCol] 1fr);\n        grid-template-rows: [sorr] 1fr;\n        grid-gap: 1.5vmax;\n    }\n    ']);
 
 var _styledComponents = __webpack_require__(4);
 
@@ -39973,40 +39969,16 @@ var _16aw = importCollection(__webpack_require__(154));
 var _17ss = importCollection(__webpack_require__(162));
 var _LAYERS = importCollection(__webpack_require__(187));
 
-var Slide = function (_React$Component) {
-    _inherits(Slide, _React$Component);
-
-    function Slide() {
-        _classCallCheck(this, Slide);
-
-        return _possibleConstructorReturn(this, (Slide.__proto__ || Object.getPrototypeOf(Slide)).apply(this, arguments));
-    }
-
-    _createClass(Slide, [{
-        key: 'render',
-        value: function render() {
-            return React.createElement('img', { className: this.props.class,
-                key: this.props.index,
-                title: this.props.index,
-                src: this.props.src,
-                onClick: this.props.clickHandler });
-        }
-    }]);
-
-    return Slide;
-}(React.Component);
-
-var Collections = function (_React$Component2) {
-    _inherits(Collections, _React$Component2);
+var Collections = function (_React$Component) {
+    _inherits(Collections, _React$Component);
 
     function Collections(props) {
         _classCallCheck(this, Collections);
 
-        var _this2 = _possibleConstructorReturn(this, (Collections.__proto__ || Object.getPrototypeOf(Collections)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Collections.__proto__ || Object.getPrototypeOf(Collections)).call(this, props));
 
-        _this2.state = {
+        _this.state = {
             sets: {
-
                 _14aw: { _14aw: _14aw },
                 _15aw: { _15aw: _15aw },
                 _15ss: { _15ss: _15ss },
@@ -40018,12 +39990,12 @@ var Collections = function (_React$Component2) {
             currentIndex: 0,
             direction: ""
         };
-        _this2.findCurrent = _this2.findCurrent.bind(_this2);
+        _this.findCurrent = _this.findCurrent.bind(_this);
         // handlers moved up from DesktopCarousel
-        _this2.kattBalra = _this2.kattBalra.bind(_this2);
-        _this2.kattJobbra = _this2.kattJobbra.bind(_this2);
-        _this2.circleIndex = _this2.circleIndex.bind(_this2);
-        return _this2;
+        _this.kattBalra = _this.kattBalra.bind(_this);
+        _this.kattJobbra = _this.kattJobbra.bind(_this);
+        _this.circleIndex = _this.circleIndex.bind(_this);
+        return _this;
     }
 
     _createClass(Collections, [{
@@ -40091,13 +40063,25 @@ var Collections = function (_React$Component2) {
             this.setState(function (prevState) {
                 return { selectedSet: selectedSet };
             });
-            console.log('GLOBAL');
-            console.log(this.state);
+            // console.log('GLOBAL');
+            // console.log(this.state);
         }
     }, {
         key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(nextProps) {
-            this.findCurrent();
+            if (nextProps.location != this.props.location) {
+                // chop off "/collections/"
+                var newHash = nextProps.location.pathname.substr(13);
+                var selected = Object.keys(this.state.sets).filter(function (key) {
+                    return key === newHash;
+                });
+                var reallySelected = selected[0];
+                var selectedSet = this.state.sets[reallySelected][newHash];
+                this.setState(function (prevState) {
+                    return { selectedSet: selectedSet };
+                });
+                // console.log(nextProps.location.pathname.substr(13));
+            }
         }
     }, {
         key: 'componentDidMount',
@@ -40108,13 +40092,6 @@ var Collections = function (_React$Component2) {
         key: 'render',
         value: function render() {
             var CollectionWrapper = _styledComponents2.default.div(_templateObject);
-            {/*
-                   ez az, amit ki fogunk ütni a mediaquery alapján behúzott DesktopCarousellel és MobileCarousellel
-                */}
-            var CollectionSlideshow = _styledComponents2.default.div(_templateObject2);
-            var SlideshowBack = _styledComponents2.default.div(_templateObject3);
-            var SlideshowCurrent = _styledComponents2.default.div(_templateObject4);
-            var SlideshowForward = _styledComponents2.default.div(_templateObject5);
             return React.createElement(
                 CollectionWrapper,
                 null,
@@ -40152,7 +40129,7 @@ exports = module.exports = __webpack_require__(40)(false);
 
 
 // module
-exports.push([module.i, ".bal,\r\n.jobb,\r\n.center {\r\n    display: block;\r\n    position: absolute;\r\n    width: 46%;\r\n    height: 100%;\r\n    top: 25%;\r\n    transition: all 1s ease-out;\r\n    object-fit: cover;\r\n}\r\n\r\n.jobb,\r\n.bal {\r\n    top: 25%;\r\n    width: 25%;\r\n    height: 50%;\r\n}\r\n\r\n.bal {\r\n    left: 1%;\r\n}\r\n\r\n.center {\r\n    left: 27%;\r\n    top: 0;\r\n    z-index: 1;\r\n}\r\n\r\n.jobb {\r\n    left: 74%;\r\n}\r\n\r\n.left-enter {\r\n    opacity: 0;\r\n    top: 25%;\r\n    transform: translateX(1%);\r\n}\r\n\r\n.left-enter.left-enter-active {\r\n    opacity: 1;\r\n    top: 25%;\r\n    transform: translateX(1%);\r\n    transition: opacity 1s ease-out, transform 1s ease-out;\r\n}\r\n\r\n.left-leave {\r\n    opacity: 1;\r\n    top: 25%;\r\n    transform: translateX(100%);\r\n}\r\n\r\n.left-leave.left-leave-active {\r\n    opacity: 0;\r\n    top: 25%;\r\n    transform: translateX(100%);\r\n    transition: opacity 1s ease-out, transform 1s ease-out;\r\n}\r\n\r\n.right-enter {\r\n    opacity: 0;\r\n    right: 1%;\r\n    top: 25%;\r\n    z-index: 0;\r\n}\r\n\r\n.right-enter.right-enter-active {\r\n    opacity: 1;\r\n    right: 1%;\r\n    top: 25%;\r\n    z-index: 0;\r\n    transition: opacity 1s ease-out, right 1s ease-out, z-index 1s ease-out;\r\n}\r\n\r\n.right-leave {\r\n    opacity: 1;\r\n    top: 25%;\r\n    transform: translateX(-25%);\r\n}\r\n\r\n.right-leave.right-leave-active {\r\n    opacity: 0;\r\n    transform: translateX(-25%);\r\n    top: 25%;\r\n    transition: opacity 1s ease-out, transform 1s ease-out;\r\n}", ""]);
+exports.push([module.i, "a {\r\n    text-decoration: none;\r\n}\r\n\r\n.bal,\r\n.jobb,\r\n.center {\r\n    display: block;\r\n    position: absolute;\r\n    width: 46%;\r\n    height: 100%;\r\n    top: 25%;\r\n    transition: all 1s ease-out;\r\n    object-fit: cover;\r\n}\r\n\r\n.jobb,\r\n.bal {\r\n    top: 25%;\r\n    width: 25%;\r\n    height: 50%;\r\n}\r\n\r\n.bal {\r\n    left: 1%;\r\n}\r\n\r\n.center {\r\n    left: 27%;\r\n    top: 0;\r\n    z-index: 1;\r\n}\r\n\r\n.jobb {\r\n    left: 74%;\r\n}\r\n\r\n.left-enter {\r\n    opacity: 0;\r\n    top: 25%;\r\n    transform: translateX(1%);\r\n}\r\n\r\n.left-enter.left-enter-active {\r\n    opacity: 1;\r\n    top: 25%;\r\n    transform: translateX(1%);\r\n    transition: opacity 1s ease-out, transform 1s ease-out;\r\n}\r\n\r\n.left-leave {\r\n    opacity: 1;\r\n    top: 25%;\r\n    transform: translateX(100%);\r\n}\r\n\r\n.left-leave.left-leave-active {\r\n    opacity: 0;\r\n    top: 25%;\r\n    transform: translateX(100%);\r\n    transition: opacity 1s ease-out, transform 1s ease-out;\r\n}\r\n\r\n.right-enter {\r\n    opacity: 0;\r\n    right: 1%;\r\n    top: 25%;\r\n    z-index: 0;\r\n}\r\n\r\n.right-enter.right-enter-active {\r\n    opacity: 1;\r\n    right: 1%;\r\n    top: 25%;\r\n    z-index: 0;\r\n    transition: opacity 1s ease-out, right 1s ease-out, z-index 1s ease-out;\r\n}\r\n\r\n.right-leave {\r\n    opacity: 1;\r\n    top: 25%;\r\n    transform: translateX(-25%);\r\n}\r\n\r\n.right-leave.right-leave-active {\r\n    opacity: 0;\r\n    transform: translateX(-25%);\r\n    top: 25%;\r\n    transition: opacity 1s ease-out, transform 1s ease-out;\r\n}", ""]);
 
 // exports
 
