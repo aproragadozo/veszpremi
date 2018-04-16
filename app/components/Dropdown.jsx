@@ -3,9 +3,6 @@ var {Link} = require('react-router-dom');
 
 import styled from 'styled-components';
 
-// ide kell majd egy kamulista is próbaképpen,
-// and everything from DropdownMenu downwards needs to be mapped
-
 const DropdownButton = styled(Link)`
   background-color: #050505;
   font-size: 0.9vw;
@@ -27,6 +24,7 @@ const Menu = styled.ul`
   top: 2.6vmax;
   left: -6vmax;
   list-style: none;
+  z-index: 40;
 
   ${DropdownButton}:hover & {
     display: flex;
@@ -50,16 +48,40 @@ const SubMenu = styled.ul`
   height: 5vmax;
   direction: rtl;
   unicode-bidi: bidi-override;
+  z-index: 45;
 
   ${MenuItem}:hover & {
     display: block;
   }
 `;
+// this.props.sets az objektek arrayje
+const MenuItems = ({sets}) => (
+  <Menu>
+    {
+      sets.map(set => (
+        <MenuItem>
+          <span style={{display: "inline-block", backgroundColor: "mediumseagreen", padding: "2vmin 4vmax"}}>{set.name}</span>
+          <SubMenu>
+          {set.sets.map(elem => (
+            <li style={{listStyleType: "none"}}>
+              <Link to={`/collections/_${set.name}`}>{elem}</Link>
+            </li>
+          ))}
+          </SubMenu>
+        </MenuItem>
+      ))
+    }
+  </Menu>
+);
 
+/* a renderen belül mappoljuk a kollekcióobjektekhez a MenuItemeket,
+  azokon belül pedig mappeljük a 'sets' array-t a SubMenun belül a Linkekhez */
 class Dropdown extends React.Component {
   render() {
     return (
         <DropdownButton to="/collections/barack">Collections
+        <MenuItems sets={this.props.sets}/>
+        {/*
           <Menu>
             <MenuItem>
               <span style={{display: "inline-block", backgroundColor: "mediumseagreen", padding: "2vmin 4vmax"}}>alma</span>
@@ -70,6 +92,7 @@ class Dropdown extends React.Component {
               </SubMenu>
             </MenuItem>
           </Menu>
+          */}
         </DropdownButton>
     )
   }

@@ -34,27 +34,27 @@
 .left-enter {
     opacity: 0;
     top: 25%;
-    left: 1%;
+    transform: translateX(1%);
 }
 
 .left-enter.left-enter-active {
     opacity: 1;
     top: 25%;
-    left: 1%;
-    transition: opacity 1s ease-out, left 1s ease-out;
+    transform: translateX(1%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .left-leave {
     opacity: 1;
     top: 25%;
-    left: 100%;
+    transform: translateX(100%);
 }
 
 .left-leave.left-leave-active {
     opacity: 0;
     top: 25%;
-    left: 100%;
-    transition: opacity 1s ease-out, left 1s ease-out;
+    transform: translateX(100%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .right-enter {
@@ -75,111 +75,12 @@
 .right-leave {
     opacity: 1;
     top: 25%;
-    left: -25%;
+    transform: translateX(-25%);
 }
 
 .right-leave.right-leave-active {
     opacity: 0;
-    left: -25%;
+    transform: translateX(-25%);
     top: 25%;
-    transition: opacity 1s ease-out, left 1s ease-out;
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
-
-
-/*
-
-const CarouselBack = styled.img`
-  display: block;
-  position: absolute;
-  width: calc(25% - (calc(1.5vmax / 2)));
-  height: calc(50% - calc(3.5vmax / 2));
-  top: calc(25% + calc(3.5vmax / 4));
-`;
-const CarouselMain = styled.img`
-  display: block;
-  width: calc(50% - 1vmax);
-  height: 100%;
-  left: calc(25% + (calc(1vmax / 2)));
-  position: absolute;
-`;
-const CarouselForward = styled.img`
-  display: block;
-  position: absolute;
-  width: calc(25% - (calc(1.5vmax / 2)));
-  height: calc(50% - calc(3.5vmax / 2));
-  top: calc(25% + calc(3.5vmax / 4));
-  left: calc(75% + (calc(1.5vmax / 2)));
-`;
-
-
-img {
-    transition: all 1s ease-out;
-    object-fit: cover;
-}
-
-.left-enter {
-    opacity: 0;
-    top: calc(25% + calc(3.5vmax / 4));
-    left: 0;
-}
-
-.left-enter.left-enter-active {
-    opacity: 1;
-    top: calc(25% + calc(3.5vmax / 4));
-    left: 0;
-    transition: opacity 1s ease-out, left 1s ease-out;
-}
-
-.left-leave {
-    opacity: 1;
-    top: calc(25% + calc(3.5vmax / 4));
-    left: 100%;
-}
-
-.left-leave.left-leave-active {
-    opacity: 0;
-    top: calc(25% + calc(3.5vmax / 4));
-    left: 100%;
-    transition: opacity 1s ease-out, left 1s ease-out;
-}
-
-.right-enter {
-    opacity: 0;
-    top: calc(25% + calc(3.5vmax / 4));
-    right: 1%;
-    /*
-    right: calc(100% - calc(75% + (calc(1.5vmax / 2))));
-    */
-
-
-/*
-    z-index: 0;
-}
-
-.right-enter.right-enter-active {
-    opacity: 1;
-    top: calc(25% + calc(3.5vmax / 4));
-    right: 1%;
-    /*
-    right: calc(100% - calc(75% + (calc(1.5vmax / 2))));
-    */
-
-
-/*
-    z-index: 0;
-    transition: opacity 1s ease-out, right 1s ease-out, z-index 1s ease-out;
-}
-
-.right-leave {
-    opacity: 1;
-    top: calc(25% + calc(3.5vmax / 4));
-    left: calc(-1 * 25% - (calc(1.5vmax / 2)));
-}
-
-.right-leave.right-leave-active {
-    opacity: 0;
-    left: calc(-1 * 25% - (calc(1.5vmax / 2)));
-    top: calc(25% + calc(3.5vmax / 4));
-    transition: opacity 1s ease-out, left 1s ease-out;
-}
-*/

@@ -1,4 +1,5 @@
 var React = require('react');
+var {Link} = require('react-router-dom');
 
 import styled from 'styled-components';
 

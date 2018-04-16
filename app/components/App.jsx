@@ -12,6 +12,15 @@ var Collections = require('Collections');
 var Videos = require('Videos');
 var Footer = require('Footer');
 
+const szettek = [
+    {name: "14aw", sets: ["campaign", "lookbook"]},
+    {name: "15aw",  sets: ["campaign"]},
+    {name: "15ss",  sets: ["campaign", "lookbook"]},
+    {name: "16aw",  sets: ["campaign"]},
+    {name: "17ss",  sets: ["campaign", "lookbook"]},
+    {name: "LAYERS",  sets: ["campaign", "lookbook"]}
+];
+
 class App extends React.Component{
    render() {
        var Wrapper = styled.div`
@@ -32,7 +41,7 @@ class App extends React.Component{
             <Router>
                 <Wrapper>
                     <Header/>
-                    <Nav/>
+                    <Nav sets={szettek}/>
                     <Route exact path="/" component={Home}/>
                     <Route path="/about" component={About}/>
                     <Route path="/collections/:id" component={Collections}/>

@@ -1,8 +1,9 @@
 module.exports = {
+    devtool: 'source-map',
     entry: "./app/app.jsx",
     output: {
         path: __dirname,
-        filename: './public/bundle.js'
+        filename: './public/assets/js/bundle.js'
     },
     resolve: {
         modules: [__dirname, 'node_modules'],
@@ -40,6 +41,16 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        publicPath: '/assets/img',
+                        outputPath: './public/assets/img'
+                    }
+                }]
             }
         ]
     }
