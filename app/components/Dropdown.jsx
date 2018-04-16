@@ -61,7 +61,7 @@ const SubMenu = styled.ul`
   text-decoration: none;
   
 
-  >li>a:hover {
+  a:hover {
     font-weight: bold;
     font-size: larger;
   }
