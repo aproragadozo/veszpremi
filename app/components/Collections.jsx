@@ -13,24 +13,44 @@ function importCollection(r) {
     return r.keys().map(r);
   }
   
-const _14aw = importCollection(require.context('../img/collections/14aw', true, /\.(png|jpe?g|svg)$/));
-const _15aw = importCollection(require.context('../img/collections/15aw', true, /\.(png|jpe?g|svg)$/));
-const _15ss = importCollection(require.context('../img/collections/15ss', true, /\.(png|jpe?g|svg)$/));
-const _16aw = importCollection(require.context('../img/collections/16aw', true, /\.(png|jpe?g|svg)$/));
-const _17ss = importCollection(require.context('../img/collections/17ss', true, /\.(png|jpe?g|svg)$/));
-const _LAYERS = importCollection(require.context('../img/collections/LAYERS', true, /\.(png|jpe?g|svg)$/));
+const _14awcampaign = importCollection(require.context('../img/collections/14aw/campaign', false, /\.(png|jpe?g|svg)$/));
+const _14awlookbook = importCollection(require.context('../img/collections/14aw/lookbook', false, /\.(png|jpe?g|svg)$/));
+const _15awcampaign = importCollection(require.context('../img/collections/15aw/campaign', false, /\.(png|jpe?g|svg)$/));
+const _15sscampaign = importCollection(require.context('../img/collections/15ss/campaign', false, /\.(png|jpe?g|svg)$/));
+const _15sslookbook = importCollection(require.context('../img/collections/15ss/lookbook', false, /\.(png|jpe?g|svg)$/));
+const _16awcampaign = importCollection(require.context('../img/collections/16aw/campaign', false, /\.(png|jpe?g|svg)$/));
+const _17sscampaign = importCollection(require.context('../img/collections/17ss/campaign', false, /\.(png|jpe?g|svg)$/));
+const _17sslookbook = importCollection(require.context('../img/collections/17ss/lookbook', false, /\.(png|jpe?g|svg)$/));
+const _LAYERScampaign = importCollection(require.context('../img/collections/LAYERS/campaign', false, /\.(png|jpe?g|svg)$/));
+const _LAYERSlookbook = importCollection(require.context('../img/collections/LAYERS/lookbook', false, /\.(png|jpe?g|svg)$/));
 
 class Collections extends React.Component{
     constructor(props){
        super(props);
        this.state = {
            sets: {
-               _14aw: {_14aw},
-               _15aw: {_15aw},
-               _15ss: {_15ss},
-               _16aw: {_16aw},
-               _17ss: {_17ss},
-               _LAYERS: {_LAYERS}
+               _14aw: {
+                   campaign: {_14awcampaign},
+                   lookbook: {_14awlookbook}
+               },
+               _15aw: {
+                   campaign: {_15awcampaign}
+               },
+               _15ss: {
+                   campaign: {_15sscampaign},
+                   lookbook: {_15sslookbook}
+               },
+               _16aw: {
+                    campaign: {_16awcampaign}
+               },
+               _17ss: {
+                   campaign: {_17sscampaign},
+                   lookbook: {_17sslookbook}
+               },
+               _LAYERS: {
+                   campaign: {_LAYERScampaign},
+                   lookbook: {_LAYERSlookbook}
+               }
             },
             selectedSet: [],
             currentIndex: 0,
@@ -92,25 +112,34 @@ class Collections extends React.Component{
 
     findCurrent(){
         let hash = this.props.match.params.id;
+        let shoot = this.props.match.params.shoot;
         let selected = Object.keys(this.state.sets).filter(key => key === hash);
-        //console.log(hash);
+        //console.log(shoot);
+        //console.log("what's this?");
         //console.log(selected);
         let reallySelected = selected[0];
         //console.log(reallySelected);
-        let selectedSet = this.state.sets[reallySelected][hash];
+        let listVar = hash+shoot;
+        let selectedSet = this.state.sets[reallySelected][shoot][listVar];
+        //console.log('with underscore');
         //console.log(selectedSet);
         // ezt kell továbbadni a DesktopCarouselnek meg a MobileCarouselnek propként
-        this.setState((prevState) => ({selectedSet: selectedSet}));
-        // console.log('GLOBAL');
-        // console.log(this.state);
+        this.setState((prevState) => ({selectedSet: selectedSet})); 
+         //console.log('GLOBAL');
+         //console.log(this.state);
     };
     componentWillReceiveProps(nextProps) {
         if(nextProps.location != this.props.location) {
             // chop off "/collections/"
             let newHash = nextProps.location.pathname.substr(13);
-            let selected = Object.keys(this.state.sets).filter(key => key===newHash);
+            let newColl = newHash.split("/")[0];
+            console.log("newColl: " + newColl);
+            let newShoot = newHash.split("/")[1];
+            let newListVar = newColl+newShoot;
+            let selected = Object.keys(this.state.sets).filter(key => key === newColl);
+            console.log("selected: " + selected);
             let reallySelected = selected[0];
-            let selectedSet = this.state.sets[reallySelected][newHash];
+            let selectedSet = this.state.sets[reallySelected][newShoot][newListVar];
             this.setState((prevState) => ({selectedSet: selectedSet}));
             // console.log(nextProps.location.pathname.substr(13));
         }

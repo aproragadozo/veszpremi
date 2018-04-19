@@ -44,7 +44,7 @@ class App extends React.Component{
                     <Nav sets={szettek}/>
                     <Route exact path="/" component={Home}/>
                     <Route path="/about" component={About}/>
-                    <Route path="/collections/:id" component={Collections}/>
+                    <Route path="/collections/:id/:shoot" component={Collections}/>
                     <Route path="/videos" component={Videos}/>
                     <Footer/>
                 </Wrapper>

@@ -50,7 +50,7 @@ const MenuItem = styled.li`
 const SubMenu = styled.ul`
   display: none;
   position: absolute;
-  left: -6.5vmax;
+  /*left: -6.5vmax;*/
   top: 0;
   background-color: transparent;
   padding: 0.5vmax 1vmax;
@@ -74,13 +74,13 @@ const SubMenu = styled.ul`
 const MenuItems = ({sets}) => (
   <Menu>
     {
-      sets.map(set => (
+      sets.map((set, index) => (
         <MenuItem key={set.name}>
           <span style={{display: "inline-block", backgroundColor: "transparent", padding: "2vmin 4vmax"}}>{set.name}</span>
-          <SubMenu>
-          {set.sets.map((elem, index) => (
+          <SubMenu style={(index%2==0) ? {left:'-6.5vmax'} : {left: '9vmax'}}>
+          {set.sets.map(elem => (
             <li style={{listStyleType: "none", textDecoration: "none"}} key={index}>
-              <Link to={`/collections/_${set.name}`}>{elem}</Link>
+              <Link to={`/collections/_${set.name}/${elem}`}>{elem}</Link>
             </li>
           ))}
           </SubMenu>
