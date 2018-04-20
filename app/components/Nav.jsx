@@ -247,7 +247,6 @@ class Nav extends React.Component{
         </MediaQuery>
         <MediaQuery minWidth={760}>
           <Desktop>
-            <Link to="/">Home</Link>
             <Dropdown sets={this.props.sets}/>
             <Link to="/videos">Videos</Link>
             <Link to="/about">About</Link>

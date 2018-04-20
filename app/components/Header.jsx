@@ -1,6 +1,8 @@
 var React = require('react');
 var {Link} = require('react-router-dom');
 
+const veszpremiLogo = require('../img/home/logo.png');
+
 import styled from 'styled-components';
 
 const Top = styled.div`
@@ -18,8 +20,8 @@ const Top = styled.div`
   grid-template-columns: [logo] 22vw [spacer] 1fr;
 }
 `;
-const Logo = styled.div`
-  background-color: #050505;
+const Logo = styled(Link)`
+  /* background-color: #050505; */
   grid-row: navButton 1 / span 2;
   grid-column: logo;
 
@@ -29,9 +31,10 @@ const Logo = styled.div`
 `;
 class Header extends React.Component{
   render(){
+    console.log(veszpremiLogo);
     return (
         <Top>
-          <Logo/>
+          <Logo to={"/"} style={{ backgroundImage: `url(${veszpremiLogo})`, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}/>
         </Top>
     )
   }
