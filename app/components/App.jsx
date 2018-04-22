@@ -2,6 +2,8 @@ var React = require('react');
 
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
+const background = require('../img/home/background.jpg');
+
 import styled from 'styled-components';
 
 var Header = require('Header');
@@ -30,6 +32,9 @@ class App extends React.Component{
         grid-template-rows: repeat(11, [wrapperNav] minmax(5vh, 100px)) 1fr [wrapperFooter] minmax(4vmax, 60px);
         grid-template-columns: repeat(6, [wrapperCol] 1fr);
         grid-gap: 1vmin;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
 
         @media only screen and (min-width: 760px) {
             grid-template-rows: [top] 80px [meat] 1fr [bottom] 3vmax;
@@ -39,7 +44,7 @@ class App extends React.Component{
        `;
        return (
             <Router>
-                <Wrapper>
+                <Wrapper style={{backgroundImage: `url(${background})`}}>
                     <Header/>
                     <Nav sets={szettek}/>
                     <Route exact path="/" component={Home}/>
