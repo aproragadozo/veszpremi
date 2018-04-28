@@ -13,6 +13,7 @@ var About = require('About');
 var Collections = require('Collections');
 var Videos = require('Videos');
 var Footer = require('Footer');
+var ContactPage = require('ContactPage');
 
 const szettek = [
     {name: "14aw", sets: ["campaign", "lookbook"]},
@@ -51,6 +52,7 @@ class App extends React.Component{
                     <Route path="/about" component={About}/>
                     <Route path="/collections/:id/:shoot" component={Collections}/>
                     <Route path="/videos" component={Videos}/>
+                    <Route path="/contact" component={ContactPage}/>
                     <Footer/>
                 </Wrapper>
             </Router>

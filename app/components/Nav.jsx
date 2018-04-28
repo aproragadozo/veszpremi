@@ -250,6 +250,7 @@ class Nav extends React.Component{
             <Dropdown sets={this.props.sets}/>
             <Link to="/videos">Videos</Link>
             <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
           </Desktop>
         </MediaQuery>
       </NewWrapper>

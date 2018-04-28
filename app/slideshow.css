@@ -2,6 +2,36 @@ a {
     text-decoration: none;
 }
 
+
+/* hover overlay 
+
+.overlay {
+    background: rgba(241, 241, 241, 0.6);
+    text-align: center;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.25s ease;
+    -webkit-transition: opacity 0.25s ease;
+    -moz-transition: opacity 0.25s ease;
+    margin-top: 15%;
+    border-radius: 50%;
+}
+
+.bal:hover .overlay,
+.jobb:hover .overlay {
+    opacity: 1;
+}
+
+.toCenter {
+    color: #443A9E;
+    font-size: 14em;
+    font-weight: 900;
+    opacity: 0.6;
+}
+*/
+
 .bal,
 .jobb,
 .center {
