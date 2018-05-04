@@ -39486,7 +39486,7 @@ var Menu = function (_React$Component) {
       var linkStyle = {
         display: "flex",
         justifyContent: "end",
-        textAlign: "right",
+        textAlign: "center",
         justifySelf: "start",
         textTransform: "uppercase",
         cursor: "pointer",
@@ -39529,7 +39529,7 @@ var Menu = function (_React$Component) {
             { style: linkStyle },
             React.createElement(
               Link,
-              { to: '/', style: { display: "table", margin: "0 0 0 auto" } },
+              { to: '/', style: { display: "block" } },
               'Home'
             )
           ),
@@ -39539,7 +39539,7 @@ var Menu = function (_React$Component) {
             { style: linkStyle },
             React.createElement(
               Link,
-              { to: '/videos', style: { display: "table", margin: "0 0 0 auto" } },
+              { to: '/videos', style: { display: "block" } },
               'Videos'
             )
           ),
@@ -39548,7 +39548,7 @@ var Menu = function (_React$Component) {
             { style: linkStyle },
             React.createElement(
               Link,
-              { to: '/about', style: { display: "table", margin: "0 0 0 auto" } },
+              { to: '/about', style: { display: "block" } },
               'About'
             )
           )
@@ -39794,7 +39794,7 @@ var Season = function (_React$Component2) {
 
       return React.createElement(
         'li',
-        { style: { backgroundColor: "#f1f1f1", fontWeight: "bold", display: "inline-block", textAlign: "center" },
+        { style: { backgroundColor: "#f1f1f1", fontWeight: "bold", display: "inline-block", textAlign: "center", width: "100%" },
           onClick: function onClick(e) {
             _this3.props.toggler(e, _this3.props.index);
           } },
@@ -39821,7 +39821,7 @@ var Collection = function (_React$Component3) {
     value: function render() {
       return React.createElement(
         'ul',
-        { style: { padding: 0, display: this.props.active ? "flex" : "none", listStyle: "none", flexDirection: "column", justifyContent: "start", alignItems: "end" } },
+        { style: { padding: 0, display: this.props.active ? "flex" : "none", listStyle: "none", flexDirection: "column", justifyContent: "start", alignItems: "center" } },
         React.createElement(Season, { index: 0, toggler: this.props.toggler, text: '2015', activeArray: this.props.activeArray }),
         React.createElement(Season, { index: 1, toggler: this.props.toggler, text: '2016', activeArray: this.props.activeArray }),
         React.createElement(Season, { index: 2, toggler: this.props.toggler, text: '2017', activeArray: this.props.activeArray }),
@@ -39889,7 +39889,7 @@ var MobileCollections = function (_React$Component4) {
         { style: { width: "100vw", height: "8vmin", textAlign: "center", cursor: "pointer", display: "inline" }, onClick: this.clickHandler },
         React.createElement(
           'span',
-          { style: { display: "table", margin: "0 0 0 auto" } },
+          { style: { display: "block" } },
           'Collections'
         ),
         React.createElement(Collection, { active: this.state.on, activeArray: this.state.activeArray, toggler: this.toggler, colors: this.state.colors })

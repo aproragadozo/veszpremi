@@ -28,7 +28,7 @@ class Darabok extends React.Component{
 class Season extends React.Component{
   render() {
     return (
-      <li style={{backgroundColor: "#f1f1f1", fontWeight: "bold", display: "inline-block", textAlign: "center"}}
+      <li style={{backgroundColor: "#f1f1f1", fontWeight: "bold", display: "inline-block", textAlign: "center", width: "100%"}}
           onClick={(e) => {this.props.toggler(e, this.props.index)}}>
           {this.props.text}
           <Darabok show={this.props.activeArray[this.props.index]}/>
@@ -40,7 +40,7 @@ class Season extends React.Component{
 class Collection extends React.Component{
   render() {
     return (
-      <ul style={{padding: 0, display: this.props.active?"flex":"none", listStyle:"none", flexDirection: "column", justifyContent:"start", alignItems: "end"}}>
+      <ul style={{padding: 0, display: this.props.active?"flex":"none", listStyle:"none", flexDirection: "column", justifyContent:"start", alignItems: "center"}}>
         <Season index={0} toggler={this.props.toggler} text="2015" activeArray={this.props.activeArray} />
         <Season index={1} toggler={this.props.toggler} text="2016" activeArray={this.props.activeArray} />
         <Season index={2} toggler={this.props.toggler} text="2017" activeArray={this.props.activeArray} />
@@ -90,7 +90,7 @@ class MobileCollections extends React.Component{
   render() {
     return (
       <li style={{width: "100vw", height: "8vmin", textAlign: "center", cursor: "pointer", display: "inline"}} onClick={this.clickHandler}>
-        <span style={{display: "table", margin: "0 0 0 auto"}}>Collections</span>
+        <span style={{display: "block"}}>Collections</span>
         <Collection active={this.state.on} activeArray={this.state.activeArray} toggler={this.toggler} colors={this.state.colors}/>
       </li>
     )

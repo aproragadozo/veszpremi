@@ -101,7 +101,7 @@ class Menu extends React.Component{
     const linkStyle = {
       display: "flex",
       justifyContent: "end",
-      textAlign: "right",
+      textAlign: "center",
       justifySelf: "start",
       textTransform: "uppercase",
       cursor: "pointer",
@@ -137,14 +137,14 @@ class Menu extends React.Component{
         <Hamburger handleMouseDown = {this.props.handleMouseDown}/>
         <ul style={{width: "100%"}}>
           <li style ={linkStyle}>
-            <Link to="/" style={{display: "table", margin: "0 0 0 auto"}}>Home</Link>
+            <Link to="/" style={{display: "block"}}>Home</Link>
           </li>
             <MobileCollections/>
           <li style ={linkStyle}>
-            <Link to="/videos" style={{display: "table", margin: "0 0 0 auto"}}>Videos</Link>
+            <Link to="/videos" style={{display: "block"}}>Videos</Link>
           </li>
           <li style ={linkStyle}>
-            <Link to="/about" style={{display: "table", margin: "0 0 0 auto"}}>About</Link>
+            <Link to="/about" style={{display: "block"}}>About</Link>
           </li>
         </ul>
       </div>
