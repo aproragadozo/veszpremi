@@ -39533,7 +39533,7 @@ var Menu = function (_React$Component) {
               'Home'
             )
           ),
-          React.createElement(MobileCollections, null),
+          React.createElement(MobileCollections, { sets: this.props.sets }),
           React.createElement(
             'li',
             { style: linkStyle },
@@ -39627,7 +39627,7 @@ var Mobile = function (_React$Component3) {
         null,
         React.createElement(Hamburger, { handleMouseDown: this.handleMouseDown }),
         React.createElement(Menu, { handleMouseDown: this.handleMouseDown,
-          menuVisibility: this.state.visible })
+          menuVisibility: this.state.visible, sets: this.props.sets })
       );
     }
   }]);
@@ -39655,7 +39655,7 @@ var Nav = function (_React$Component4) {
         React.createElement(
           _reactResponsive2.default,
           { maxWidth: 760 },
-          React.createElement(Mobile, null)
+          React.createElement(Mobile, { sets: this.props.sets })
         ),
         React.createElement(
           _reactResponsive2.default,
@@ -39703,6 +39703,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _templateObject = _taggedTemplateLiteral(['\n  display: ', ';\n  padding: 0;\n  list-style: none;\n  flex-direction: column;\n  justify-content: start;\n  align-items: start;\n'], ['\n  display: ', ';\n  padding: 0;\n  list-style: none;\n  flex-direction: column;\n  justify-content: start;\n  align-items: start;\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n  background-color: #f1f1f1;\n  font-weight: bold;\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n'], ['\n  background-color: #f1f1f1;\n  font-weight: bold;\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n  padding: 0;\n  display: ', ';\n  list-style: none;\n  flex-direction: column;\n  justify-content: start;\n  align-items: center;  \n'], ['\n  padding: 0;\n  display: ', ';\n  list-style: none;\n  flex-direction: column;\n  justify-content: start;\n  align-items: center;  \n']);
+
 var _styledComponents = __webpack_require__(4);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
@@ -39715,141 +39719,110 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 var React = __webpack_require__(0);
 
 var _require = __webpack_require__(8),
     Link = _require.Link;
 
-var Darabok = function (_React$Component) {
-  _inherits(Darabok, _React$Component);
+var Darab = _styledComponents2.default.ul(_templateObject, function (props) {
+  return props.show ? 'flex' : 'none';
+});
 
-  function Darabok() {
-    _classCallCheck(this, Darabok);
+var Season = _styledComponents2.default.li(_templateObject2);
 
-    return _possibleConstructorReturn(this, (Darabok.__proto__ || Object.getPrototypeOf(Darabok)).apply(this, arguments));
+var Collection = _styledComponents2.default.ul(_templateObject3, function (props) {
+  return props.active ? 'flex' : 'none';
+});
+/*
+class Season extends React.Component{
+  render() {
+    return (
+      <li style={{backgroundColor: "#f1f1f1", fontWeight: "bold", display: "inline-block", textAlign: "center", width: "100%"}}
+          onClick={(e) => {this.props.toggler(e, this.props.index)}}>
+          {this.props.text}
+          <Darab show={this.props.activeArray[this.props.index]}/>
+        </li>
+    )
   }
+}
 
-  _createClass(Darabok, [{
-    key: 'render',
-    value: function render() {
+class Collection extends React.Component{
+  render() {
+    return (
+      <ul style={{padding: 0, display: this.props.active?"flex":"none", listStyle:"none", flexDirection: "column", justifyContent:"start", alignItems: "center"}}>
+        <Season index={0} toggler={this.props.toggler} text="2015" activeArray={this.props.activeArray} />
+        <Season index={1} toggler={this.props.toggler} text="2016" activeArray={this.props.activeArray} />
+        <Season index={2} toggler={this.props.toggler} text="2017" activeArray={this.props.activeArray} />
+        <Season index={3} toggler={this.props.toggler} text="2018" activeArray={this.props.activeArray} />
+      </ul>
+    )
+  }
+}
+*/
+
+/*  just as in the Dropdown comp, here's a func component
+    that maps the collection sets and subsets to nested menus and submenus  */
+var MobileMenuItems = function MobileMenuItems(_ref) {
+  var sets = _ref.sets,
+      active = _ref.active,
+      activeArray = _ref.activeArray,
+      toggler = _ref.toggler;
+  return React.createElement(
+    Collection,
+    { active: active },
+    sets.map(function (set, index) {
       return React.createElement(
-        'ul',
-        { style: { display: this.props.show ? "flex" : "none", padding: 0, listStyle: "none", flexDirection: "column", justifyContent: "start", alignItems: "start" } },
+        Season,
+        { key: set.name, onClick: function onClick(e) {
+            toggler(e, index);
+          } },
+        set.name,
         React.createElement(
-          'li',
-          { style: { display: "inline-block", width: "100%", height: "8vmin", backgroundColor: "#f1f1f1", padding: "0 3vmax", marginTop: "1vmax" } },
-          React.createElement(
-            Link,
-            { to: '/collections', style: { display: "inline-block", width: "100%", textDecoration: "none" } },
-            'a'
-          )
-        ),
-        React.createElement(
-          'li',
-          { style: { display: "list-item", width: "100%", height: "8vmin", backgroundColor: "#f1f1f1", padding: "0 3vmax", marginTop: "1vmax" } },
-          React.createElement(
-            Link,
-            { to: '/collections', style: { display: "inline-block", width: "100%", textDecoration: "none" } },
-            'b'
-          )
-        ),
-        React.createElement(
-          'li',
-          { style: { display: "list-item", width: "100%", height: "8vmin", backgroundColor: "#f1f1f1", padding: "0 3vmax", marginTop: "1vmax" } },
-          React.createElement(
-            Link,
-            { to: '/collections', style: { display: "inline-block", width: "100%", textDecoration: "none" } },
-            'c'
-          )
-        ),
-        React.createElement(
-          'li',
-          { style: { display: "list-item", width: "100%", height: "8vmin", backgroundColor: "#f1f1f1", padding: "0 3vmax", marginTop: "1vmax" } },
-          React.createElement(
-            Link,
-            { to: '/collections', style: { display: "inline-block", width: "100%", textDecoration: "none" } },
-            'd'
-          )
+          Darab,
+          { show: activeArray[index] },
+          set.sets.map(function (elem) {
+            return React.createElement(
+              'li',
+              { key: index, style: { display: "list-item", width: "100%", height: "8vmin", backgroundColor: "#f1f1f1", padding: "0 3vmax", marginTop: "1vmax" } },
+              React.createElement(
+                Link,
+                { to: '/collections/_' + set.name + '/' + elem, style: { display: "inline-block", width: "100%", textDecoration: "none" } },
+                elem
+              )
+            );
+          })
         )
       );
-    }
-  }]);
+    })
+  );
+};
 
-  return Darabok;
-}(React.Component);
+var MakeActiveArray = function MakeActiveArray(array) {
+  array.map(function (item) {
+    return 0;
+  });
+};
 
-var Season = function (_React$Component2) {
-  _inherits(Season, _React$Component2);
-
-  function Season() {
-    _classCallCheck(this, Season);
-
-    return _possibleConstructorReturn(this, (Season.__proto__ || Object.getPrototypeOf(Season)).apply(this, arguments));
-  }
-
-  _createClass(Season, [{
-    key: 'render',
-    value: function render() {
-      var _this3 = this;
-
-      return React.createElement(
-        'li',
-        { style: { backgroundColor: "#f1f1f1", fontWeight: "bold", display: "inline-block", textAlign: "center", width: "100%" },
-          onClick: function onClick(e) {
-            _this3.props.toggler(e, _this3.props.index);
-          } },
-        this.props.text,
-        React.createElement(Darabok, { show: this.props.activeArray[this.props.index] })
-      );
-    }
-  }]);
-
-  return Season;
-}(React.Component);
-
-var Collection = function (_React$Component3) {
-  _inherits(Collection, _React$Component3);
-
-  function Collection() {
-    _classCallCheck(this, Collection);
-
-    return _possibleConstructorReturn(this, (Collection.__proto__ || Object.getPrototypeOf(Collection)).apply(this, arguments));
-  }
-
-  _createClass(Collection, [{
-    key: 'render',
-    value: function render() {
-      return React.createElement(
-        'ul',
-        { style: { padding: 0, display: this.props.active ? "flex" : "none", listStyle: "none", flexDirection: "column", justifyContent: "start", alignItems: "center" } },
-        React.createElement(Season, { index: 0, toggler: this.props.toggler, text: '2015', activeArray: this.props.activeArray }),
-        React.createElement(Season, { index: 1, toggler: this.props.toggler, text: '2016', activeArray: this.props.activeArray }),
-        React.createElement(Season, { index: 2, toggler: this.props.toggler, text: '2017', activeArray: this.props.activeArray }),
-        React.createElement(Season, { index: 3, toggler: this.props.toggler, text: '2018', activeArray: this.props.activeArray })
-      );
-    }
-  }]);
-
-  return Collection;
-}(React.Component);
-
-var MobileCollections = function (_React$Component4) {
-  _inherits(MobileCollections, _React$Component4);
+var MobileCollections = function (_React$Component) {
+  _inherits(MobileCollections, _React$Component);
 
   function MobileCollections(props) {
     _classCallCheck(this, MobileCollections);
 
-    var _this5 = _possibleConstructorReturn(this, (MobileCollections.__proto__ || Object.getPrototypeOf(MobileCollections)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (MobileCollections.__proto__ || Object.getPrototypeOf(MobileCollections)).call(this, props));
 
-    _this5.state = {
+    _this.state = {
       on: false,
       show: false,
-      activeArray: [0, 0, 0, 0],
-      colors: ["#254fa0", "#e25f86", "#ee8788", "#a5adb6"]
+      activeArray: _this.props.sets.map(function (item) {
+        return 0;
+      })
     };
-    _this5.clickHandler = _this5.clickHandler.bind(_this5);
-    _this5.toggler = _this5.toggler.bind(_this5);
-    return _this5;
+    _this.clickHandler = _this.clickHandler.bind(_this);
+    _this.toggler = _this.toggler.bind(_this);
+    return _this;
   }
 
   _createClass(MobileCollections, [{
@@ -39860,10 +39833,14 @@ var MobileCollections = function (_React$Component4) {
       if (this.state.activeArray[id] === 1) {
         console.log(typeof id === 'undefined' ? 'undefined' : _typeof(id));
         this.setState({
-          activeArray: [0, 0, 0, 0]
+          activeArray: this.props.sets.map(function (item) {
+            return 0;
+          })
         });
       } else {
-        var arr = [0, 0, 0, 0];
+        var arr = this.props.sets.map(function (item) {
+          return 0;
+        });
         arr[id] = 1;
         this.setState({
           activeArray: arr
@@ -39892,7 +39869,7 @@ var MobileCollections = function (_React$Component4) {
           { style: { display: "block" } },
           'Collections'
         ),
-        React.createElement(Collection, { active: this.state.on, activeArray: this.state.activeArray, toggler: this.toggler, colors: this.state.colors })
+        React.createElement(MobileMenuItems, { sets: this.props.sets, active: this.state.on, activeArray: this.state.activeArray, toggler: this.toggler })
       );
     }
   }]);

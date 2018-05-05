@@ -139,7 +139,7 @@ class Menu extends React.Component{
           <li style ={linkStyle}>
             <Link to="/" style={{display: "block"}}>Home</Link>
           </li>
-            <MobileCollections/>
+            <MobileCollections sets={this.props.sets}/>
           <li style ={linkStyle}>
             <Link to="/videos" style={{display: "block"}}>Videos</Link>
           </li>
@@ -196,7 +196,7 @@ class Mobile extends React.Component{
       <div>
         <Hamburger handleMouseDown = {this.handleMouseDown}/>
         <Menu handleMouseDown = {this.handleMouseDown}
-          menuVisibility= {this.state.visible}/>
+          menuVisibility= {this.state.visible} sets={this.props.sets}/>
       </div>
     )
   }
@@ -243,7 +243,7 @@ class Nav extends React.Component{
     return (
       <NewWrapper>
         <MediaQuery maxWidth={760}>
-          <Mobile />
+          <Mobile sets={this.props.sets}/>
         </MediaQuery>
         <MediaQuery minWidth={760}>
           <Desktop>

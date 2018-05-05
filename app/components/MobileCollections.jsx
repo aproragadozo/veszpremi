@@ -3,35 +3,39 @@ var {Link} = require('react-router-dom');
 
 import styled from 'styled-components';
 
-class Darabok extends React.Component{
-  render() {
-    return (
-      <ul style={{display: this.props.show?"flex":"none", padding: 0, listStyle:"none", flexDirection: "column", justifyContent:"start", alignItems:"start"}}>
-        <li style={{display: "inline-block", width: "100%", height: "8vmin", backgroundColor: "#f1f1f1", padding: "0 3vmax", marginTop: "1vmax"}}>
-          <Link to="/collections" style={{display:"inline-block", width:"100%", textDecoration: "none"}}>a</Link>
-        </li>
-        <li style={{display: "list-item", width: "100%", height: "8vmin", backgroundColor: "#f1f1f1", padding: "0 3vmax", marginTop: "1vmax"}}>
-          <Link to="/collections" style={{display:"inline-block", width:"100%", textDecoration: "none"}}>b</Link>
-        </li>
-        <li style={{display: "list-item", width: "100%", height: "8vmin", backgroundColor: "#f1f1f1", padding: "0 3vmax", marginTop: "1vmax"}}>
-          <Link to="/collections" style={{display:"inline-block", width:"100%", textDecoration: "none"}}>c</Link>
-        </li>
-        <li style={{display: "list-item", width: "100%", height: "8vmin", backgroundColor: "#f1f1f1", padding: "0 3vmax", marginTop: "1vmax"}}>
-          <Link to="/collections" style={{display:"inline-block", width:"100%", textDecoration: "none"}}>d</Link>
-        </li>
-      </ul>
-    )
-    
-  }
-}
+const Darab = styled.ul`
+  display: ${props => props.show ? 'flex' : 'none'};
+  padding: 0;
+  list-style: none;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+`;
 
+const Season = styled.li`
+  background-color: #f1f1f1;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+`;
+
+const Collection = styled.ul`
+  padding: 0;
+  display: ${props => props.active ? 'flex' : 'none'};
+  list-style: none;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;  
+`;
+/*
 class Season extends React.Component{
   render() {
     return (
       <li style={{backgroundColor: "#f1f1f1", fontWeight: "bold", display: "inline-block", textAlign: "center", width: "100%"}}
           onClick={(e) => {this.props.toggler(e, this.props.index)}}>
           {this.props.text}
-          <Darabok show={this.props.activeArray[this.props.index]}/>
+          <Darab show={this.props.activeArray[this.props.index]}/>
         </li>
     )
   }
@@ -49,6 +53,30 @@ class Collection extends React.Component{
     )
   }
 }
+*/
+
+/*  just as in the Dropdown comp, here's a func component
+    that maps the collection sets and subsets to nested menus and submenus  */
+const MobileMenuItems = ({sets, active, activeArray, toggler}) => (
+  <Collection active={active}>
+    {
+      sets.map((set, index) => (
+        <Season key={set.name} onClick={(e) => {toggler(e, index)}}>
+          {set.name}
+          <Darab show={activeArray[index]}>
+          {set.sets.map(elem => (
+            <li key={index} style={{display: "list-item", width: "100%", height: "8vmin", backgroundColor: "#f1f1f1", padding: "0 3vmax", marginTop: "1vmax"}}>
+              <Link to={`/collections/_${set.name}/${elem}`} style={{display:"inline-block", width:"100%", textDecoration: "none"}}>{elem}</Link>
+            </li>
+          ))}
+          </Darab>
+        </Season>
+      ))
+    }
+  </Collection>
+);
+
+const MakeActiveArray = (array) => {array.map(item => 0)};
 
 class MobileCollections extends React.Component{
   constructor(props) {
@@ -56,8 +84,7 @@ class MobileCollections extends React.Component{
     this.state = {
       on: false,
       show: false,
-      activeArray: [0, 0, 0, 0],
-      colors: ["#254fa0", "#e25f86", "#ee8788", "#a5adb6"]
+      activeArray: this.props.sets.map(item => 0)
     }
     this.clickHandler = this.clickHandler.bind(this);
     this.toggler = this.toggler.bind(this);
@@ -68,11 +95,11 @@ class MobileCollections extends React.Component{
     if(this.state.activeArray[id] === 1) {
       console.log(typeof id);
       this.setState({
-        activeArray: [0, 0, 0, 0]
+        activeArray: this.props.sets.map(item => 0)
       })
     }
     else {
-      var arr = [0, 0, 0, 0];
+      var arr = this.props.sets.map(item => 0);
       arr[id] = 1;
       this.setState({
         activeArray: arr
@@ -91,7 +118,7 @@ class MobileCollections extends React.Component{
     return (
       <li style={{width: "100vw", height: "8vmin", textAlign: "center", cursor: "pointer", display: "inline"}} onClick={this.clickHandler}>
         <span style={{display: "block"}}>Collections</span>
-        <Collection active={this.state.on} activeArray={this.state.activeArray} toggler={this.toggler} colors={this.state.colors}/>
+        <MobileMenuItems sets={this.props.sets} active={this.state.on} activeArray={this.state.activeArray} toggler={this.toggler}/>
       </li>
     )
   }
