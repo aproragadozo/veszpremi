@@ -136,15 +136,15 @@ class Menu extends React.Component{
       <div style={style}>
         <Hamburger handleMouseDown = {this.props.handleMouseDown}/>
         <ul style={{width: "100%"}}>
-          <li style ={linkStyle}>
-            <Link to="/" style={{display: "block"}}>Home</Link>
-          </li>
             <MobileCollections sets={this.props.sets}/>
           <li style ={linkStyle}>
             <Link to="/videos" style={{display: "block"}}>Videos</Link>
           </li>
           <li style ={linkStyle}>
             <Link to="/about" style={{display: "block"}}>About</Link>
+          </li>
+          <li style ={linkStyle}>
+            <Link to="/contact" style={{display: "block"}}>Contact</Link>
           </li>
         </ul>
       </div>

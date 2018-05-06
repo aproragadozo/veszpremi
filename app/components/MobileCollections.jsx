@@ -21,6 +21,8 @@ const Season = styled.li`
 `;
 
 const Collection = styled.ul`
+  -webkit-padding-start: 0px;
+  padding-left: 0;
   padding: 0;
   display: ${props => props.active ? 'flex' : 'none'};
   list-style: none;
@@ -28,32 +30,6 @@ const Collection = styled.ul`
   justify-content: start;
   align-items: center;  
 `;
-/*
-class Season extends React.Component{
-  render() {
-    return (
-      <li style={{backgroundColor: "#f1f1f1", fontWeight: "bold", display: "inline-block", textAlign: "center", width: "100%"}}
-          onClick={(e) => {this.props.toggler(e, this.props.index)}}>
-          {this.props.text}
-          <Darab show={this.props.activeArray[this.props.index]}/>
-        </li>
-    )
-  }
-}
-
-class Collection extends React.Component{
-  render() {
-    return (
-      <ul style={{padding: 0, display: this.props.active?"flex":"none", listStyle:"none", flexDirection: "column", justifyContent:"start", alignItems: "center"}}>
-        <Season index={0} toggler={this.props.toggler} text="2015" activeArray={this.props.activeArray} />
-        <Season index={1} toggler={this.props.toggler} text="2016" activeArray={this.props.activeArray} />
-        <Season index={2} toggler={this.props.toggler} text="2017" activeArray={this.props.activeArray} />
-        <Season index={3} toggler={this.props.toggler} text="2018" activeArray={this.props.activeArray} />
-      </ul>
-    )
-  }
-}
-*/
 
 /*  just as in the Dropdown comp, here's a func component
     that maps the collection sets and subsets to nested menus and submenus  */

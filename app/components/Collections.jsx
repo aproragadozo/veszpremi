@@ -168,15 +168,20 @@ class Collections extends React.Component{
            <CollectionWrapper>
                <CollectionDetails/>
                <MediaQuery maxWidth={760}>
-                <MobileCarousel/>
+                <MobileCarousel
+                    selectedSet={this.state.selectedSet}
+                    currentIndex={this.state.currentIndex}
+                    direction={this.state.direction}
+                    kattBalra={this.kattBalra}
+                    kattJobbra={this.kattJobbra}/>
                </MediaQuery>
                <MediaQuery minWidth={760}>
-                    <DesktopCarousel
-                        selectedSet={this.state.selectedSet}
-                        currentIndex={this.state.currentIndex}
-                        direction={this.state.direction}
-                        kattBalra={this.kattBalra}
-                        kattJobbra={this.kattJobbra}/>
+                <DesktopCarousel
+                    selectedSet={this.state.selectedSet}
+                    currentIndex={this.state.currentIndex}
+                    direction={this.state.direction}
+                    kattBalra={this.kattBalra}
+                    kattJobbra={this.kattJobbra}/>
                </MediaQuery>
            </CollectionWrapper>
        )

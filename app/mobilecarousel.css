@@ -1,0 +1,78 @@
+.mobilbal,
+.mobiljobb {
+    z-index: 2;
+}
+
+.mobilbal {
+    display: inline-block;
+    position: absolute;
+    transition: all 1s ease-out;
+    object-fit: cover;
+    object-position: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: -100vw;
+}
+
+.mobiljobb {
+    display: inline-block;
+    position: absolute;
+    transition: all 1s ease-out;
+    object-fit: cover;
+    object-position: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 100vw;
+}
+
+.mobilcenter {
+    left: 0;
+    display: inline-block;
+    position: absolute;
+    transition: all 1s ease-out;
+    object-fit: contain;
+    object-position: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+.left-enter {
+    opacity: 0;
+}
+
+.left-enter.left-enter-active {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.left-leave {
+    opacity: 1;
+    transform: translateX(100vw);
+}
+
+.left-leave.left-leave-active {
+    opacity: 0;
+    /*transform: translateX(100vw);*/
+    transition: opacity 1s ease-out;
+}
+
+.right-enter {
+    opacity: 0;
+}
+
+.right-enter.right-enter-active {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.right-leave {
+    opacity: 1;
+}
+
+.right-leave.right-leave-active {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
