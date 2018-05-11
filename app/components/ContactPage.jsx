@@ -303,10 +303,12 @@ const DetailsWrapper = styled.div`
 	order: 2;
 
 	@media only screen and (min-width: 760px) {
+		left: 1vmax;
 		width: calc(23vw + (77vw / 6));
 		height: 100%;
 		padding-right: 1vmax;
 		position: absolute;
+		max-width: 100%;
 	}
 `;
 
@@ -316,10 +318,13 @@ const MapWrapper = styled.div`
 	max-width: 400px;
 	height: 50%;
 	@media only screen and (min-width: 760px) {
+		display: block;
 		left: calc(25.5vw + (77vw / 6));
 		position: absolute;
 		width: calc((73vw / 6) * 5);
 		height: 100%;
+		max-width: 100%;
+		order: 2;
 	}
 `;
 
@@ -338,6 +343,7 @@ const ContactText2 = styled.div`
 	width: 100%;
 	height: 45%;
 	@media only screen and (min-width: 760px) {
+		display: block;
     height: calc(50% - 1.5vmax);
 	}
 `;
@@ -348,7 +354,8 @@ const ContactText3 = styled.div`
 		background-color: #bbb6b2;
     margin-top: 1.5vmax;
     width: 100%;
-    height: calc(25% - 0.5vmax);
+		height: calc(25% - 0.5vmax);
+		display: block;
 	}
 `;
 
