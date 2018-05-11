@@ -43201,10 +43201,12 @@ module.exports = "/assets/img/6e5a7a2d207b45e2ed7795dc2d4f7305.png";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n\t\n\n\t@media only screen and (min-width: 760px){\n\t\twidth: 100%;\n\t\theight: calc(88vh - (80px + 3vmax));\n\t\tgrid-row: meat;\n\t\tgrid-column: cal / span 6;\n\t\tposition: relative;\n\t}\n'], ['\n\t\n\n\t@media only screen and (min-width: 760px){\n\t\twidth: 100%;\n\t\theight: calc(88vh - (80px + 3vmax));\n\t\tgrid-row: meat;\n\t\tgrid-column: cal / span 6;\n\t\tposition: relative;\n\t}\n']),
-    _templateObject2 = _taggedTemplateLiteral(['\n\t\n\t@media only screen and (min-width: 760px) {\n\t\tbackground-color: #BBB6B2;\n\t\twidth: 100%;\n\t\theight: calc(25% - 0.5vmax);\n\t\tmargin-bottom: 1.5vmax;\n\t}\n'], ['\n\t\n\t@media only screen and (min-width: 760px) {\n\t\tbackground-color: #BBB6B2;\n\t\twidth: 100%;\n\t\theight: calc(25% - 0.5vmax);\n\t\tmargin-bottom: 1.5vmax;\n\t}\n']),
-    _templateObject3 = _taggedTemplateLiteral(['\n\t\n\t@media only screen and (min-width: 760px) {\n\t\tbackground-color: #bbb6b2;\n    width:100%;\n    height: calc(50% - 1.5vmax);\n\t}\n'], ['\n\t\n\t@media only screen and (min-width: 760px) {\n\t\tbackground-color: #bbb6b2;\n    width:100%;\n    height: calc(50% - 1.5vmax);\n\t}\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n\t\n\t@media only screen and (min-width:760px) {\n\t\tbackground-color: #bbb6b2;\n    margin-top: 1.5vmax;\n    width: 100%;\n    height: calc(25% - 0.5vmax);\n\t}\n'], ['\n\t\n\t@media only screen and (min-width:760px) {\n\t\tbackground-color: #bbb6b2;\n    margin-top: 1.5vmax;\n    width: 100%;\n    height: calc(25% - 0.5vmax);\n\t}\n']);
+var _templateObject = _taggedTemplateLiteral(['\n\tgrid-column: wrapperCol 1 / span 6;\n\tgrid-row: wrapperNav 3 / span 10;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\n\t@media only screen and (min-width: 760px){\n\t\twidth: 100%;\n\t\tgrid-row: meat;\n\t\tgrid-column: cal / span 6;\n\t\tposition: relative;\n\t}\n'], ['\n\tgrid-column: wrapperCol 1 / span 6;\n\tgrid-row: wrapperNav 3 / span 10;\n\tdisplay: flex;\n\tflex-direction: column;\n\tjustify-content: center;\n\talign-items: center;\n\n\t@media only screen and (min-width: 760px){\n\t\twidth: 100%;\n\t\tgrid-row: meat;\n\t\tgrid-column: cal / span 6;\n\t\tposition: relative;\n\t}\n']),
+    _templateObject2 = _taggedTemplateLiteral(['\n\tdisplay: flex;\n\twidth: 100%;\n\theight: 50%;\n\tjustify-content: space-around;\n\talign-items: center;\n\tmax-width: 400px;\n\tflex-direction: column;\n\torder: 2;\n\n\t@media only screen and (min-width: 760px) {\n\t\twidth: calc(23vw + (77vw / 6));\n\t\theight: 100%;\n\t\tpadding-right: 1vmax;\n\t\tposition: absolute;\n\t}\n'], ['\n\tdisplay: flex;\n\twidth: 100%;\n\theight: 50%;\n\tjustify-content: space-around;\n\talign-items: center;\n\tmax-width: 400px;\n\tflex-direction: column;\n\torder: 2;\n\n\t@media only screen and (min-width: 760px) {\n\t\twidth: calc(23vw + (77vw / 6));\n\t\theight: 100%;\n\t\tpadding-right: 1vmax;\n\t\tposition: absolute;\n\t}\n']),
+    _templateObject3 = _taggedTemplateLiteral(['\n\torder: 1;\n\twidth: 100%;\n\tmax-width: 400px;\n\theight: 50%;\n\t@media only screen and (min-width: 760px) {\n\t\tleft: calc(25.5vw + (77vw / 6));\n\t\tposition: absolute;\n\t\twidth: calc((73vw / 6) * 5);\n\t\theight: 100%;\n\t}\n'], ['\n\torder: 1;\n\twidth: 100%;\n\tmax-width: 400px;\n\theight: 50%;\n\t@media only screen and (min-width: 760px) {\n\t\tleft: calc(25.5vw + (77vw / 6));\n\t\tposition: absolute;\n\t\twidth: calc((73vw / 6) * 5);\n\t\theight: 100%;\n\t}\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n\theight: 45%;\n\twidth: 100%;\n\tbackground-color: #BBB6B2;\n\t@media only screen and (min-width: 760px) {\n\t\theight: calc(25% - 0.5vmax);\n\t\tmargin-bottom: 1.5vmax;\n\t}\n'], ['\n\theight: 45%;\n\twidth: 100%;\n\tbackground-color: #BBB6B2;\n\t@media only screen and (min-width: 760px) {\n\t\theight: calc(25% - 0.5vmax);\n\t\tmargin-bottom: 1.5vmax;\n\t}\n']),
+    _templateObject5 = _taggedTemplateLiteral(['\n\tbackground-color: #bbb6b2;\n\twidth: 100%;\n\theight: 45%;\n\t@media only screen and (min-width: 760px) {\n    height: calc(50% - 1.5vmax);\n\t}\n'], ['\n\tbackground-color: #bbb6b2;\n\twidth: 100%;\n\theight: 45%;\n\t@media only screen and (min-width: 760px) {\n    height: calc(50% - 1.5vmax);\n\t}\n']),
+    _templateObject6 = _taggedTemplateLiteral(['\n\tdisplay: none;\n\t@media only screen and (min-width:760px) {\n\t\tbackground-color: #bbb6b2;\n    margin-top: 1.5vmax;\n    width: 100%;\n    height: calc(25% - 0.5vmax);\n\t}\n'], ['\n\tdisplay: none;\n\t@media only screen and (min-width:760px) {\n\t\tbackground-color: #bbb6b2;\n    margin-top: 1.5vmax;\n    width: 100%;\n    height: calc(25% - 0.5vmax);\n\t}\n']);
 
 var _reactGmaps = __webpack_require__(234);
 
@@ -43231,94 +43233,271 @@ var React = __webpack_require__(0);
 
 var params = { key: 'AIzaSyA6ZgLxroukIwdGFDxkiHkDGDlwqgCatUE' };
 
+var mapStyle = [{
+		"featureType": "all",
+		"elementType": "labels.text.stroke",
+		"stylers": [{
+				"visibility": "off"
+		}]
+}, {
+		"featureType": "administrative.neighborhood",
+		"elementType": "geometry",
+		"stylers": [{
+				"visibility": "on"
+		}]
+}, {
+		"featureType": "administrative.neighborhood",
+		"elementType": "labels.text.fill",
+		"stylers": [{
+				"color": "#333333"
+		}]
+}, {
+		"featureType": "administrative.land_parcel",
+		"elementType": "geometry",
+		"stylers": [{
+				"visibility": "off"
+		}]
+}, {
+		"featureType": "landscape.natural.landcover",
+		"elementType": "geometry.fill",
+		"stylers": [{
+				"color": "#c04040"
+		}, {
+				"visibility": "on"
+		}]
+}, {
+		"featureType": "landscape.natural.terrain",
+		"elementType": "geometry",
+		"stylers": [{
+				"visibility": "on"
+		}, {
+				"color": "#f63f3f"
+		}]
+}, {
+		"featureType": "poi",
+		"elementType": "labels.text",
+		"stylers": [{
+				"visibility": "off"
+		}]
+}, {
+		"featureType": "poi",
+		"elementType": "labels.icon",
+		"stylers": [{
+				"visibility": "on"
+		}]
+}, {
+		"featureType": "poi.business",
+		"elementType": "geometry",
+		"stylers": [{
+				"visibility": "on"
+		}, {
+				"color": "#ee3030"
+		}]
+}, {
+		"featureType": "poi.business",
+		"elementType": "labels.text",
+		"stylers": [{
+				"visibility": "off"
+		}]
+}, {
+		"featureType": "poi.business",
+		"elementType": "labels.icon",
+		"stylers": [{
+				"visibility": "off"
+		}]
+}, {
+		"featureType": "poi.park",
+		"elementType": "geometry",
+		"stylers": [{
+				"visibility": "on"
+		}, {
+				"color": "#b1c0b1"
+		}]
+}, {
+		"featureType": "poi.place_of_worship",
+		"elementType": "geometry",
+		"stylers": [{
+				"visibility": "off"
+		}]
+}, {
+		"featureType": "poi.place_of_worship",
+		"elementType": "geometry.fill",
+		"stylers": [{
+				"visibility": "on"
+		}]
+}, {
+		"featureType": "poi.place_of_worship",
+		"elementType": "labels.text",
+		"stylers": [{
+				"visibility": "off"
+		}]
+}, {
+		"featureType": "poi.place_of_worship",
+		"elementType": "labels.icon",
+		"stylers": [{
+				"visibility": "off"
+		}]
+}, {
+		"featureType": "road",
+		"elementType": "geometry",
+		"stylers": [{
+				"visibility": "simplified"
+		}]
+}, {
+		"featureType": "road",
+		"elementType": "labels",
+		"stylers": [{
+				"visibility": "off"
+		}]
+}, {
+		"featureType": "road",
+		"elementType": "labels.text",
+		"stylers": [{
+				"visibility": "off"
+		}]
+}, {
+		"featureType": "road.local",
+		"elementType": "labels.text",
+		"stylers": [{
+				"weight": 0.5
+		}, {
+				"color": "#333333"
+		}]
+}, {
+		"featureType": "transit.station",
+		"elementType": "geometry",
+		"stylers": [{
+				"visibility": "on"
+		}]
+}, {
+		"featureType": "transit.station",
+		"elementType": "geometry.fill",
+		"stylers": [{
+				"visibility": "on"
+		}, {
+				"color": "#a39797"
+		}]
+}, {
+		"featureType": "transit.station",
+		"elementType": "labels.icon",
+		"stylers": [{
+				"gamma": 1
+		}, {
+				"saturation": 50
+		}]
+}, {
+		"featureType": "transit.station.rail",
+		"elementType": "geometry",
+		"stylers": [{
+				"visibility": "on"
+		}, {
+				"color": "#cbc2c2"
+		}]
+}, {
+		"featureType": "water",
+		"elementType": "all",
+		"stylers": [{
+				"visibility": "on"
+		}, {
+				"saturation": 50
+		}, {
+				"hue": "#50a5d1"
+		}]
+}, {
+		"featureType": "water",
+		"elementType": "geometry",
+		"stylers": [{
+				"color": "#bbd9e4"
+		}]
+}];
+
 var ContactWrapper = _styledComponents2.default.div(_templateObject);
 
-var ContactText1 = _styledComponents2.default.div(_templateObject2);
+var DetailsWrapper = _styledComponents2.default.div(_templateObject2);
 
-var ContactText2 = _styledComponents2.default.div(_templateObject3);
+var MapWrapper = _styledComponents2.default.div(_templateObject3);
 
-var ContactText3 = _styledComponents2.default.div(_templateObject4);
+var ContactText1 = _styledComponents2.default.div(_templateObject4);
+
+var ContactText2 = _styledComponents2.default.div(_templateObject5);
+
+var ContactText3 = _styledComponents2.default.div(_templateObject6);
 
 var ContactDetails = function ContactDetails() {
-	return React.createElement(
-		'div',
-		{
-			style: {
-				display: 'flex',
-				width: 'calc(23vw + (77vw / 6))',
-				height: '100%',
-				flexDirection: 'column',
-				paddingRight: '1vmax',
-				position: 'absolute'
-			} },
-		React.createElement(ContactText1, null),
-		React.createElement(ContactText2, null),
-		React.createElement(ContactText3, null)
-	);
+		return React.createElement(
+				DetailsWrapper,
+				null,
+				React.createElement(ContactText1, null),
+				React.createElement(ContactText2, null),
+				React.createElement(ContactText3, null)
+		);
 };
 
 var Map = function (_React$Component) {
-	_inherits(Map, _React$Component);
+		_inherits(Map, _React$Component);
 
-	function Map() {
-		_classCallCheck(this, Map);
+		function Map() {
+				_classCallCheck(this, Map);
 
-		return _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).apply(this, arguments));
-	}
-
-	_createClass(Map, [{
-		key: 'onMapCreated',
-		value: function onMapCreated(map) {
-			map.setOptions({
-				disableDefaultUI: true
-			});
+				return _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).apply(this, arguments));
 		}
-	}, {
-		key: 'render',
-		value: function render() {
-			return React.createElement(
-				'div',
-				{ style: {
-						left: 'calc(25.5vw + (77vw / 6))',
-						position: 'absolute', width: 'calc((73vw / 6) * 5)', height: '100%' } },
-				React.createElement(_reactGmaps.Gmaps, {
-					width: '100%',
-					height: '100%',
-					zoom: 11,
-					onMapCreated: this.onMapCreated,
-					lat: 47.48561696,
-					lng: 19.05474039,
-					params: params
-				})
-			);
-		}
-	}]);
 
-	return Map;
+		_createClass(Map, [{
+				key: 'onMapCreated',
+				value: function onMapCreated(map) {
+						map.setOptions({
+								disableDefaultUI: true
+						});
+				}
+		}, {
+				key: 'render',
+				value: function render() {
+						return React.createElement(
+								MapWrapper,
+								null,
+								React.createElement(
+										_reactGmaps.Gmaps,
+										{
+												width: '100%',
+												height: '100%',
+												zoom: 15,
+												onMapCreated: this.onMapCreated,
+												lat: 47.494433,
+												lng: 19.052492,
+												styles: mapStyle,
+												params: params
+										},
+										React.createElement(_reactGmaps.Marker, { lat: 47.494433, lng: 19.052492, title: 'Showroom' })
+								)
+						);
+				}
+		}]);
+
+		return Map;
 }(React.Component);
 
 var ContactPage = function (_React$Component2) {
-	_inherits(ContactPage, _React$Component2);
+		_inherits(ContactPage, _React$Component2);
 
-	function ContactPage() {
-		_classCallCheck(this, ContactPage);
+		function ContactPage() {
+				_classCallCheck(this, ContactPage);
 
-		return _possibleConstructorReturn(this, (ContactPage.__proto__ || Object.getPrototypeOf(ContactPage)).apply(this, arguments));
-	}
-
-	_createClass(ContactPage, [{
-		key: 'render',
-		value: function render() {
-			return React.createElement(
-				ContactWrapper,
-				null,
-				React.createElement(ContactDetails, null),
-				React.createElement(Map, null)
-			);
+				return _possibleConstructorReturn(this, (ContactPage.__proto__ || Object.getPrototypeOf(ContactPage)).apply(this, arguments));
 		}
-	}]);
 
-	return ContactPage;
+		_createClass(ContactPage, [{
+				key: 'render',
+				value: function render() {
+						return React.createElement(
+								ContactWrapper,
+								null,
+								React.createElement(ContactDetails, null),
+								React.createElement(Map, null)
+						);
+				}
+		}]);
+
+		return ContactPage;
 }(React.Component);
 
 module.exports = ContactPage;
