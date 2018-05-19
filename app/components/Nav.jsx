@@ -251,6 +251,7 @@ class Nav extends React.Component{
             <Link to="/videos">Videos</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
+            <Link to="/press">Press</Link>
           </Desktop>
         </MediaQuery>
       </NewWrapper>

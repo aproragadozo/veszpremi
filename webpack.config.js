@@ -24,7 +24,8 @@ module.exports = {
             MobileCarousel: 'app/components/MobileCarousel.jsx',
             DesktopVideos: 'app/components/DesktopVideos.jsx',
             MobileVideos: 'app/components/MobileVideos.jsx',
-            ContactPage: 'app/components/ContactPage.jsx'
+            ContactPage: 'app/components/ContactPage.jsx',
+            Press: 'app/components/Press.jsx'
         },
         extensions: ['*', '.js', '.jsx']
     },
