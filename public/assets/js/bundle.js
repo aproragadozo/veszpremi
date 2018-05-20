@@ -76,200 +76,10 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(50);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
-
-// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-
-
-/***/ }),
-/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2328,7 +2138,197 @@ var styled = _styled(StyledComponent, constructWithOptions);
 /* harmony default export */ __webpack_exports__["default"] = (styled);
 //# sourceMappingURL=styled-components.browser.es.js.map
 
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(1), __webpack_require__(87)(module)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2), __webpack_require__(87)(module)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
 
 /***/ }),
 /* 3 */
@@ -2396,7 +2396,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 4 */
@@ -2431,7 +2431,7 @@ if (process.env.NODE_ENV !== 'production') {
   module.exports = __webpack_require__(61)();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 5 */
@@ -2490,7 +2490,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 6 */
@@ -2748,7 +2748,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 10 */
@@ -2772,7 +2772,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 11 */
@@ -2841,7 +2841,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 12 */
@@ -4447,7 +4447,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 21 */
@@ -4512,7 +4512,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(54);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 23 */
@@ -5099,7 +5099,7 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 31 */
@@ -6046,7 +6046,7 @@ var _require = __webpack_require__(8),
     HashRouter = _require.HashRouter,
     Link = _require.Link;
 
-var _require2 = __webpack_require__(2),
+var _require2 = __webpack_require__(1),
     styled = _require2.styled;
 
 // var Main = require('Main');
@@ -7451,7 +7451,7 @@ module.exports = react;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 51 */
@@ -23145,7 +23145,7 @@ module.exports = reactDom;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 55 */
@@ -23918,7 +23918,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 61 */
@@ -28780,7 +28780,7 @@ var _templateObject = _taggedTemplateLiteral(['\n        height: 96vh;\n        
 
 var _reactRouterDom = __webpack_require__(8);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -28866,7 +28866,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _templateObject = _taggedTemplateLiteral(['\n  display: grid;\n  grid-gap: 1vmax;\n  grid-row: wrapperNav 1 / span 2;\n  grid-column: wrapperCol 1 / span 6;\n  grid-template-rows: repeat(2, [navButton] 1fr);\n  grid-template-columns: [logo] 50vw repeat(3, [navButton] 1fr);\n\n@media only screen and (min-width: 760px) {\n  grid-row: top;\n  grid-column: cal / span 6;\n  grid-template-rows: repeat(2, [row] 1fr);\n  grid-template-columns: [logo] 22vw [spacer] 1fr;\n}\n'], ['\n  display: grid;\n  grid-gap: 1vmax;\n  grid-row: wrapperNav 1 / span 2;\n  grid-column: wrapperCol 1 / span 6;\n  grid-template-rows: repeat(2, [navButton] 1fr);\n  grid-template-columns: [logo] 50vw repeat(3, [navButton] 1fr);\n\n@media only screen and (min-width: 760px) {\n  grid-row: top;\n  grid-column: cal / span 6;\n  grid-template-rows: repeat(2, [row] 1fr);\n  grid-template-columns: [logo] 22vw [spacer] 1fr;\n}\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n  /* background-color: #050505; */\n  grid-row: navButton 1 / span 2;\n  grid-column: logo;\n\n  @media only screen and (min-width: 760px) {\n    grid-row: row 1 / span 2;\n}\n'], ['\n  /* background-color: #050505; */\n  grid-row: navButton 1 / span 2;\n  grid-column: logo;\n\n  @media only screen and (min-width: 760px) {\n    grid-row: row 1 / span 2;\n}\n']);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -28939,7 +28939,7 @@ var _reactResponsive = __webpack_require__(16);
 
 var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -29242,7 +29242,7 @@ var _templateObject = _taggedTemplateLiteral(['\n  display: ', ';\n  padding: 0;
     _templateObject2 = _taggedTemplateLiteral(['\n  background-color: #f1f1f1;\n  font-weight: bold;\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n'], ['\n  background-color: #f1f1f1;\n  font-weight: bold;\n  display: inline-block;\n  text-align: center;\n  width: 100%;\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n  -webkit-padding-start: 0px;\n  padding-left: 0;\n  padding: 0;\n  display: ', ';\n  list-style: none;\n  flex-direction: column;\n  justify-content: start;\n  align-items: center;  \n'], ['\n  -webkit-padding-start: 0px;\n  padding-left: 0;\n  padding: 0;\n  display: ', ';\n  list-style: none;\n  flex-direction: column;\n  justify-content: start;\n  align-items: center;  \n']);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -29403,7 +29403,7 @@ var _templateObject = _taggedTemplateLiteral(['\n  background-color: transparent
     _templateObject3 = _taggedTemplateLiteral(['\n  position: relative;\n  margin: 0.5vmax 0 0 0;\n  direction: ltr;\n  list-style-type: none;\n  background-color: #f1f1f1;\n  width: 180px;\n  transition-property: font-weight, font-size;\n  transition-duration: 0.3s;\n'], ['\n  position: relative;\n  margin: 0.5vmax 0 0 0;\n  direction: ltr;\n  list-style-type: none;\n  background-color: #f1f1f1;\n  width: 180px;\n  transition-property: font-weight, font-size;\n  transition-duration: 0.3s;\n']),
     _templateObject4 = _taggedTemplateLiteral(['\n  display: none;\n  position: absolute;\n  /*left: -6.5vmax;*/\n  top: 0;\n  background-color: transparent;\n  padding: 0.5vmax 1vmax;\n  height: 5vmax;\n  direction: rtl;\n  unicode-bidi: bidi-override;\n  z-index: 45;\n  text-decoration: none;\n  \n\n  a:hover {\n    font-weight: bold;\n    font-size: larger;\n  }\n\n  ', ':hover & {\n    display: block;\n  }\n'], ['\n  display: none;\n  position: absolute;\n  /*left: -6.5vmax;*/\n  top: 0;\n  background-color: transparent;\n  padding: 0.5vmax 1vmax;\n  height: 5vmax;\n  direction: rtl;\n  unicode-bidi: bidi-override;\n  z-index: 45;\n  text-decoration: none;\n  \n\n  a:hover {\n    font-weight: bold;\n    font-size: larger;\n  }\n\n  ', ':hover & {\n    display: block;\n  }\n']);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -29503,7 +29503,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n        grid-row: wrapperNav 3 / span 9;\n        grid-column: wrapperCol 1 / span 6;\n        background-size: cover;\n        background-position: center;\n        background-repeat: no-repeat;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: meat;\n            grid-column: cal / span 7;\n        }\n    '], ['\n        grid-row: wrapperNav 3 / span 9;\n        grid-column: wrapperCol 1 / span 6;\n        background-size: cover;\n        background-position: center;\n        background-repeat: no-repeat;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: meat;\n            grid-column: cal / span 7;\n        }\n    ']);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -29557,7 +29557,7 @@ var _templateObject = _taggedTemplateLiteral(['\n  display: grid;\n  grid-column
     _templateObject5 = _taggedTemplateLiteral(['\n  display: grid;\n  grid-row: sor 1;\n  grid-column: oszlop 1;\n  background-color: transparent;\n\n  @media only screen and (min-width: 760px) {\n    display: grid;\n    grid-row: sor 1 / span 4;\n    grid-column: oszlop 15 / span 6;\n    grid-template-rows: repeat(4, [sor] 1fr);\n    grid-template-columns: repeat(4, [oszlop] 1fr);\n  }\n'], ['\n  display: grid;\n  grid-row: sor 1;\n  grid-column: oszlop 1;\n  background-color: transparent;\n\n  @media only screen and (min-width: 760px) {\n    display: grid;\n    grid-row: sor 1 / span 4;\n    grid-column: oszlop 15 / span 6;\n    grid-template-rows: repeat(4, [sor] 1fr);\n    grid-template-columns: repeat(4, [oszlop] 1fr);\n  }\n']),
     _templateObject6 = _taggedTemplateLiteral(['\n  display: block;\n  width: 100%;\n  height: 100%;\n  background-color: papayawhip;\n\n  @media only screen and (min-width: 760px) {\n    display: grid;\n    grid-row: sor 2 / span 2;\n    grid-column: oszlop 2 / span 2;\n  }\n'], ['\n  display: block;\n  width: 100%;\n  height: 100%;\n  background-color: papayawhip;\n\n  @media only screen and (min-width: 760px) {\n    display: grid;\n    grid-row: sor 2 / span 2;\n    grid-column: oszlop 2 / span 2;\n  }\n']);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -29627,7 +29627,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n        display: grid;\n        grid-column: wrapperCol 1 / span 6;\n        grid-row: wrapperNav 3 / span 10;\n        grid-template-rows: [sor] 1fr;\n        grid-template-columns: [oszlop] 1fr;\n\n    @media only screen and (min-width: 760px) {\n        grid-row: meat;\n        grid-column: cal / span 7;\n        grid-template-columns: [details] 35vw repeat(4, [meatCol] 1fr);\n        grid-template-rows: [sorr] 1fr;\n        grid-gap: 1.5vmax;\n    }\n    '], ['\n        display: grid;\n        grid-column: wrapperCol 1 / span 6;\n        grid-row: wrapperNav 3 / span 10;\n        grid-template-rows: [sor] 1fr;\n        grid-template-columns: [oszlop] 1fr;\n\n    @media only screen and (min-width: 760px) {\n        grid-row: meat;\n        grid-column: cal / span 7;\n        grid-template-columns: [details] 35vw repeat(4, [meatCol] 1fr);\n        grid-template-rows: [sorr] 1fr;\n        grid-gap: 1.5vmax;\n    }\n    ']);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -30061,7 +30061,7 @@ CSSTransitionGroup.defaultProps = defaultProps;
 
 exports.default = CSSTransitionGroup;
 module.exports = exports['default'];
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 106 */
@@ -30337,7 +30337,7 @@ TransitionGroup.defaultProps = defaultProps;
 
 exports.default = TransitionGroup;
 module.exports = exports['default'];
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 107 */
@@ -30696,7 +30696,7 @@ CSSTransitionGroupChild.propTypes = process.env.NODE_ENV !== "production" ? prop
 
 exports.default = CSSTransitionGroupChild;
 module.exports = exports['default'];
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 110 */
@@ -30941,7 +30941,7 @@ var _templateObject = _taggedTemplateLiteral(['\n        display: none;\n\n     
     _templateObject3 = _taggedTemplateLiteral(['\n        background-color: #BBB6B2;\n        grid-row: sor 2 / span 2;\n        grid-column: oszlop;\n        margin-left: 1vw;\n    '], ['\n        background-color: #BBB6B2;\n        grid-row: sor 2 / span 2;\n        grid-column: oszlop;\n        margin-left: 1vw;\n    ']),
     _templateObject4 = _taggedTemplateLiteral(['\n        background-color: #BBB6B2;\n        grid-row: sor 4;\n        grid-column: oszlop;\n        margin-left: 1vw;\n    '], ['\n        background-color: #BBB6B2;\n        grid-row: sor 4;\n        grid-column: oszlop;\n        margin-left: 1vw;\n    ']);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -30999,7 +30999,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n  display: grid;\n  position: relative;\n  grid-row: sorr;\n  grid-column: meatCol 1 / span 4;\n  grid-column-gap: 1.5vmax;\n  grid-row-gap: 3.5vmax;\n  margin-left: 1vmax;\n'], ['\n  display: grid;\n  position: relative;\n  grid-row: sorr;\n  grid-column: meatCol 1 / span 4;\n  grid-column-gap: 1.5vmax;\n  grid-row-gap: 3.5vmax;\n  margin-left: 1vmax;\n']);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -31094,7 +31094,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n  position: absolute;\n  width: 15%;\n  height: 100%;\n  z-index:3;\n  opacity:0.3;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 20vmin;\n  text-align: center;\n'], ['\n  position: absolute;\n  width: 15%;\n  height: 100%;\n  z-index:3;\n  opacity:0.3;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 20vmin;\n  text-align: center;\n']);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -32137,7 +32137,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n    grid-column: wrapperCol 1 / span 6;\n    grid-row: wrapperNav 3 / span 10;\n    display: grid;\n    grid-template-rows: repeat(4, [sor] 1fr);\n    grid-template-columns: repeat(20, [oszlop] 1fr);\n\n    @media only screen and (min-width: 760px) {\n        display: grid;\n        grid-row: meat;\n        grid-column: cal / span 7;\n        grid-template-rows: repeat(4, [sor] 1fr);\n        grid-template-columns: repeat(4, [oszlop] 1fr);\n        grid-gap: 1.5vmax;\n        position: relative;       \n    }\n'], ['\n    grid-column: wrapperCol 1 / span 6;\n    grid-row: wrapperNav 3 / span 10;\n    display: grid;\n    grid-template-rows: repeat(4, [sor] 1fr);\n    grid-template-columns: repeat(20, [oszlop] 1fr);\n\n    @media only screen and (min-width: 760px) {\n        display: grid;\n        grid-row: meat;\n        grid-column: cal / span 7;\n        grid-template-rows: repeat(4, [sor] 1fr);\n        grid-template-columns: repeat(4, [oszlop] 1fr);\n        grid-gap: 1.5vmax;\n        position: relative;       \n    }\n']);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -32210,7 +32210,7 @@ var _templateObject = _taggedTemplateLiteral(['\n  grid-column: oszlop;\n  grid-
     _templateObject3 = _taggedTemplateLiteral(['\ndisplay: grid;\n    background-color: #817D7A;\n    grid-row: sor 1 / span 4;\n    grid-column: oszlop 4 / span 14;\n'], ['\ndisplay: grid;\n    background-color: #817D7A;\n    grid-row: sor 1 / span 4;\n    grid-column: oszlop 4 / span 14;\n']),
     _templateObject4 = _taggedTemplateLiteral(['\ndisplay: grid;\n    background-color: #d4d3d3;\n    grid-row: sor 1 / span 4;\n    grid-column: oszlop 18 / span 3;\n'], ['\ndisplay: grid;\n    background-color: #d4d3d3;\n    grid-row: sor 1 / span 4;\n    grid-column: oszlop 18 / span 3;\n']);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -32273,7 +32273,7 @@ var _jquery = __webpack_require__(226);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -43126,7 +43126,7 @@ var _templateObject = _taggedTemplateLiteral(['\ngrid-row: wrapperFooter;\ngrid-
     _templateObject3 = _taggedTemplateLiteral(['\ndisplay: inline-block;\nbackground-size: contain;\nbackground-position: center;\nbackground-repeat: no-repeat;\ngrid-column: c 2;\ngrid-row: r 1;\n\n@media only screen and (min-width: 760px) {\n    grid-column: c 2;\n    grid-row: row;\n}\n'], ['\ndisplay: inline-block;\nbackground-size: contain;\nbackground-position: center;\nbackground-repeat: no-repeat;\ngrid-column: c 2;\ngrid-row: r 1;\n\n@media only screen and (min-width: 760px) {\n    grid-column: c 2;\n    grid-row: row;\n}\n']),
     _templateObject4 = _taggedTemplateLiteral(['\ndisplay: inline-block;\nbackground-size: contain;\nbackground-position: center;\nbackground-repeat: no-repeat;\ngrid-column: c 3;\ngrid-row: r 1;\n\n@media only screen and (min-width: 760px) {\n    grid-column: c 3;\n    grid-row: row;\n}\n'], ['\ndisplay: inline-block;\nbackground-size: contain;\nbackground-position: center;\nbackground-repeat: no-repeat;\ngrid-column: c 3;\ngrid-row: r 1;\n\n@media only screen and (min-width: 760px) {\n    grid-column: c 3;\n    grid-row: row;\n}\n']);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -43217,7 +43217,7 @@ var _templateObject = _taggedTemplateLiteral(['\n\tgrid-column: wrapperCol 1 / s
 
 var _reactGmaps = __webpack_require__(234);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -44617,7 +44617,7 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
 
 module.exports = factory;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
 /* 237 */
@@ -45186,7 +45186,7 @@ var _reactResponsive = __webpack_require__(16);
 
 var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
 
-var _styledComponents = __webpack_require__(2);
+var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
@@ -45204,34 +45204,26 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 var React = __webpack_require__(0);
 
-var PressWrapper = _styledComponents2.default.div(_templateObject);
+var DesktopCardGrid = __webpack_require__(255);
 
+var PressWrapper = _styledComponents2.default.div(_templateObject);
+/*
 function DesktopCardGrid(props) {
-	return React.createElement(
-		'div',
-		{ style: { display: "grid", gridRow: "full", gridColumn: "fill", gridTemplateColumns: "repeat(4, [col] 1fr)", gridTemplateRows: "auto", justifyItems: "center", alignItems: "center" } },
-		props.cards.map(function (card) {
-			return React.createElement(
-				'div',
-				{ className: 'cardContainer' },
-				React.createElement('img', { className: 'cardImage', src: card.image }),
-				React.createElement(
-					'div',
-					{ 'class': 'cardOverlay' },
-					React.createElement(
-						'div',
-						{ 'class': 'cardText' },
-						React.createElement(
-							'a',
-							{ href: card.link },
-							card.text
-						)
-					)
-				)
-			);
-		})
-	);
+	return (
+		<div style={{display: "grid", gridRow: "full", gridColumn: "fill", gridTemplateColumns: "repeat(4, [col] 1fr)", gridTemplateRows: "auto", justifyItems: "center", alignItems: "center"}}>
+			{props.cards.map((card) => (
+				<div className="cardContainer">
+				<img className="cardImage" src={card.image}/>
+					<div class="cardOverlay">
+						<div class="cardText">
+							<a href={card.link}>{card.text}</a>
+						</div>
+					</div>
+				</div>))}
+		</div>
+	)
 }
+*/
 
 var Press = function (_React$Component) {
 	_inherits(Press, _React$Component);
@@ -45245,23 +45237,23 @@ var Press = function (_React$Component) {
 			cards: [{
 				text: 'PS Magazin',
 				link: "http://psmagazin.hu/cikk/magyar_divattervezok_a_ruhakon_tul/",
-				image: __webpack_require__(255)
+				image: __webpack_require__(257)
 			}, {
 				text: 'Styledit',
 				link: "https://www.styledit.hu/igeny-van-mar-a-magyar-designer-cipokre-is-veszpremi-gabival-beszelgettunk-48946",
-				image: __webpack_require__(256)
+				image: __webpack_require__(258)
 			}, {
 				text: "Rebel Live Magazine",
 				link: "https://rebellivemagazine.com/2018/05/12/amikor-a-divat-az-utcai-muveszet-az-irodalom-es-a-zene-talalkozik-urbsart-2018-roma/",
-				image: __webpack_require__(257)
+				image: __webpack_require__(259)
 			}, {
 				text: "Marie Claire",
 				link: "http://marieclaire.hu/divat/2018/04/29/v4-divattervezok-mutatkoznak-be-romaban/",
-				image: __webpack_require__(258)
+				image: __webpack_require__(260)
 			}, {
 				text: "Petőfi Live",
 				link: "https://www.petofilive.hu/barbiblogja/cikk/2018/04/20/hazai-kollekcio-a-fenntarthato-divat-jegyeben/",
-				image: __webpack_require__(259)
+				image: __webpack_require__(261)
 			}]
 		};
 		return _this;
@@ -45349,30 +45341,96 @@ exports.push([module.i, ".cardContainer {\r\n    max-height: 15vw;\r\n    max-wi
 
 /***/ }),
 /* 255 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "/assets/img/2396553516f81e3cd1a47cb39b72a40c.jpg";
+"use strict";
+
+
+var _templateObject = _taggedTemplateLiteral(['\n\tdisplay: grid;\n\tgrid-row: full;\n\tgrid-column: fill;\n\tgrid-template-columns: repeat(4, [col] 1fr);\n\tgrid-template-rows: auto;\n\tjustify-ttems: center;\n\talign-items: center;\n'], ['\n\tdisplay: grid;\n\tgrid-row: full;\n\tgrid-column: fill;\n\tgrid-template-columns: repeat(4, [col] 1fr);\n\tgrid-template-rows: auto;\n\tjustify-ttems: center;\n\talign-items: center;\n']);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var React = __webpack_require__(0);
+
+var Card = __webpack_require__(256);
+
+var StyledGrid = _styledComponents2.default.div(_templateObject);
+
+function DesktopCardGrid(props) {
+	return React.createElement(
+		StyledGrid,
+		null,
+		props.cards.map(function (card) {
+			return React.createElement(Card, { content: card });
+		})
+	);
+}
+module.exports = DesktopCardGrid;
 
 /***/ }),
 /* 256 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "/assets/img/f40215ec96239c291d768960b6f8de56.jpg";
+"use strict";
+
+
+var React = __webpack_require__(0);
+
+function Card(props) {
+	return React.createElement(
+		"div",
+		{ className: "cardContainer" },
+		React.createElement("img", { className: "cardImage", src: props.content.image }),
+		React.createElement(
+			"div",
+			{ "class": "cardOverlay" },
+			React.createElement(
+				"div",
+				{ "class": "cardText" },
+				React.createElement(
+					"a",
+					{ href: props.content.link },
+					props.content.text
+				)
+			)
+		)
+	);
+}
+
+module.exports = Card;
 
 /***/ }),
 /* 257 */
 /***/ (function(module, exports) {
 
-module.exports = "/assets/img/ac5e6e9a3a8a9e07fe7f5bdfb609b7bd.jpg";
+module.exports = "/assets/img/2396553516f81e3cd1a47cb39b72a40c.jpg";
 
 /***/ }),
 /* 258 */
 /***/ (function(module, exports) {
 
-module.exports = "/assets/img/a2230e16d290d4a9e72bdf08615a1b39.jpg";
+module.exports = "/assets/img/f40215ec96239c291d768960b6f8de56.jpg";
 
 /***/ }),
 /* 259 */
+/***/ (function(module, exports) {
+
+module.exports = "/assets/img/ac5e6e9a3a8a9e07fe7f5bdfb609b7bd.jpg";
+
+/***/ }),
+/* 260 */
+/***/ (function(module, exports) {
+
+module.exports = "/assets/img/a2230e16d290d4a9e72bdf08615a1b39.jpg";
+
+/***/ }),
+/* 261 */
 /***/ (function(module, exports) {
 
 module.exports = "/assets/img/bd83a08e964459789480cad855ed6a46.jpg";

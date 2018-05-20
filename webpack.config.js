@@ -25,7 +25,9 @@ module.exports = {
             DesktopVideos: 'app/components/DesktopVideos.jsx',
             MobileVideos: 'app/components/MobileVideos.jsx',
             ContactPage: 'app/components/ContactPage.jsx',
-            Press: 'app/components/Press.jsx'
+            Press: 'app/components/Press.jsx',
+            Card: 'app/components/Card.jsx',
+            DesktopCardGrid: 'app/components/DesktopCardGrid.jsx'
         },
         extensions: ['*', '.js', '.jsx']
     },
