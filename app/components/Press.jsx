@@ -24,23 +24,6 @@ const PressWrapper = styled.div`
 		overflow-y: auto;
   }
 `;
-/*
-function DesktopCardGrid(props) {
-	return (
-		<div style={{display: "grid", gridRow: "full", gridColumn: "fill", gridTemplateColumns: "repeat(4, [col] 1fr)", gridTemplateRows: "auto", justifyItems: "center", alignItems: "center"}}>
-			{props.cards.map((card) => (
-				<div className="cardContainer">
-				<img className="cardImage" src={card.image}/>
-					<div class="cardOverlay">
-						<div class="cardText">
-							<a href={card.link}>{card.text}</a>
-						</div>
-					</div>
-				</div>))}
-		</div>
-	)
-}
-*/
 
 class Press extends React.Component{
 	constructor(props) {

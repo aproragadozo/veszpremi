@@ -2985,171 +2985,6 @@ var createPath = function createPath(location) {
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _createReactClass = __webpack_require__(45);
-
-var _createReactClass2 = _interopRequireDefault(_createReactClass);
-
-var _mixinsListener = __webpack_require__(46);
-
-var _mixinsListener2 = _interopRequireDefault(_mixinsListener);
-
-var _utilsCompareProps = __webpack_require__(47);
-
-var _utilsCompareProps2 = _interopRequireDefault(_utilsCompareProps);
-
-exports['default'] = function (name, latLngProp, events) {
-  return (0, _createReactClass2['default'])({
-
-    mixins: [_mixinsListener2['default']],
-
-    entity: null,
-
-    componentDidMount: function componentDidMount() {
-      var options = this.getOptions(this.props);
-      this.entity = new google.maps[name](options);
-      this.addListeners(this.entity, events);
-    },
-
-    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-      if (!(0, _utilsCompareProps2['default'])(this.props, nextProps)) {
-        var options = this.getOptions(nextProps);
-        this.entity.setOptions(options);
-      }
-    },
-
-    componentWillUnmount: function componentWillUnmount() {
-      this.entity.setMap(null);
-      this.removeListeners();
-      this.entity = null;
-    },
-
-    getEntity: function getEntity() {
-      return this.entity;
-    },
-
-    getOptions: function getOptions(props) {
-      return _extends({}, props, _defineProperty({}, latLngProp, this.switchPaths(name, props)));
-    },
-
-    switchPaths: function switchPaths(name, props) {
-      switch (name) {
-        case 'Polyline':
-          return props.path;
-          break;
-        case 'Polygon':
-          return props.paths;
-          break;
-        default:
-          return new google.maps.LatLng(props.lat, props.lng);
-          break;
-      }
-    },
-
-    render: function render() {
-      return null;
-    }
-  });
-};
-
-module.exports = exports['default'];
-
-/***/ }),
-/* 15 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createLocation; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return locationsAreEqual; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_resolve_pathname__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_value_equal__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PathUtils__ = __webpack_require__(13);
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-
-
-
-
-var createLocation = function createLocation(path, state, key, currentLocation) {
-  var location = void 0;
-  if (typeof path === 'string') {
-    // Two-arg form: push(path, state)
-    location = Object(__WEBPACK_IMPORTED_MODULE_2__PathUtils__["d" /* parsePath */])(path);
-    location.state = state;
-  } else {
-    // One-arg form: push(location)
-    location = _extends({}, path);
-
-    if (location.pathname === undefined) location.pathname = '';
-
-    if (location.search) {
-      if (location.search.charAt(0) !== '?') location.search = '?' + location.search;
-    } else {
-      location.search = '';
-    }
-
-    if (location.hash) {
-      if (location.hash.charAt(0) !== '#') location.hash = '#' + location.hash;
-    } else {
-      location.hash = '';
-    }
-
-    if (state !== undefined && location.state === undefined) location.state = state;
-  }
-
-  try {
-    location.pathname = decodeURI(location.pathname);
-  } catch (e) {
-    if (e instanceof URIError) {
-      throw new URIError('Pathname "' + location.pathname + '" could not be decoded. ' + 'This is likely caused by an invalid percent-encoding.');
-    } else {
-      throw e;
-    }
-  }
-
-  if (key) location.key = key;
-
-  if (currentLocation) {
-    // Resolve incomplete/relative pathname relative to current location.
-    if (!location.pathname) {
-      location.pathname = currentLocation.pathname;
-    } else if (location.pathname.charAt(0) !== '/') {
-      location.pathname = Object(__WEBPACK_IMPORTED_MODULE_0_resolve_pathname__["default"])(location.pathname, currentLocation.pathname);
-    }
-  } else {
-    // When there is no prior location and pathname is empty, set it to /
-    if (!location.pathname) {
-      location.pathname = '/';
-    }
-  }
-
-  return location;
-};
-
-var locationsAreEqual = function locationsAreEqual(a, b) {
-  return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && Object(__WEBPACK_IMPORTED_MODULE_1_value_equal__["default"])(a.state, b.state);
-};
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
 !function(root, factory) {
      true ? module.exports = factory(__webpack_require__(0)) : "function" == typeof define && define.amd ? define([ "react" ], factory) : "object" == typeof exports ? exports.MediaQuery = factory(require("react")) : root.MediaQuery = factory(root.react);
 }("undefined" != typeof self ? self : this, function(__WEBPACK_EXTERNAL_MODULE_8__) {
@@ -3900,6 +3735,171 @@ object-assign
     } ]);
 });
 //# sourceMappingURL=react-responsive.js.map
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _createReactClass = __webpack_require__(45);
+
+var _createReactClass2 = _interopRequireDefault(_createReactClass);
+
+var _mixinsListener = __webpack_require__(46);
+
+var _mixinsListener2 = _interopRequireDefault(_mixinsListener);
+
+var _utilsCompareProps = __webpack_require__(47);
+
+var _utilsCompareProps2 = _interopRequireDefault(_utilsCompareProps);
+
+exports['default'] = function (name, latLngProp, events) {
+  return (0, _createReactClass2['default'])({
+
+    mixins: [_mixinsListener2['default']],
+
+    entity: null,
+
+    componentDidMount: function componentDidMount() {
+      var options = this.getOptions(this.props);
+      this.entity = new google.maps[name](options);
+      this.addListeners(this.entity, events);
+    },
+
+    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+      if (!(0, _utilsCompareProps2['default'])(this.props, nextProps)) {
+        var options = this.getOptions(nextProps);
+        this.entity.setOptions(options);
+      }
+    },
+
+    componentWillUnmount: function componentWillUnmount() {
+      this.entity.setMap(null);
+      this.removeListeners();
+      this.entity = null;
+    },
+
+    getEntity: function getEntity() {
+      return this.entity;
+    },
+
+    getOptions: function getOptions(props) {
+      return _extends({}, props, _defineProperty({}, latLngProp, this.switchPaths(name, props)));
+    },
+
+    switchPaths: function switchPaths(name, props) {
+      switch (name) {
+        case 'Polyline':
+          return props.path;
+          break;
+        case 'Polygon':
+          return props.paths;
+          break;
+        default:
+          return new google.maps.LatLng(props.lat, props.lng);
+          break;
+      }
+    },
+
+    render: function render() {
+      return null;
+    }
+  });
+};
+
+module.exports = exports['default'];
+
+/***/ }),
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createLocation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return locationsAreEqual; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_resolve_pathname__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_value_equal__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PathUtils__ = __webpack_require__(13);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+
+
+
+
+var createLocation = function createLocation(path, state, key, currentLocation) {
+  var location = void 0;
+  if (typeof path === 'string') {
+    // Two-arg form: push(path, state)
+    location = Object(__WEBPACK_IMPORTED_MODULE_2__PathUtils__["d" /* parsePath */])(path);
+    location.state = state;
+  } else {
+    // One-arg form: push(location)
+    location = _extends({}, path);
+
+    if (location.pathname === undefined) location.pathname = '';
+
+    if (location.search) {
+      if (location.search.charAt(0) !== '?') location.search = '?' + location.search;
+    } else {
+      location.search = '';
+    }
+
+    if (location.hash) {
+      if (location.hash.charAt(0) !== '#') location.hash = '#' + location.hash;
+    } else {
+      location.hash = '';
+    }
+
+    if (state !== undefined && location.state === undefined) location.state = state;
+  }
+
+  try {
+    location.pathname = decodeURI(location.pathname);
+  } catch (e) {
+    if (e instanceof URIError) {
+      throw new URIError('Pathname "' + location.pathname + '" could not be decoded. ' + 'This is likely caused by an invalid percent-encoding.');
+    } else {
+      throw e;
+    }
+  }
+
+  if (key) location.key = key;
+
+  if (currentLocation) {
+    // Resolve incomplete/relative pathname relative to current location.
+    if (!location.pathname) {
+      location.pathname = currentLocation.pathname;
+    } else if (location.pathname.charAt(0) !== '/') {
+      location.pathname = Object(__WEBPACK_IMPORTED_MODULE_0_resolve_pathname__["default"])(location.pathname, currentLocation.pathname);
+    }
+  } else {
+    // When there is no prior location and pathname is empty, set it to /
+    if (!location.pathname) {
+      location.pathname = '/';
+    }
+  }
+
+  return location;
+};
+
+var locationsAreEqual = function locationsAreEqual(a, b) {
+  return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && Object(__WEBPACK_IMPORTED_MODULE_1_value_equal__["default"])(a.state, b.state);
+};
 
 /***/ }),
 /* 17 */
@@ -25702,7 +25702,7 @@ Redirect.contextTypes = {
 /* unused harmony reexport createHashHistory */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(78);
 /* unused harmony reexport createMemoryHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(16);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(13);
@@ -25727,7 +25727,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(41);
@@ -26031,7 +26031,7 @@ var createBrowserHistory = function createBrowserHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(41);
@@ -26351,7 +26351,7 @@ var createHashHistory = function createHashHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PathUtils__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(28);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -28935,7 +28935,7 @@ var _templateObject = _taggedTemplateLiteral(['\n    grid-row: wrapperNav 2 / sp
     _templateObject2 = _taggedTemplateLiteral(['\n    grid-row: wrapperNav 1 / span 6;\n    grid-column: wrapperCol 6;\n    color: #443A9E;\n    text-transform: uppercase;\n    background-color: transparent;\n\n    @media only screen and (min-width: 760px) {\n      grid-row: top;\n      grid-column: col 3 / span 4;\n    }\n    '], ['\n    grid-row: wrapperNav 1 / span 6;\n    grid-column: wrapperCol 6;\n    color: #443A9E;\n    text-transform: uppercase;\n    background-color: transparent;\n\n    @media only screen and (min-width: 760px) {\n      grid-row: top;\n      grid-column: col 3 / span 4;\n    }\n    ']),
     _templateObject3 = _taggedTemplateLiteral(['\n      display: grid;\n      grid-template-rows: [row] 3vmax [filler] 1fr;\n      grid-template-columns: repeat(6, [button] minmax(70px, 10vmax));\n      grid-row: top;\n      grid-gap: 1vmax;\n      grid-column: col 3 / span 4;\n      text-transform: uppercase;\n      background-color: transparent;\n\n      >a {\n        grid-row: row;\n        display: inline-block;\n        background-color: transparent;\n        font-size: 0.9vw;\n        flex: none;\n        max-height: initial;\n        justify-self: auto;\n        text-decoration: none;\n        font-weight: bold;\n        text-align: center;\n        line-height: 4vw;\n      }\n  '], ['\n      display: grid;\n      grid-template-rows: [row] 3vmax [filler] 1fr;\n      grid-template-columns: repeat(6, [button] minmax(70px, 10vmax));\n      grid-row: top;\n      grid-gap: 1vmax;\n      grid-column: col 3 / span 4;\n      text-transform: uppercase;\n      background-color: transparent;\n\n      >a {\n        grid-row: row;\n        display: inline-block;\n        background-color: transparent;\n        font-size: 0.9vw;\n        flex: none;\n        max-height: initial;\n        justify-self: auto;\n        text-decoration: none;\n        font-weight: bold;\n        text-align: center;\n        line-height: 4vw;\n      }\n  ']);
 
-var _reactResponsive = __webpack_require__(16);
+var _reactResponsive = __webpack_require__(14);
 
 var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
 
@@ -29633,7 +29633,7 @@ var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
 __webpack_require__(42);
 
-var _reactResponsive = __webpack_require__(16);
+var _reactResponsive = __webpack_require__(14);
 
 var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
 
@@ -32141,7 +32141,7 @@ var _styledComponents = __webpack_require__(1);
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
-var _reactResponsive = __webpack_require__(16);
+var _reactResponsive = __webpack_require__(14);
 
 var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
 
@@ -44933,7 +44933,7 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _entity = __webpack_require__(14);
+var _entity = __webpack_require__(15);
 
 var _entity2 = _interopRequireDefault(_entity);
 
@@ -44992,7 +44992,7 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _entity = __webpack_require__(14);
+var _entity = __webpack_require__(15);
 
 var _entity2 = _interopRequireDefault(_entity);
 
@@ -45035,7 +45035,7 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _entity = __webpack_require__(14);
+var _entity = __webpack_require__(15);
 
 var _entity2 = _interopRequireDefault(_entity);
 
@@ -45086,7 +45086,7 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _entity = __webpack_require__(14);
+var _entity = __webpack_require__(15);
 
 var _entity2 = _interopRequireDefault(_entity);
 
@@ -45135,7 +45135,7 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _entity = __webpack_require__(14);
+var _entity = __webpack_require__(15);
 
 var _entity2 = _interopRequireDefault(_entity);
 
@@ -45182,7 +45182,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _templateObject = _taggedTemplateLiteral(['\n\tbackground: white;\n\tdisplay: grid;\n  grid-column: wrapperCol 1 / span 6;\n  grid-row: wrapperNav 3 / span 10;\n\tgrid-template-columns: [fill] 1fr;\n\tgrid-template-rows: [full] 1fr;\n\n  @media only screen and (min-width: 760px) {\n    padding: 1vmax 0 1vmax 1vmax;\n    grid-row: meat;\n    grid-column: cal / span 7;\n\t\tgrid-gap: 1.5vmax;\n\t\toverflow-y: auto;\n  }\n'], ['\n\tbackground: white;\n\tdisplay: grid;\n  grid-column: wrapperCol 1 / span 6;\n  grid-row: wrapperNav 3 / span 10;\n\tgrid-template-columns: [fill] 1fr;\n\tgrid-template-rows: [full] 1fr;\n\n  @media only screen and (min-width: 760px) {\n    padding: 1vmax 0 1vmax 1vmax;\n    grid-row: meat;\n    grid-column: cal / span 7;\n\t\tgrid-gap: 1.5vmax;\n\t\toverflow-y: auto;\n  }\n']);
 
-var _reactResponsive = __webpack_require__(16);
+var _reactResponsive = __webpack_require__(14);
 
 var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
 
@@ -45207,23 +45207,6 @@ var React = __webpack_require__(0);
 var DesktopCardGrid = __webpack_require__(255);
 
 var PressWrapper = _styledComponents2.default.div(_templateObject);
-/*
-function DesktopCardGrid(props) {
-	return (
-		<div style={{display: "grid", gridRow: "full", gridColumn: "fill", gridTemplateColumns: "repeat(4, [col] 1fr)", gridTemplateRows: "auto", justifyItems: "center", alignItems: "center"}}>
-			{props.cards.map((card) => (
-				<div className="cardContainer">
-				<img className="cardImage" src={card.image}/>
-					<div class="cardOverlay">
-						<div class="cardText">
-							<a href={card.link}>{card.text}</a>
-						</div>
-					</div>
-				</div>))}
-		</div>
-	)
-}
-*/
 
 var Press = function (_React$Component) {
 	_inherits(Press, _React$Component);
@@ -45334,7 +45317,7 @@ exports = module.exports = __webpack_require__(17)(false);
 
 
 // module
-exports.push([module.i, ".cardContainer {\r\n    max-height: 15vw;\r\n    max-width: 15vw;\r\n    overflow: hidden;\r\n    position: relative;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.cardImage {\r\n    opacity: 1;\r\n    display: block;\r\n    transition: .5 ease;\r\n    backface-visibility: hidden;\r\n}\r\n\r\n.cardOverlay {\r\n    transition: .5s ease;\r\n    opacity: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    text-align: center;\r\n}\r\n\r\n.cardText {\r\n    background-color: #f1f1f1;\r\n    color: #443A9E;\r\n    font-size: 16px;\r\n    padding: 16px 32px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\n\r\n.cardText>a {\r\n    text-decoration: none;\r\n}\r\n\r\n.cardContainer:hover .cardImage {\r\n    opacity: 0.3;\r\n}\r\n\r\n.cardContainer:hover .cardOverlay {\r\n    opacity: 1;\r\n}", ""]);
+exports.push([module.i, ".cardImage {\r\n    opacity: 1;\r\n    display: block;\r\n    transition: .5 ease;\r\n    backface-visibility: hidden;\r\n}\r\n\r\n.cardOverlay {\r\n    transition: .5s ease;\r\n    opacity: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    text-align: center;\r\n}\r\n\r\n.cardText {\r\n    background-color: #f1f1f1;\r\n    color: #443A9E;\r\n    font-size: 16px;\r\n    padding: 16px 32px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\n\r\n.cardText>a {\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n/*\r\n.cardContainer:hover .cardImage {\r\n    opacity: 0.3;\r\n}\r\n\r\n.cardContainer:hover .cardOverlay {\r\n    opacity: 1;\r\n}\r\n*/", ""]);
 
 // exports
 
@@ -45346,7 +45329,7 @@ exports.push([module.i, ".cardContainer {\r\n    max-height: 15vw;\r\n    max-wi
 "use strict";
 
 
-var _templateObject = _taggedTemplateLiteral(['\n\tdisplay: grid;\n\tgrid-row: full;\n\tgrid-column: fill;\n\tgrid-template-columns: repeat(4, [col] 1fr);\n\tgrid-template-rows: auto;\n\tjustify-ttems: center;\n\talign-items: center;\n'], ['\n\tdisplay: grid;\n\tgrid-row: full;\n\tgrid-column: fill;\n\tgrid-template-columns: repeat(4, [col] 1fr);\n\tgrid-template-rows: auto;\n\tjustify-ttems: center;\n\talign-items: center;\n']);
+var _templateObject = _taggedTemplateLiteral(['\n\tdisplay: grid;\n\tgrid-row: full;\n\tgrid-column: fill;\n\tgrid-template-columns: repeat(4, [col] 1fr);\n\tgrid-template-rows: auto;\n\tjustify-items: center;\n\talign-items: center;\n'], ['\n\tdisplay: grid;\n\tgrid-row: full;\n\tgrid-column: fill;\n\tgrid-template-columns: repeat(4, [col] 1fr);\n\tgrid-template-rows: auto;\n\tjustify-items: center;\n\talign-items: center;\n']);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -45380,28 +45363,80 @@ module.exports = DesktopCardGrid;
 "use strict";
 
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _templateObject = _taggedTemplateLiteral(['\n@media only screen and (min-width: 760px) {\n\tmax-height: 15vw;\n\tmax-width: 15vw;\n\toverflow: hidden;\n\tposition: relative;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\n\t&:hover .cardImage {\n\t\topacity: 0.3;\n\t}\n\t&:hover .cardOverlay {\n\t\topacity: 1;\n\t}\n}\n'], ['\n@media only screen and (min-width: 760px) {\n\tmax-height: 15vw;\n\tmax-width: 15vw;\n\toverflow: hidden;\n\tposition: relative;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\n\t&:hover .cardImage {\n\t\topacity: 0.3;\n\t}\n\t&:hover .cardOverlay {\n\t\topacity: 1;\n\t}\n}\n']);
+
+var _reactResponsive = __webpack_require__(14);
+
+var _reactResponsive2 = _interopRequireDefault(_reactResponsive);
+
+var _styledComponents = __webpack_require__(1);
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 var React = __webpack_require__(0);
 
-function Card(props) {
-	return React.createElement(
-		"div",
-		{ className: "cardContainer" },
-		React.createElement("img", { className: "cardImage", src: props.content.image }),
-		React.createElement(
-			"div",
-			{ "class": "cardOverlay" },
-			React.createElement(
-				"div",
-				{ "class": "cardText" },
+var CardContainer = _styledComponents2.default.div(_templateObject);
+
+var Card = function (_React$Component) {
+	_inherits(Card, _React$Component);
+
+	function Card(props) {
+		_classCallCheck(this, Card);
+
+		return _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
+	}
+
+	_createClass(Card, [{
+		key: 'render',
+		value: function render() {
+			return React.createElement(
+				CardContainer,
+				null,
 				React.createElement(
-					"a",
-					{ href: props.content.link },
-					props.content.text
+					_reactResponsive2.default,
+					{ maxWidth: 760 },
+					React.createElement(
+						'div',
+						null,
+						'alma'
+					)
+				),
+				React.createElement(
+					_reactResponsive2.default,
+					{ minWidth: 760 },
+					React.createElement('img', { className: 'cardImage', src: this.props.content.image }),
+					React.createElement(
+						'div',
+						{ 'class': 'cardOverlay' },
+						React.createElement(
+							'div',
+							{ 'class': 'cardText' },
+							React.createElement(
+								'a',
+								{ href: this.props.content.link },
+								this.props.content.text
+							)
+						)
+					)
 				)
-			)
-		)
-	);
-}
+			);
+		}
+	}]);
+
+	return Card;
+}(React.Component);
 
 module.exports = Card;
 

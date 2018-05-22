@@ -9,7 +9,7 @@ const StyledGrid = styled.div`
 	grid-column: fill;
 	grid-template-columns: repeat(4, [col] 1fr);
 	grid-template-rows: auto;
-	justify-ttems: center;
+	justify-items: center;
 	align-items: center;
 `;
 
