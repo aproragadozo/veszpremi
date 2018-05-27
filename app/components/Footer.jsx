@@ -19,7 +19,7 @@ grid-gap: 1vmax;
     grid-row: bottom;
     grid-column: col 5 / span 2;
     grid-template-rows: [row] 1fr;
-    grid-template-columns: [spacer] 1fr repeat(4, [c] 3vmax);
+    grid-template-columns: [spacer] 1fr repeat(4, [c] 2vmax);
 }
 `;
 const Behance = styled.a`

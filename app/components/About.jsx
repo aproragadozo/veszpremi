@@ -2,6 +2,8 @@ var React = require('react');
 
 import styled from 'styled-components';
 
+const gabi = require('../img/contact/gabi.jpg');
+
 const AboutWrapper = styled.div`
   display: grid;
   grid-column: wrapperCol 1 / span 6;
@@ -76,7 +78,10 @@ const AboutPhoto = styled.div`
   display: block;
   width: 100%;
   height: 100%;
-  background-color: papayawhip;
+  background-image: url(${gabi});
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 
   @media only screen and (min-width: 760px) {
     display: grid;

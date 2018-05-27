@@ -1,42 +1,43 @@
-.mobilbal,
-.mobiljobb {
+.balcard,
+.jobbcard {
     z-index: 2;
 }
 
-.mobilbal {
-    display: inline-block;
-    position: absolute;
-    transition: all 1s ease-out;
-    object-fit: cover;
-    object-position: center;
-    width: 100vw;
-    height: 100vw;
-    top: 0;
-    left: -100vw;
-}
-
-.mobiljobb {
-    display: inline-block;
-    position: absolute;
-    transition: all 1s ease-out;
-    object-fit: cover;
-    object-position: center;
-    width: 100vw;
-    height: 100vw;
-    top: 0;
-    left: 100vw;
-}
-
-.mobilcenter {
-    left: 0;
-    display: inline-block;
+.balcard {
+    display: flex;
     position: absolute;
     transition: all 1s ease-out;
     object-fit: contain;
     object-position: center;
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
+    top: 0;
+    left: -100vw;
+}
+
+.jobbcard {
+    display: flex;
+    position: absolute;
+    transition: all 1s ease-out;
+    object-fit: contain;
+    object-position: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 100vw;
+}
+
+.centercard {
+    left: 0;
+    display: flex;
+    position: absolute;
+    transition: all 1s ease-out;
+    object-fit: contain;
+    object-position: center;
+    width: 100vw;
+    height: 100vh;
     z-index: 0;
+    top: 0;
 }
 
 .left-enter {

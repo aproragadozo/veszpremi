@@ -7,7 +7,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 var CollectionDetails = require('CollectionDetails');
 var DesktopCarousel = require('DesktopCarousel');
-var MobileCarousel = require('MobileCarousel');
+var MobileCarousel = require('MobileCarousel').MobileCarousel;
 
 function importCollection(r) {
     return r.keys().map(r);

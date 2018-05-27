@@ -56,4 +56,6 @@ class MobileCarousel extends React.Component{
     
   }
 }
-module.exports = MobileCarousel;
+module.exports = {
+  MobileCarousel: MobileCarousel,
+  Arrow: Arrow}

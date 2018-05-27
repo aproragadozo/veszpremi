@@ -13,10 +13,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    background-color: #f1f1f1;
+}
+
+.mobil {
+    opacity: 1;
+    background-color: #f1f1f1c5;
 }
 
 .cardText {
-    background-color: #f1f1f1;
     color: #443A9E;
     font-size: 16px;
     padding: 16px 32px;

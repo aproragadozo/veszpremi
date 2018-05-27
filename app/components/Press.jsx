@@ -4,11 +4,16 @@ import MediaQuery from 'react-responsive';
 
 import styled from 'styled-components';
 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 import 'app/press.css';
 
+const Arrow = require('MobileCarousel').Arrow;
+const Card = require('Card');
 const DesktopCardGrid = require('DesktopCardGrid');
 
 const PressWrapper = styled.div`
+	position: relative;
 	background: white;
 	display: grid;
   grid-column: wrapperCol 1 / span 6;
@@ -55,13 +60,94 @@ class Press extends React.Component{
 					link: "https://www.petofilive.hu/barbiblogja/cikk/2018/04/20/hazai-kollekcio-a-fenntarthato-divat-jegyeben/",
 					image: require('../img/press/05.jpg')
 				}
-			]
+			],
+			direction: "",
+			currentIndex: 0
 		}
 	}
+
+	kattBalra(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		
+		let index = this.state.currentIndex;
+		let length = this.state.cards.length;
+		
+		if (index === 0) {
+			index = length-1;
+		}
+		else {
+			index--;
+		}
+
+		console.log("current index is: " + index);
+
+		this.setState({
+			currentIndex: index,
+			direction: 'left'
+		});
+	}
+	
+kattJobbra(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		
+		let index = this.state.currentIndex;
+		let length = this.state.cards.length;
+		
+		if (index === length) {
+			index = -1;
+		}
+		else {
+			index++;
+		}
+		
+	console.log("current index is: " + index);
+
+		this.setState({
+			currentIndex: index,
+			direction: 'right'
+		});
+	}
+
+circleIndex(idx)
+{
+	let setLength = this.state.cards.length;
+	//console.log(setLength);
+	console.log((idx + setLength) % setLength);
+	return (idx + setLength) % setLength;
+}
+
 	render() {
 		return (
 			<PressWrapper>
-				<DesktopCardGrid cards={this.state.cards}/>
+				<MediaQuery maxWidth={760}>
+					<Arrow style={{top:"0", left:"0"}} onClick={(e)=>this.kattBalra(e)}>
+						<p>&lt;</p>
+					</Arrow>
+					<Arrow style={{top:"0", left:"85%"}} onClick={(e)=>this.kattJobbra(e)}>
+						<p>&gt;</p>
+					</Arrow>
+					<ReactCSSTransitionGroup
+						transitionName={this.state.direction}
+						transitionEnterTimeout={1000}
+						transitionLeaveTimeout={1000}
+						component='div'
+						style={{position:"relative", width:"100%", display: "inline-block", overflow:"hidden"}}>
+						<Card className="balcard"
+            	key={this.state.currentIndex+1}
+            	content={this.state.cards[this.circleIndex(this.state.currentIndex+1)]}/>
+						<Card className="centercard"
+            	key={this.state.currentIndex+2}
+            	content={this.state.cards[this.circleIndex(this.state.currentIndex+2)]}/>
+						<Card className="jobbcard"
+            	key={this.state.currentIndex+3}
+            	content={this.state.cards[this.circleIndex(this.state.currentIndex+3)]}/>
+					</ReactCSSTransitionGroup>
+				</MediaQuery>
+				<MediaQuery minWidth={760}>
+					<DesktopCardGrid cards={this.state.cards}/>
+				</MediaQuery>
 			</PressWrapper>
 		)
 	}

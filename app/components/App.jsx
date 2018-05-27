@@ -4,6 +4,9 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 const background = require('../img/home/background.jpg');
 
+import 'app/font.css';
+import 'app/body.css';
+
 import styled from 'styled-components';
 
 var Header = require('Header');

@@ -2,6 +2,7 @@ var React = require('react');
 var {Link} = require('react-router-dom');
 var MobileCollections = require('MobileCollections');
 var Dropdown = require('Dropdown');
+const hamburger = require('../img/hamburger.png');
 
 import MediaQuery from 'react-responsive';
 
@@ -95,7 +96,8 @@ class Menu extends React.Component{
       overflow: "hidden",
       zIndex: 1000,
       padding: 0,
-      marginTop: 0
+      marginTop: 0,
+      border: 0
     }
 
     const linkStyle = {
@@ -146,6 +148,9 @@ class Menu extends React.Component{
           <li style ={linkStyle}>
             <Link to="/contact" style={{display: "block"}}>Contact</Link>
           </li>
+          <li style ={linkStyle}>
+            <Link to="/press" style={{display: "block"}}>Press</Link>
+          </li>
         </ul>
       </div>
     )
@@ -157,9 +162,14 @@ class Hamburger extends React.Component{
     const hambiStyle = {
       cursor: "pointer",
       justifySelf: "start",
-      background: "url('https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg') no-repeat center",
-      width: "8vmax",
+      background: `url(${hamburger}) no-repeat center`,
+      backgroundSize: "contain",
+      width: "5vmax",
       height: "8vmax",
+      border: "0",
+      position: "absolute",
+      top: "4vmax",
+      right: "5vmax",
       transition: "all .2s cubic-bezier(0, 1.26, .8, 1.28)"
     }
     return (
