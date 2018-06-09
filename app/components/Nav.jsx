@@ -137,7 +137,7 @@ class Menu extends React.Component{
     return (
       <div style={style}>
         <Hamburger handleMouseDown = {this.props.handleMouseDown}/>
-        <ul style={{width: "100%"}}>
+        <ul style={{width: "100%", marginLeft: "-40px"}}>
             <MobileCollections sets={this.props.sets}/>
           <li style ={linkStyle}>
             <Link to="/videos" style={{display: "block"}}>Videos</Link>

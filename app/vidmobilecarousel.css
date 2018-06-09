@@ -1,0 +1,31 @@
+.vidOverlay {
+    text-align: center;
+    position: absolute;
+    background-color: #1220225c;
+    width: 100%;
+    height: 88%;
+    transition: .3s ease;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 12%;
+    opacity: 0.6;
+}
+
+.vidText {
+    opacity: 1;
+    width: 100%;
+    font-size: 42px;
+    height: 100%;
+    display: table;
+}
+
+.vidFelirat {
+    color: white;
+    display: table-cell;
+    vertical-align: middle;
+    opacity: 1;
+}

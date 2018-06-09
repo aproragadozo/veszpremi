@@ -1,7 +1,7 @@
 var React = require('react');
 
 import styled from 'styled-components';
-const Card = require('Card');
+const Vid = require('Vid');
 
 const StyledGrid = styled.div`
 	display: grid;
@@ -13,13 +13,13 @@ const StyledGrid = styled.div`
 	align-items: center;
 `;
 
-function DesktopCardGrid(props) {
+function DesktopVidGrid(props) {
 	return (
 		<StyledGrid>
-			{props.cards.map((card, index) =>(
-				<Card key={index} content={card}/>
+			{props.vids.map((vid) =>(
+				<Vid key={vid.id} content={vid}/>
 			))}
 		</StyledGrid>
 	)
 }
-module.exports = DesktopCardGrid;
+module.exports = DesktopVidGrid;

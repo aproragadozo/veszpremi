@@ -27,7 +27,9 @@ module.exports = {
             ContactPage: 'app/components/ContactPage.jsx',
             Press: 'app/components/Press.jsx',
             Card: 'app/components/Card.jsx',
-            DesktopCardGrid: 'app/components/DesktopCardGrid.jsx'
+            DesktopCardGrid: 'app/components/DesktopCardGrid.jsx',
+            Vid: 'app/components/Vid.jsx',
+            DesktopVidGrid: 'app/components/DesktopVidGrid.jsx'
         },
         extensions: ['*', '.js', '.jsx']
     },
@@ -58,13 +60,8 @@ module.exports = {
             },
             {
                 test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: 'public/assets/fonts'
-                    }
-                }]
+                loader: 'url-loader?limit=10000&name=public/assets/fonts/[hash].[ext]',
+                exclude: /node_modules/
             }
         ]
     }

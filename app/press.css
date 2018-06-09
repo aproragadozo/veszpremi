@@ -5,7 +5,8 @@
     backface-visibility: hidden;
 }
 
-.cardOverlay {
+.cardOverlay,
+.vidOverlay {
     transition: .5s ease;
     opacity: 0;
     position: absolute;
@@ -21,7 +22,8 @@
     background-color: #f1f1f1c5;
 }
 
-.cardText {
+.cardText,
+.vidText {
     color: #443A9E;
     font-size: 16px;
     padding: 16px 32px;

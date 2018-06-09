@@ -1,4 +1,9 @@
-body {
+@font-face {
     font-family: 'Akzidenz-Grotesk';
+    src: url('../public/assets/fonts/akzidenz-grotesk-bold.woff') format("woff");
+}
+
+body {
     font-weight: bold;
+    font-family: 'Akzidenz-Grotesk';
 }
