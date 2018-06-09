@@ -46,22 +46,22 @@ class Videos extends React.Component {
       vids: [
         {
           id: 'layers',
-          source: 'http://www.youtube.com/embed/Iragk-SwHJA',
+          source: 'https://www.youtube.com/embed/Iragk-SwHJA',
           felirat: 'LAYERS collection'
         },
         {
           id: 'kulissza',
-          source: 'http://www.youtube.com/embed/coPS7kAMx7s',
+          source: 'https://www.youtube.com/embed/coPS7kAMx7s',
           felirat: 'Kulissza: Veszprémi Gabriella'
         },
         {
           id: 'lucia',
-          source: 'http://www.youtube.com/embed/zb0_6NebQxo',
+          source: 'https://www.youtube.com/embed/zb0_6NebQxo',
           felirat: 'Lúcia tojásai'
         },
         {
           id: 'mercedes',
-          source: 'http://www.youtube.com/embed/HpbrvKhyCIE',
+          source: 'https://www.youtube.com/embed/HpbrvKhyCIE',
           felirat: 'Mercedes Benz Fashion Week 2018'
         }
       ],
