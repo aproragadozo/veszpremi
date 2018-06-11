@@ -3,7 +3,11 @@ module.exports = {
     entry: "./app/app.jsx",
     output: {
         path: __dirname,
-        filename: './public/assets/js/bundle.js'
+        filename: './public/assets/js/bundle.js',
+        publicPath: '/'
+    },
+    devServer: {
+        historyApiFallback: true
     },
     resolve: {
         modules: [__dirname, 'node_modules'],
@@ -29,7 +33,8 @@ module.exports = {
             Card: 'app/components/Card.jsx',
             DesktopCardGrid: 'app/components/DesktopCardGrid.jsx',
             Vid: 'app/components/Vid.jsx',
-            DesktopVidGrid: 'app/components/DesktopVidGrid.jsx'
+            DesktopVidGrid: 'app/components/DesktopVidGrid.jsx',
+            YouTube: 'app/components/YouTube.jsx'
         },
         extensions: ['*', '.js', '.jsx']
     },
