@@ -17,8 +17,8 @@ const VidContainer = styled.div`
 	justify-content: center;
 
 	@media only screen and (min-width: 760px) {
-		max-height: 15vw;
-		max-width: 15vw;
+		height: 15vw;
+		width: 15vw;
 
 		&:hover .vidOverlay {
 			opacity: 1;
@@ -29,6 +29,31 @@ const VidContainer = styled.div`
 class Vid extends React.Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			overlay: false,
+			fadeVid: true
+		}
+	}
+	activateVid(e){
+		e.preventDefault();
+		e.stopPropagation();
+		console.log("This is dog.");
+		this.setState((prevState)=>({
+			overlay: !prevState.overlay,
+			fadeVid: !prevState.fadeVid
+		}));
+
+	}
+
+	deactivateVid(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		console.log("This is cat.");
+		this.setState((prevState)=>({
+			overlay: !prevState.overlay,
+			fadeVid: !prevState.fadeVid
+		}));
+
 	}
 	render(){
 	return (
@@ -42,12 +67,12 @@ class Vid extends React.Component {
   			</div>
 			</MediaQuery>
 			<MediaQuery minWidth={760}>
-			<iframe className="vidFrame" src={`${this.props.content.source}?modestbranding=1&rel=0&frameborder=0`} allowFullScreen></iframe>
-			<div className='vidOverlay'>
-				<div className="vidText">
-					<p className="vidFelirat">{this.props.content.felirat}</p>
+				<iframe className="vidFrame" style={(`${this.state.fadeVid}`) ?{opacity:"0.6"} : {opacity:"1"}} src={`${this.props.content.source}?modestbranding=1&rel=0&frameborder=0`} allowFullScreen></iframe>
+				<div className='vidOverlay' style={(`${this.state.overlay}`)? {opacity: "1", transform: "none"} : {opacity: "0", transform:"translateY(15vw)"}} onClick={(e)=>this.activateVid(e)} onMouseLeave={(e)=>this.deactivateVid(e)}>
+					<div className="vidText">
+						<p className="vidFelirat">{this.props.content.felirat}</p>
+					</div>
 				</div>
-			</div>
 			</MediaQuery>
 		</VidContainer>
 	)

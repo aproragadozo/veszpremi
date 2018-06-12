@@ -34773,7 +34773,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, ".cardImage {\r\n    opacity: 1;\r\n    display: block;\r\n    transition: .5 ease;\r\n    backface-visibility: hidden;\r\n}\r\n\r\n.cardOverlay,\r\n.vidOverlay {\r\n    transition: .5s ease;\r\n    opacity: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    text-align: center;\r\n    background-color: #f1f1f1;\r\n}\r\n\r\n.mobil {\r\n    opacity: 1;\r\n    background-color: #f1f1f1c5;\r\n}\r\n\r\n.cardText,\r\n.vidText {\r\n    color: #443A9E;\r\n    font-size: 16px;\r\n    padding: 16px 32px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\n\r\n.cardText>a {\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n/*\r\n.cardContainer:hover .cardImage {\r\n    opacity: 0.3;\r\n}\r\n\r\n.cardContainer:hover .cardOverlay {\r\n    opacity: 1;\r\n}\r\n*/", ""]);
+exports.push([module.i, ".cardImage {\r\n    opacity: 1;\r\n    display: block;\r\n    transition: .5 ease;\r\n    backface-visibility: hidden;\r\n}\r\n\r\n\r\n/* this used to match .vidOverlay as well */\r\n\r\n.cardOverlay {\r\n    transition: .5s ease;\r\n    opacity: 0;\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    transform: translate(-50%, -50%);\r\n    text-align: center;\r\n    background-color: #f1f1f1;\r\n}\r\n\r\n.mobil {\r\n    opacity: 1;\r\n    background-color: #f1f1f1c5;\r\n}\r\n\r\n.cardText,\r\n.vidText {\r\n    color: #443A9E;\r\n    font-size: 16px;\r\n    padding: 16px 32px;\r\n    text-transform: uppercase;\r\n    font-weight: bold;\r\n}\r\n\r\n.cardText>a {\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n/*\r\n.cardContainer:hover .cardImage {\r\n    opacity: 0.3;\r\n}\r\n\r\n.cardContainer:hover .cardOverlay {\r\n    opacity: 1;\r\n}\r\n*/", ""]);
 
 // exports
 
@@ -36175,7 +36175,7 @@ exports = module.exports = __webpack_require__(9)(false);
 
 
 // module
-exports.push([module.i, ".vidOverlay {\r\n    text-align: center;\r\n    position: absolute;\r\n    background-color: #1220225c;\r\n    width: 100%;\r\n    height: 88%;\r\n    transition: .3s ease;\r\n}\r\n\r\niframe {\r\n    width: 100%;\r\n    height: 100%;\r\n    position: absolute;\r\n    bottom: 12%;\r\n    opacity: 0.6;\r\n}\r\n\r\n.vidText {\r\n    opacity: 1;\r\n    width: 100%;\r\n    font-size: 42px;\r\n    height: 100%;\r\n    display: table;\r\n}\r\n\r\n.vidFelirat {\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    opacity: 1;\r\n}", ""]);
+exports.push([module.i, ".vidOverlay {\r\n    text-align: center;\r\n    position: absolute;\r\n    background-color: #1220225c;\r\n    width: 100%;\r\n    height: 88%;\r\n    transition: .3s ease;\r\n    bottom: 12%;\r\n}\r\n\r\niframe {\r\n    width: 100%;\r\n    height: 100%;\r\n    position: absolute;\r\n    bottom: 12%;\r\n}\r\n\r\n.vidText {\r\n    opacity: 1;\r\n    width: 100%;\r\n    font-size: 42px;\r\n    height: 100%;\r\n    display: table;\r\n}\r\n\r\n.vidFelirat {\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    opacity: 1;\r\n    text-align: left;\r\n}", ""]);
 
 // exports
 
@@ -36223,7 +36223,7 @@ module.exports = DesktopVidGrid;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n\tmax-width: 100vw;\n\tmax-height: 100vw;\n\toverflow: hidden;\n\tposition: relative;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\n\t@media only screen and (min-width: 760px) {\n\t\tmax-height: 15vw;\n\t\tmax-width: 15vw;\n\n\t\t&:hover .vidOverlay {\n\t\t\topacity: 1;\n\t\t}\n\t}\n'], ['\n\tmax-width: 100vw;\n\tmax-height: 100vw;\n\toverflow: hidden;\n\tposition: relative;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\n\t@media only screen and (min-width: 760px) {\n\t\tmax-height: 15vw;\n\t\tmax-width: 15vw;\n\n\t\t&:hover .vidOverlay {\n\t\t\topacity: 1;\n\t\t}\n\t}\n']);
+var _templateObject = _taggedTemplateLiteral(['\n\tmax-width: 100vw;\n\tmax-height: 100vw;\n\toverflow: hidden;\n\tposition: relative;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\n\t@media only screen and (min-width: 760px) {\n\t\theight: 15vw;\n\t\twidth: 15vw;\n\n\t\t&:hover .vidOverlay {\n\t\t\topacity: 1;\n\t\t}\n\t}\n'], ['\n\tmax-width: 100vw;\n\tmax-height: 100vw;\n\toverflow: hidden;\n\tposition: relative;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\n\t@media only screen and (min-width: 760px) {\n\t\theight: 15vw;\n\t\twidth: 15vw;\n\n\t\t&:hover .vidOverlay {\n\t\t\topacity: 1;\n\t\t}\n\t}\n']);
 
 var _reactResponsive = __webpack_require__(13);
 
@@ -36257,12 +36257,46 @@ var Vid = function (_React$Component) {
 	function Vid(props) {
 		_classCallCheck(this, Vid);
 
-		return _possibleConstructorReturn(this, (Vid.__proto__ || Object.getPrototypeOf(Vid)).call(this, props));
+		var _this = _possibleConstructorReturn(this, (Vid.__proto__ || Object.getPrototypeOf(Vid)).call(this, props));
+
+		_this.state = {
+			overlay: false,
+			fadeVid: true
+		};
+		return _this;
 	}
 
 	_createClass(Vid, [{
+		key: 'activateVid',
+		value: function activateVid(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			console.log("This is dog.");
+			this.setState(function (prevState) {
+				return {
+					overlay: !prevState.overlay,
+					fadeVid: !prevState.fadeVid
+				};
+			});
+		}
+	}, {
+		key: 'deactivateVid',
+		value: function deactivateVid(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			console.log("This is cat.");
+			this.setState(function (prevState) {
+				return {
+					overlay: !prevState.overlay,
+					fadeVid: !prevState.fadeVid
+				};
+			});
+		}
+	}, {
 		key: 'render',
 		value: function render() {
+			var _this2 = this;
+
 			return React.createElement(
 				VidContainer,
 				{ className: this.props.className },
@@ -36287,10 +36321,14 @@ var Vid = function (_React$Component) {
 				React.createElement(
 					_reactResponsive2.default,
 					{ minWidth: 760 },
-					React.createElement('iframe', { className: 'vidFrame', src: this.props.content.source + '?modestbranding=1&rel=0&frameborder=0', allowFullScreen: true }),
+					React.createElement('iframe', { className: 'vidFrame', style: '' + this.state.fadeVid ? { opacity: "0.6" } : { opacity: "1" }, src: this.props.content.source + '?modestbranding=1&rel=0&frameborder=0', allowFullScreen: true }),
 					React.createElement(
 						'div',
-						{ className: 'vidOverlay' },
+						{ className: 'vidOverlay', style: '' + this.state.overlay ? { opacity: "1", transform: "none" } : { opacity: "0", transform: "translateY(15vw)" }, onClick: function onClick(e) {
+								return _this2.activateVid(e);
+							}, onMouseLeave: function onMouseLeave(e) {
+								return _this2.deactivateVid(e);
+							} },
 						React.createElement(
 							'div',
 							{ className: 'vidText' },
