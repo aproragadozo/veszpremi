@@ -153,7 +153,7 @@ render() {
           transitionEnterTimeout={1000}
           transitionLeaveTimeout={1000}
           component='div'
-          style={{position:"relative", width:"100%", display: "inline-block", overflow:"hidden"}}>
+          style={{position:"relative", display: "inline-block", overflow:"hidden"}}>
           <YouTube key={this.state.vids[this.circleIndex(this.state.currentIndex)].id} width="100%" height="100%" url={this.state.vids[this.circleIndex(this.state.currentIndex)].url}/>
           {/*
           <Vid className="balcard"

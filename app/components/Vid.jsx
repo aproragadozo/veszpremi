@@ -19,42 +19,69 @@ const VidContainer = styled.div`
 	@media only screen and (min-width: 760px) {
 		height: 15vw;
 		width: 15vw;
-
-		&:hover .vidOverlay {
-			opacity: 1;
-		}
 	}
 `;
+
+// display: ${props => props.show ? 'flex' : 'none'};
+const styles = {
+	normal: {
+		iframe: {opacity: "1"},
+		div: {opacity: "0", transform: "none", pointerEvents: "auto"}
+	},
+	hover: {
+		iframe: {opacity: '0.6'},
+		div: {opacity: "1"}
+	},
+	klikk: {
+		iframe: {opacity: "1"},
+		div: {transform: "translateY(15vw)", pointerEvents: "none"}
+	}
+};
 
 class Vid extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			overlay: false,
-			fadeVid: true
+			style: styles.normal,
+			userClicked: false
 		}
 	}
-	activateVid(e){
+	backToNormal(e){
 		e.preventDefault();
 		e.stopPropagation();
-		console.log("This is dog.");
-		this.setState((prevState)=>({
-			overlay: !prevState.overlay,
-			fadeVid: !prevState.fadeVid
-		}));
+		console.log("This is normal.");
+		this.setState({
+			style: styles.normal,
+			userClicked: false
+		});
 
 	}
 
-	deactivateVid(e) {
+	hover(e) {
 		e.preventDefault();
 		e.stopPropagation();
-		console.log("This is cat.");
-		this.setState((prevState)=>({
-			overlay: !prevState.overlay,
-			fadeVid: !prevState.fadeVid
-		}));
-
+		console.log("This is hover.");
+		this.setState({
+			style: styles.hover
+		});
 	}
+
+	klikk(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		console.log(this.attributes);
+		this.setState({
+			style: styles.klikk,
+			userClicked: true
+		});
+	}
+
+	disable(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		window.removeEventListener("mouseenter", hover);
+	}
+
 	render(){
 	return (
 		<VidContainer className={this.props.className} >
@@ -67,8 +94,8 @@ class Vid extends React.Component {
   			</div>
 			</MediaQuery>
 			<MediaQuery minWidth={760}>
-				<iframe className="vidFrame" style={(`${this.state.fadeVid}`) ?{opacity:"0.6"} : {opacity:"1"}} src={`${this.props.content.source}?modestbranding=1&rel=0&frameborder=0`} allowFullScreen></iframe>
-				<div className='vidOverlay' style={(`${this.state.overlay}`)? {opacity: "1", transform: "none"} : {opacity: "0", transform:"translateY(15vw)"}} onClick={(e)=>this.activateVid(e)} onMouseLeave={(e)=>this.deactivateVid(e)}>
+				<iframe className="vidFrame" style={this.state.style.iframe} src={`${this.props.content.source}?modestbranding=1&rel=0&frameborder=0`} allowFullScreen></iframe>
+				<div className='vidOverlay' style={this.state.style.div} onMouseEnter={(e)=>this.hover(e)} onMouseLeave={(e)=>this.backToNormal(e)}>
 					<div className="vidText">
 						<p className="vidFelirat">{this.props.content.felirat}</p>
 					</div>

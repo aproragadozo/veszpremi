@@ -34746,7 +34746,7 @@ var Videos = function (_React$Component) {
               transitionEnterTimeout: 1000,
               transitionLeaveTimeout: 1000,
               component: 'div',
-              style: { position: "relative", width: "100%", display: "inline-block", overflow: "hidden" } },
+              style: { position: "relative", display: "inline-block", overflow: "hidden" } },
             React.createElement(YouTube, { key: this.state.vids[this.circleIndex(this.state.currentIndex)].id, width: '100%', height: '100%', url: this.state.vids[this.circleIndex(this.state.currentIndex)].url })
           )
         ),
@@ -36223,7 +36223,7 @@ module.exports = DesktopVidGrid;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n\tmax-width: 100vw;\n\tmax-height: 100vw;\n\toverflow: hidden;\n\tposition: relative;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\n\t@media only screen and (min-width: 760px) {\n\t\theight: 15vw;\n\t\twidth: 15vw;\n\n\t\t&:hover .vidOverlay {\n\t\t\topacity: 1;\n\t\t}\n\t}\n'], ['\n\tmax-width: 100vw;\n\tmax-height: 100vw;\n\toverflow: hidden;\n\tposition: relative;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\n\t@media only screen and (min-width: 760px) {\n\t\theight: 15vw;\n\t\twidth: 15vw;\n\n\t\t&:hover .vidOverlay {\n\t\t\topacity: 1;\n\t\t}\n\t}\n']);
+var _templateObject = _taggedTemplateLiteral(['\n\tmax-width: 100vw;\n\tmax-height: 100vw;\n\toverflow: hidden;\n\tposition: relative;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\n\t@media only screen and (min-width: 760px) {\n\t\theight: 15vw;\n\t\twidth: 15vw;\n\t}\n'], ['\n\tmax-width: 100vw;\n\tmax-height: 100vw;\n\toverflow: hidden;\n\tposition: relative;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\n\t@media only screen and (min-width: 760px) {\n\t\theight: 15vw;\n\t\twidth: 15vw;\n\t}\n']);
 
 var _reactResponsive = __webpack_require__(13);
 
@@ -36251,6 +36251,22 @@ var React = __webpack_require__(0);
 
 var VidContainer = _styledComponents2.default.div(_templateObject);
 
+// display: ${props => props.show ? 'flex' : 'none'};
+var styles = {
+	normal: {
+		iframe: { opacity: "1" },
+		div: { opacity: "0", transform: "none", pointerEvents: "auto" }
+	},
+	hover: {
+		iframe: { opacity: '0.6' },
+		div: { opacity: "1" }
+	},
+	klikk: {
+		iframe: { opacity: "1" },
+		div: { transform: "translateY(15vw)", pointerEvents: "none" }
+	}
+};
+
 var Vid = function (_React$Component) {
 	_inherits(Vid, _React$Component);
 
@@ -36260,37 +36276,50 @@ var Vid = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (Vid.__proto__ || Object.getPrototypeOf(Vid)).call(this, props));
 
 		_this.state = {
-			overlay: false,
-			fadeVid: true
+			style: styles.normal,
+			userClicked: false
 		};
 		return _this;
 	}
 
 	_createClass(Vid, [{
-		key: 'activateVid',
-		value: function activateVid(e) {
+		key: 'backToNormal',
+		value: function backToNormal(e) {
 			e.preventDefault();
 			e.stopPropagation();
-			console.log("This is dog.");
-			this.setState(function (prevState) {
-				return {
-					overlay: !prevState.overlay,
-					fadeVid: !prevState.fadeVid
-				};
+			console.log("This is normal.");
+			this.setState({
+				style: styles.normal,
+				userClicked: false
 			});
 		}
 	}, {
-		key: 'deactivateVid',
-		value: function deactivateVid(e) {
+		key: 'hover',
+		value: function hover(e) {
 			e.preventDefault();
 			e.stopPropagation();
-			console.log("This is cat.");
-			this.setState(function (prevState) {
-				return {
-					overlay: !prevState.overlay,
-					fadeVid: !prevState.fadeVid
-				};
+			console.log("This is hover.");
+			this.setState({
+				style: styles.hover
 			});
+		}
+	}, {
+		key: 'klikk',
+		value: function klikk(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			console.log(this.attributes);
+			this.setState({
+				style: styles.klikk,
+				userClicked: true
+			});
+		}
+	}, {
+		key: 'disable',
+		value: function disable(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			window.removeEventListener("mouseenter", hover);
 		}
 	}, {
 		key: 'render',
@@ -36321,13 +36350,13 @@ var Vid = function (_React$Component) {
 				React.createElement(
 					_reactResponsive2.default,
 					{ minWidth: 760 },
-					React.createElement('iframe', { className: 'vidFrame', style: '' + this.state.fadeVid ? { opacity: "0.6" } : { opacity: "1" }, src: this.props.content.source + '?modestbranding=1&rel=0&frameborder=0', allowFullScreen: true }),
+					React.createElement('iframe', { className: 'vidFrame', style: this.state.style.iframe, src: this.props.content.source + '?modestbranding=1&rel=0&frameborder=0', allowFullScreen: true }),
 					React.createElement(
 						'div',
-						{ className: 'vidOverlay', style: '' + this.state.overlay ? { opacity: "1", transform: "none" } : { opacity: "0", transform: "translateY(15vw)" }, onClick: function onClick(e) {
-								return _this2.activateVid(e);
+						{ className: 'vidOverlay', style: this.state.style.div, onMouseEnter: function onMouseEnter(e) {
+								return _this2.hover(e);
 							}, onMouseLeave: function onMouseLeave(e) {
-								return _this2.deactivateVid(e);
+								return _this2.backToNormal(e);
 							} },
 						React.createElement(
 							'div',
