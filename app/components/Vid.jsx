@@ -19,6 +19,9 @@ const VidContainer = styled.div`
 	@media only screen and (min-width: 760px) {
 		height: 15vw;
 		width: 15vw;
+		&:hover .vidOverlay {
+			opacity: 1;
+	 }
 	}
 `;
 
@@ -76,6 +79,14 @@ class Vid extends React.Component {
 		});
 	}
 
+	removeOverlay(e) {
+		e.preventDefault();
+		e.stopPropagation();
+		this.setState({
+			userClicked: true
+		})
+	}
+
 	disable(e) {
 		e.preventDefault();
 		e.stopPropagation();
@@ -94,8 +105,8 @@ class Vid extends React.Component {
   			</div>
 			</MediaQuery>
 			<MediaQuery minWidth={760}>
-				<iframe className="vidFrame" style={this.state.style.iframe} src={`${this.props.content.source}?modestbranding=1&rel=0&frameborder=0`} allowFullScreen></iframe>
-				<div className='vidOverlay' style={this.state.style.div} onMouseEnter={(e)=>this.hover(e)} onMouseLeave={(e)=>this.backToNormal(e)}>
+				<iframe className="vidFrame" src={`${this.props.content.source}?modestbranding=1&rel=0&frameborder=0`} allowFullScreen></iframe>
+				<div className='vidOverlay' style={(this.state.userClicked)?{transform: "translateY(15vw)", pointerEvents: "none"}:{opacity: "0", transform: "none", pointerEvents: "auto"}} onClick={(e)=>this.removeOverlay(e)}>
 					<div className="vidText">
 						<p className="vidFelirat">{this.props.content.felirat}</p>
 					</div>

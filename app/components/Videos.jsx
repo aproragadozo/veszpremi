@@ -11,8 +11,8 @@ import 'app/press.css';
 
 const Arrow = require('MobileCarousel').Arrow;
 // var MobileVideos = require('MobileVideos');
-// const Vid = require('Vid');
-const YouTube = require('YouTube');
+const Vid = require('Vid');
+// const YouTube = require('YouTube');
 // const DesktopVideos = require('DesktopVideos');
 const DesktopVidGrid = require('DesktopVidGrid');
 
@@ -53,25 +53,25 @@ class Videos extends React.Component {
           id: 'layers',
           source: 'https://www.youtube.com/embed/Iragk-SwHJA',
           url: 'https://www.youtube.com/watch?v=Iragk-SwHJA',
-          felirat: 'LAYERS collection'
+          felirat: "LAYERS collection"
         },
         {
           id: 'kulissza',
           source: 'https://www.youtube.com/embed/coPS7kAMx7s',
           url: 'https://www.youtube.com/watch?v=coPS7kAMx7s',
-          felirat: 'Kulissza: Veszprémi Gabriella'
+          felirat: "Kulissza: Veszprémi Gabriella"
         },
         {
           id: 'lucia',
           source: 'https://www.youtube.com/embed/zb0_6NebQxo',
           url: 'https://www.youtube.com/watch?v=zb0_6NebQxo',
-          felirat: 'Lúcia tojásai'
+          felirat: "Lúcia tojásai"
         },
         {
           id: 'mercedes',
           source: 'https://www.youtube.com/embed/HpbrvKhyCIE',
           url: 'https://www.youtube.com/watch?v=HpbrvKhyCIE',
-          felirat: 'Mercedes Benz Fashion Week 2018'
+          felirat: "Mercedes Benz Fashion Week 2018"
         }
       ],
       direction: "",
@@ -154,8 +154,9 @@ render() {
           transitionLeaveTimeout={1000}
           component='div'
           style={{position:"relative", display: "inline-block", overflow:"hidden"}}>
-          <YouTube key={this.state.vids[this.circleIndex(this.state.currentIndex)].id} width="100%" height="100%" url={this.state.vids[this.circleIndex(this.state.currentIndex)].url}/>
           {/*
+          <YouTube key={this.state.vids[this.circleIndex(this.state.currentIndex)].id} width="100%" height="100%" url={this.state.vids[this.circleIndex(this.state.currentIndex)].url}/>
+          */}
           <Vid className="balcard"
             key={this.state.vids[this.circleIndex(this.state.currentIndex)].id}
             content={this.state.vids[this.circleIndex(this.state.currentIndex)]}/>
@@ -163,9 +164,8 @@ render() {
             key={this.state.vids[this.circleIndex(this.state.currentIndex+1)].id}
             content={this.state.vids[this.circleIndex(this.state.currentIndex+1)]}/>
           <Vid className="jobbcard"
-            key={this.state.vids[this.circleIndex(this.state.currentIndex+1)].id}
-            content={this.state.vids[this.circleIndex(this.state.currentIndex+1)]}/>
-            */}
+            key={this.state.vids[this.circleIndex(this.state.currentIndex+2)].id}
+            content={this.state.vids[this.circleIndex(this.state.currentIndex+2)]}/>
         </ReactCSSTransitionGroup>
       </MediaQuery>
       <MediaQuery minWidth={760}>
