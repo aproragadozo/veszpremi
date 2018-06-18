@@ -46,7 +46,8 @@ class Vid extends React.Component {
 		super(props);
 		this.state = {
 			style: styles.normal,
-			userClicked: false
+			userClicked: false,
+			hover: false
 		}
 	}
 	backToNormal(e){
@@ -65,7 +66,7 @@ class Vid extends React.Component {
 		e.stopPropagation();
 		console.log("This is hover.");
 		this.setState({
-			style: styles.hover
+			hover: true
 		});
 	}
 
@@ -106,7 +107,7 @@ class Vid extends React.Component {
 			</MediaQuery>
 			<MediaQuery minWidth={760}>
 				<iframe className="vidFrame" src={`${this.props.content.source}?modestbranding=1&rel=0&frameborder=0`} allowFullScreen></iframe>
-				<div className='vidOverlay' style={(this.state.userClicked)?{transform: "translateY(15vw)", pointerEvents: "none"}:{opacity: "0", transform: "none", pointerEvents: "auto"}} onClick={(e)=>this.removeOverlay(e)}>
+				<div className='vidOverlay' style={(this.state.userClicked)?{transform: "translateY(15vw)", pointerEvents: "none"}:((this.state.hover)?{opacity:1, transform: "none", pointerEvents: "auto"}:{opacity: "0", transform: "none", pointerEvents: "auto"})} onMouseEnter={(e) => this.hover(e)} onClick={(e) => this.removeOverlay(e)}>
 					<div className="vidText">
 						<p className="vidFelirat">{this.props.content.felirat}</p>
 					</div>

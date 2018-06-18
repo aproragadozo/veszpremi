@@ -8,6 +8,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 // extended press.css so that it works for both the press and the vids pages
 import 'app/press.css';
+import 'app/videocarousel.css';
 
 const Arrow = require('MobileCarousel').Arrow;
 // var MobileVideos = require('MobileVideos');
@@ -44,10 +45,23 @@ const VideoWrapper = styled.div`
   }
 `;
 
+const VidGenerator = ({things}) => (
+  <div style={{width: "100vw", height: "100vw"}}>
+    {
+      things.map((thing)=>(
+        <Vid key={thing.id} content={things}/>
+      ))
+    }
+  </div>
+);
+// external list for text overlays
+const feliratok = ["LAYERS collection", "Kulissza: Veszprémi Gabriella", "Lúcia tojásai", "Mercedes Benz Fashion Week 2018"];
+
 class Videos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      feliratok: feliratok,
       vids: [
         {
           id: 'layers',
@@ -96,7 +110,7 @@ class Videos extends React.Component {
 
 		this.setState({
 			currentIndex: index,
-			direction: 'left'
+			direction: 'bal'
 		});
 	}
 	
@@ -118,7 +132,7 @@ kattJobbra(e) {
 
 		this.setState({
 			currentIndex: index,
-			direction: 'right'
+			direction: 'jobb'
 		});
 	}
 
@@ -157,15 +171,19 @@ render() {
           {/*
           <YouTube key={this.state.vids[this.circleIndex(this.state.currentIndex)].id} width="100%" height="100%" url={this.state.vids[this.circleIndex(this.state.currentIndex)].url}/>
           */}
+          {/*
           <Vid className="balcard"
             key={this.state.vids[this.circleIndex(this.state.currentIndex)].id}
             content={this.state.vids[this.circleIndex(this.state.currentIndex)]}/>
+          */}
           <Vid className="centercard"
             key={this.state.vids[this.circleIndex(this.state.currentIndex+1)].id}
             content={this.state.vids[this.circleIndex(this.state.currentIndex+1)]}/>
+            {/*
           <Vid className="jobbcard"
             key={this.state.vids[this.circleIndex(this.state.currentIndex+2)].id}
             content={this.state.vids[this.circleIndex(this.state.currentIndex+2)]}/>
+          */}
         </ReactCSSTransitionGroup>
       </MediaQuery>
       <MediaQuery minWidth={760}>
