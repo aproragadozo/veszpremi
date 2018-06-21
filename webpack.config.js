@@ -34,7 +34,7 @@ module.exports = {
             DesktopCardGrid: 'app/components/DesktopCardGrid.jsx',
             Vid: 'app/components/Vid.jsx',
             DesktopVidGrid: 'app/components/DesktopVidGrid.jsx',
-            YouTube: 'app/components/YouTube.jsx'
+            // YouTube: 'app/components/YouTube.jsx'
         },
         extensions: ['*', '.js', '.jsx']
     },

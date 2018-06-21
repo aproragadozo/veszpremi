@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import 'app/press.css';
+import 'app/videocarousel.css';
 
 const Arrow = require('MobileCarousel').Arrow;
 const Card = require('Card');
@@ -84,7 +85,7 @@ class Press extends React.Component{
 
 		this.setState({
 			currentIndex: index,
-			direction: 'left'
+			direction: 'bal'
 		});
 	}
 	
@@ -106,7 +107,7 @@ kattJobbra(e) {
 
 		this.setState({
 			currentIndex: index,
-			direction: 'right'
+			direction: 'jobb'
 		});
 	}
 
@@ -134,15 +135,9 @@ circleIndex(idx)
 						transitionLeaveTimeout={1000}
 						component='div'
 						style={{position:"relative", width:"100%", display: "inline-block", overflow:"hidden"}}>
-						<Card className="balcard"
-            	key={this.state.currentIndex+1}
-            	content={this.state.cards[this.circleIndex(this.state.currentIndex+1)]}/>
 						<Card className="centercard"
-            	key={this.state.currentIndex+2}
-            	content={this.state.cards[this.circleIndex(this.state.currentIndex+2)]}/>
-						<Card className="jobbcard"
-            	key={this.state.currentIndex+3}
-            	content={this.state.cards[this.circleIndex(this.state.currentIndex+3)]}/>
+            	key={this.state.currentIndex}
+            	content={this.state.cards[this.circleIndex(this.state.currentIndex)]}/>
 					</ReactCSSTransitionGroup>
 				</MediaQuery>
 				<MediaQuery minWidth={760}>
