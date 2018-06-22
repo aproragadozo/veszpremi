@@ -1,13 +1,17 @@
 var React = require('react');
 
 import styled from 'styled-components';
+
 import 'app/slideshow.css';
+import 'app/mobilecarousel.css';
+
 import MediaQuery from 'react-responsive';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 var CollectionDetails = require('CollectionDetails');
 var DesktopCarousel = require('DesktopCarousel');
 var MobileCarousel = require('MobileCarousel').MobileCarousel;
+const Arrow = require('MobileCarousel').Arrow;
 
 function importCollection(r) {
     return r.keys().map(r);
@@ -78,10 +82,18 @@ class Collections extends React.Component{
           index--;
         }
     
-        this.setState({
-          currentIndex: index,
-          direction: 'left'
-        });
+        if(window.innerWidth < 760) {
+            this.setState({
+                currentIndex: index,
+                direction: 'kisBalra'
+              })
+        }
+        else {
+            this.setState({
+                currentIndex: index,
+                direction: 'nagyBalra'
+              })
+        }
       }
       
     kattJobbra(e) {
@@ -95,19 +107,28 @@ class Collections extends React.Component{
         if (index === length) {
           index = -1;
         }
-    
-        index++;
+        else {
+            ++index;
+        }
         
-        this.setState({
-          currentIndex: index,
-          direction: 'right'
-        });
+        if(window.innerWidth < 760) {
+            this.setState({
+                currentIndex: index,
+                direction: 'kisJobbra'
+                })
+        }
+        else {
+            this.setState({
+                currentIndex: index,
+                direction: 'nagyJobbra'
+              })
+        }
       }
 
     circleIndex(idx)
     {
         let setLength = this.state.selectedSet.length;
-        return (idx+7)%7;
+        return (idx+setLength)%setLength;
     }
 
     findCurrent(){
@@ -155,6 +176,7 @@ class Collections extends React.Component{
         grid-row: wrapperNav 3 / span 10;
         grid-template-rows: [sor] 1fr;
         grid-template-columns: [oszlop] 1fr;
+        position: relative;
 
     @media only screen and (min-width: 760px) {
         grid-row: meat;
@@ -168,20 +190,62 @@ class Collections extends React.Component{
            <CollectionWrapper>
                <CollectionDetails/>
                <MediaQuery maxWidth={760}>
+                <Arrow style={{top:"0", left:"0"}} onClick={(e)=>this.kattBalra(e)}>
+                    <p>&lt;</p>
+                </Arrow>
+                <Arrow style={{top:"0", left:"85%"}} onClick={(e)=>this.kattJobbra(e)}>
+                    <p>&gt;</p>
+                </Arrow>
+
+                <ReactCSSTransitionGroup
+                    transitionName={this.state.direction}
+                    transitionEnterTimeout={1000}
+                    transitionLeaveTimeout={1000}
+                    component='div'
+                    style={{position:"relative", width:"100%", height: "100%", display: "inline-block", overflow:"hidden"}}>
+                    <img className="mobilcenter"
+                        key={this.state.currentIndex}
+                        src={this.state.selectedSet[this.circleIndex(this.state.currentIndex)]}/>
+                </ReactCSSTransitionGroup>
+               {/*
                 <MobileCarousel
                     selectedSet={this.state.selectedSet}
                     currentIndex={this.state.currentIndex}
                     direction={this.state.direction}
                     kattBalra={this.kattBalra}
                     kattJobbra={this.kattJobbra}/>
+                    */}
                </MediaQuery>
                <MediaQuery minWidth={760}>
+                <ReactCSSTransitionGroup
+                    transitionName={this.state.direction}
+                    transitionEnterTimeout={1000}
+                    transitionLeaveTimeout={1000}
+                    component='div'
+                    style={{display: "grid",
+                        position: "relative",
+                        gridRow: "sorr",
+                        gridColumn: "meatCol 1 / span 4",
+                        marginLeft: "1vmax",
+                        transition: "all 1s ease-out"}}>
+                    
+                    <img className="bal" key={this.state.currentIndex}
+                        src={this.state.selectedSet[this.circleIndex(this.state.currentIndex)]}
+                        onClick={(e)=>this.kattBalra(e)}/>
+                    <img className="center" key={this.state.currentIndex+1}
+                        src={this.state.selectedSet[this.circleIndex(this.state.currentIndex+1)]}/>
+                    <img className="jobb" key={this.state.currentIndex+2}
+                        src={this.state.selectedSet[this.circleIndex(this.state.currentIndex+2)]}
+                        onClick={(e)=>this.kattJobbra(e)}/>
+                </ReactCSSTransitionGroup>
+               {/*
                 <DesktopCarousel
                     selectedSet={this.state.selectedSet}
                     currentIndex={this.state.currentIndex}
                     direction={this.state.direction}
                     kattBalra={this.kattBalra}
                     kattJobbra={this.kattJobbra}/>
+                    */}
                </MediaQuery>
            </CollectionWrapper>
        )

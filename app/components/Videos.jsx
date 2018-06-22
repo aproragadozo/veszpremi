@@ -11,10 +11,7 @@ import 'app/press.css';
 import 'app/videocarousel.css';
 
 const Arrow = require('MobileCarousel').Arrow;
-// var MobileVideos = require('MobileVideos');
 const Vid = require('Vid');
-// const YouTube = require('YouTube');
-// const DesktopVideos = require('DesktopVideos');
 const DesktopVidGrid = require('DesktopVidGrid');
 
 const VideoWrapper = styled.div`
