@@ -138,19 +138,24 @@ class Menu extends React.Component{
       <div style={style}>
         <Hamburger handleMouseDown = {this.props.handleMouseDown}/>
         <ul style={{width: "100%", marginLeft: "-40px"}}>
-            <MobileCollections sets={this.props.sets}/>
-          <li style ={linkStyle}>
-            <Link to="/videos" style={{display: "block"}}>Videos</Link>
-          </li>
           <li style ={linkStyle}>
             <Link to="/about" style={{display: "block"}}>About</Link>
           </li>
-          <li style ={linkStyle}>
-            <Link to="/contact" style={{display: "block"}}>Contact</Link>
-          </li>
+
+          <MobileCollections sets={this.props.sets}/>
+
           <li style ={linkStyle}>
             <Link to="/press" style={{display: "block"}}>Press</Link>
           </li>
+          
+          <li style ={linkStyle}>
+            <Link to="/videos" style={{display: "block"}}>Videos</Link>
+          </li>
+          
+          <li style ={linkStyle}>
+            <Link to="/contact" style={{display: "block"}}>Contact</Link>
+          </li>
+          
         </ul>
       </div>
     )
@@ -257,11 +262,12 @@ class Nav extends React.Component{
         </MediaQuery>
         <MediaQuery minWidth={760}>
           <Desktop>
-            <Dropdown sets={this.props.sets}/>
-            <Link to="/videos">Videos</Link>
             <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
+            <Dropdown sets={this.props.sets}/>
             <Link to="/press">Press</Link>
+            <Link to="/videos">Video</Link>
+            <Link to="/contact">Contact</Link>
+            
           </Desktop>
         </MediaQuery>
       </NewWrapper>

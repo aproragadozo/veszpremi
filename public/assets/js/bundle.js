@@ -29906,7 +29906,25 @@ var Menu = function (_React$Component) {
         React.createElement(
           'ul',
           { style: { width: "100%", marginLeft: "-40px" } },
+          React.createElement(
+            'li',
+            { style: linkStyle },
+            React.createElement(
+              Link,
+              { to: '/about', style: { display: "block" } },
+              'About'
+            )
+          ),
           React.createElement(MobileCollections, { sets: this.props.sets }),
+          React.createElement(
+            'li',
+            { style: linkStyle },
+            React.createElement(
+              Link,
+              { to: '/press', style: { display: "block" } },
+              'Press'
+            )
+          ),
           React.createElement(
             'li',
             { style: linkStyle },
@@ -29921,26 +29939,8 @@ var Menu = function (_React$Component) {
             { style: linkStyle },
             React.createElement(
               Link,
-              { to: '/about', style: { display: "block" } },
-              'About'
-            )
-          ),
-          React.createElement(
-            'li',
-            { style: linkStyle },
-            React.createElement(
-              Link,
               { to: '/contact', style: { display: "block" } },
               'Contact'
-            )
-          ),
-          React.createElement(
-            'li',
-            { style: linkStyle },
-            React.createElement(
-              Link,
-              { to: '/press', style: { display: "block" } },
-              'Press'
             )
           )
         )
@@ -30059,26 +30059,26 @@ var Nav = function (_React$Component4) {
           React.createElement(
             Desktop,
             null,
-            React.createElement(Dropdown, { sets: this.props.sets }),
-            React.createElement(
-              Link,
-              { to: '/videos' },
-              'Videos'
-            ),
             React.createElement(
               Link,
               { to: '/about' },
               'About'
             ),
-            React.createElement(
-              Link,
-              { to: '/contact' },
-              'Contact'
-            ),
+            React.createElement(Dropdown, { sets: this.props.sets }),
             React.createElement(
               Link,
               { to: '/press' },
               'Press'
+            ),
+            React.createElement(
+              Link,
+              { to: '/videos' },
+              'Video'
+            ),
+            React.createElement(
+              Link,
+              { to: '/contact' },
+              'Contact'
             )
           )
         )
