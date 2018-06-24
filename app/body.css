@@ -1,9 +1,9 @@
 @font-face {
-    font-family: 'Akzidenz-Grotesk';
-    src: url('../public/assets/fonts/akzidenz-grotesk-bold.woff') format("woff");
+    font-family: 'Akzidenz Grotesk';
+    src: url('/img/AkzidenzGrotesk-Bold.otf') format("otf");
 }
 
 body {
     font-weight: bold;
-    font-family: 'Akzidenz-Grotesk';
+    font-family: 'Akzidenz Grotesk', Arial, Geneva, Verdana, sans-serif;
 }

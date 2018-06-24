@@ -24,6 +24,7 @@ const Logo = styled(Link)`
   /* background-color: #050505; */
   grid-row: navButton 1 / span 2;
   grid-column: logo;
+  display: block;
 
   @media only screen and (min-width: 760px) {
     grid-row: row 1 / span 2;
@@ -34,7 +35,9 @@ class Header extends React.Component{
     console.log(veszpremiLogo);
     return (
         <Top>
-          <Logo to={"/"} style={{ backgroundImage: `url(${veszpremiLogo})`, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}/>
+          <Logo to={"/"}>
+            <img src={veszpremiLogo} style={{width: "100%"}}/>
+          </Logo>
         </Top>
     )
   }

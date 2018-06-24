@@ -64,8 +64,14 @@ module.exports = {
                 }]
             },
             {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-                loader: 'url-loader?limit=10000&name=public/assets/fonts/[hash].[ext]',
+                test: /\.(otf|eot|svg|ttf|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        name: 'public/assets/fonts/[name].[ext]'
+                    }
+                }],
                 exclude: /node_modules/
             }
         ]
