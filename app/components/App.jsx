@@ -4,7 +4,6 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 const background = require('../img/home/background.jpg');
 
-import 'app/font.css';
 import 'app/body.css';
 
 import styled from 'styled-components';
@@ -28,39 +27,63 @@ const szettek = [
     {name: "LAYERS",  sets: ["campaign", "lookbook"]}
 ];
 
+const Wrapper = styled.div`
+height: 96vh;
+max-height: 96vh;
+display: grid;
+grid-template-rows: repeat(11, [wrapperNav] minmax(5vh, 100px)) 1fr [wrapperFooter] minmax(4vmax, 60px);
+grid-template-columns: repeat(6, [wrapperCol] 1fr);
+grid-gap: 1vmin;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
+@media only screen and (min-width: 760px) {
+    grid-template-rows: [top] 80px [meat] 1fr [bottom] 3vmax;
+    grid-template-columns: [cal] 23vw repeat(6, [col] 1fr);
+    grid-gap: 1.5vmax;
+}
+`;
+const Text = styled.div`
+    display: table;
+    text-align: left;
+    
+    grid-row: wrapperNav 3 / span 10;
+    grid-column: wrapperCol 1 / span 5;
+    font-size: 13vmin;
+    color: #443A9E;
+
+    & > div {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    @media only screen and (min-width: 760px) {
+        grid-row: meat;
+        grid-column: cal / span 3;
+    }
+`;
 class App extends React.Component{
    render() {
-       var Wrapper = styled.div`
-        height: 96vh;
-        max-height: 96vh;
-        display: grid;
-        grid-template-rows: repeat(11, [wrapperNav] minmax(5vh, 100px)) 1fr [wrapperFooter] minmax(4vmax, 60px);
-        grid-template-columns: repeat(6, [wrapperCol] 1fr);
-        grid-gap: 1vmin;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-
-        @media only screen and (min-width: 760px) {
-            grid-template-rows: [top] 80px [meat] 1fr [bottom] 3vmax;
-            grid-template-columns: [cal] 23vw repeat(6, [col] 1fr);
-            grid-gap: 1.5vmax;
-        }
-       `;
        return (
-            <Router>
-                <Wrapper style={{backgroundImage: `url(${background})`}}>
-                    <Header/>
-                    <Nav sets={szettek}/>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/about" component={About}/>
-                    <Route path="/collections/:id/:shoot" component={Collections}/>
-                    <Route path="/videos" component={Videos}/>
-                    <Route path="/contact" component={ContactPage}/>
-                    <Route path="/press" component={Press}/>
-                    <Footer/>
-                </Wrapper>
-            </Router>
+        <Router>
+            <Wrapper style={{backgroundImage: `url(${background})`}}>
+                <Header/>
+                <Nav sets={szettek}/>
+                <Route exact path="/" component={Home}/>
+                <Route path="/about" component={About}/>
+                <Route path="/collections/:id/:shoot" component={Collections}/>
+                <Route path="/videos" component={Videos}/>
+                <Route path="/contact" component={ContactPage}/>
+                <Route path="/press" component={Press}/>
+                <Text>
+                    <div>
+                    {`${szettek[szettek.length-1].name}\n`+ "COLLECTION"}
+                    </div>
+                </Text>
+                <Footer/>
+            </Wrapper>
+        </Router>
        )
    } 
 }

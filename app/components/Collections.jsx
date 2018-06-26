@@ -9,8 +9,8 @@ import MediaQuery from 'react-responsive';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 var CollectionDetails = require('CollectionDetails');
-var DesktopCarousel = require('DesktopCarousel');
-var MobileCarousel = require('MobileCarousel').MobileCarousel;
+// var DesktopCarousel = require('DesktopCarousel');
+// var MobileCarousel = require('MobileCarousel').MobileCarousel;
 const Arrow = require('MobileCarousel').Arrow;
 
 function importCollection(r) {

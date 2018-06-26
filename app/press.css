@@ -6,13 +6,6 @@
 }
 
 
-/* just in case this works */
-
-iframe {
-    width: 100%;
-}
-
-
 /* this used to match .vidOverlay as well */
 
 .cardOverlay {

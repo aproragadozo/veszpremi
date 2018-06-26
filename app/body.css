@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Akzidenz Grotesk';
-    src: url('/img/AkzidenzGrotesk-Bold.otf') format("otf");
+    src: url('/public/assets/fonts/AkzidenzGroteskBold.ttf') format("ttf");
 }
 
 body {
