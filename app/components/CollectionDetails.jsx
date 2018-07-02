@@ -2,9 +2,7 @@ var React = require('react');
 
 import styled from 'styled-components';
 
-class CollectionDetails extends React.Component{
-  render(){
-    var Details = styled.div`
+const Details = styled.div`
         display: none;
 
         @media only screen and (min-width: 760px) {
@@ -17,32 +15,33 @@ class CollectionDetails extends React.Component{
             grid-gap: 1.5vmax;
         }
     `;
-    var DetailsTitle = styled.div`
-        background-color: #BBB6B2;
+    const DetailsTitle = styled.p`
         grid-row: sor 1;
         grid-column: oszlop;
         margin-left: 1vw;
+        font-size: 0.5em;
     `;
-    var DetailsText = styled.div`
-        background-color: #BBB6B2;
+    const DetailsText = styled.p`
         grid-row: sor 2 / span 2;
         grid-column: oszlop;
         margin-left: 1vw;
+        font-size: 0.5em;
     `;
-    var DetailsCrew = styled.div`
-        background-color: #BBB6B2;
+    const DetailsCrew = styled.p`
         grid-row: sor 4;
         grid-column: oszlop;
         margin-left: 1vw;
+        font-size: 0.5em;
     `;
+
+function CollectionDetails(props) {  
     return(
       <Details>
-        <DetailsTitle/>
-        <DetailsText/>
-        <DetailsCrew/>
+        <DetailsTitle>{props.title}</DetailsTitle>
+        <DetailsText>{props.text}</DetailsText>
+        <DetailsCrew>{props.crew}</DetailsCrew>
       </Details>
     )
-  }
 }
 
 module.exports = CollectionDetails;

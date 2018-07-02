@@ -16,7 +16,23 @@ const Arrow = require('MobileCarousel').Arrow;
 function importCollection(r) {
     return r.keys().map(r);
   }
-  
+
+// the text for the collections
+import {collectionTexts} from '../text/text.json';
+// mindegyik campaign/lookbookhoz külön const kell!
+//const collectionTexts = require("../text/text.json");
+
+const _14awcampaigntext = collectionTexts._14aw.campaign;
+const _14awlookbooktext = collectionTexts._14aw.lookbook;
+const _15awcampaigntext = collectionTexts._15aw.campaign;
+const _15sscampaigntext = collectionTexts._15ss.campaign;
+const _15sslookbooktext = collectionTexts._15ss.lookbook;
+const _16awcampaigntext = collectionTexts._16aw.campaign;
+const _17sscampaigntext = collectionTexts._17ss.campaign;
+const _17sslookbooktext = collectionTexts._17ss.lookbook;
+const _LAYERScampaigntext = collectionTexts._LAYERS.campaign;
+const _LAYERSlookbooktext = collectionTexts._LAYERS.lookbook;
+
 const _14awcampaign = importCollection(require.context('../img/collections/14aw/campaign', false, /\.(png|jpe?g|svg)$/));
 const _14awlookbook = importCollection(require.context('../img/collections/14aw/lookbook', false, /\.(png|jpe?g|svg)$/));
 const _15awcampaign = importCollection(require.context('../img/collections/15aw/campaign', false, /\.(png|jpe?g|svg)$/));
@@ -56,7 +72,32 @@ class Collections extends React.Component{
                    lookbook: {_LAYERSlookbook}
                }
             },
+            texts: {
+                _14aw: {
+                    campaign: {_14awcampaigntext},
+                    lookbook: {_14awlookbooktext}
+                },
+                _15aw: {
+                    campaign: {_15awcampaigntext}
+                },
+                _15ss: {
+                    campaign: {_15sscampaigntext},
+                    lookbook: {_15sslookbooktext}
+                },
+                _16aw: {
+                    campaign: {_16awcampaigntext}
+                },
+                _17ss: {
+                    campaign: {_17sscampaigntext},
+                    lookbook: {_17sslookbooktext}
+                },
+                _LAYERS: {
+                    campaign: {_LAYERScampaigntext},
+                    lookbook: {_LAYERSlookbooktext}
+                }
+            },
             selectedSet: [],
+            collectionText: {},
             currentIndex: 0,
             direction: ""
        }
@@ -134,34 +175,38 @@ class Collections extends React.Component{
     findCurrent(){
         let hash = this.props.match.params.id;
         let shoot = this.props.match.params.shoot;
+        // select the photos
         let selected = Object.keys(this.state.sets).filter(key => key === hash);
-        //console.log(shoot);
-        //console.log("what's this?");
-        //console.log(selected);
         let reallySelected = selected[0];
-        //console.log(reallySelected);
+        // select the JSON with the right strings
+        let textToShow = Object.keys(this.state.texts).filter(key => key === hash);
+        let textToReallyShow = textToShow[0];
         let listVar = hash+shoot;
+        // this is the biggest hack ever
+        let textVar = listVar+"text";
         let selectedSet = this.state.sets[reallySelected][shoot][listVar];
-        //console.log('with underscore');
-        //console.log(selectedSet);
-        // ezt kell továbbadni a DesktopCarouselnek meg a MobileCarouselnek propként
-        this.setState((prevState) => ({selectedSet: selectedSet})); 
-         //console.log('GLOBAL');
-         //console.log(this.state);
+        let collectionText = this.state.texts[textToReallyShow][shoot][textVar];
+        
+        this.setState((prevState) => ({selectedSet: selectedSet, collectionText: collectionText}));
     };
     componentWillReceiveProps(nextProps) {
         if(nextProps.location != this.props.location) {
             // chop off "/collections/"
             let newHash = nextProps.location.pathname.substr(13);
             let newColl = newHash.split("/")[0];
-            console.log("newColl: " + newColl);
             let newShoot = newHash.split("/")[1];
             let newListVar = newColl+newShoot;
+            let newTextVar = newListVar+"text";
+            // photos
             let selected = Object.keys(this.state.sets).filter(key => key === newColl);
-            console.log("selected: " + selected);
             let reallySelected = selected[0];
+            // strings
+            let textToShow = Object.keys(this.state.texts).filter(key => key === newColl);
+            let textToReallyShow = textToShow[0];
+            // console.log(textToReallyShow);
             let selectedSet = this.state.sets[reallySelected][newShoot][newListVar];
-            this.setState((prevState) => ({selectedSet: selectedSet}));
+            let collectionText = this.state.texts[textToReallyShow][newShoot][newTextVar];
+            this.setState((prevState) => ({selectedSet: selectedSet, collectionText: collectionText}));
             // console.log(nextProps.location.pathname.substr(13));
         }
     }
@@ -188,7 +233,7 @@ class Collections extends React.Component{
     `;
        return (
            <CollectionWrapper>
-               <CollectionDetails/>
+               <CollectionDetails title={this.state.collectionText.title} text={this.state.collectionText.text} crew={Object.prototype.toString.call(this.state.collectionText.crew)==="[object Array]"?this.state.collectionText.crew.join('\n'):this.state.collectionText.crew}/>
                <MediaQuery maxWidth={760}>
                 <Arrow style={{top:"0", left:"0"}} onClick={(e)=>this.kattBalra(e)}>
                     <p>&lt;</p>
@@ -207,14 +252,6 @@ class Collections extends React.Component{
                         key={this.state.currentIndex}
                         src={this.state.selectedSet[this.circleIndex(this.state.currentIndex)]}/>
                 </ReactCSSTransitionGroup>
-               {/*
-                <MobileCarousel
-                    selectedSet={this.state.selectedSet}
-                    currentIndex={this.state.currentIndex}
-                    direction={this.state.direction}
-                    kattBalra={this.kattBalra}
-                    kattJobbra={this.kattJobbra}/>
-                    */}
                </MediaQuery>
                <MediaQuery minWidth={760}>
                 <ReactCSSTransitionGroup
@@ -238,14 +275,6 @@ class Collections extends React.Component{
                         src={this.state.selectedSet[this.circleIndex(this.state.currentIndex+2)]}
                         onClick={(e)=>this.kattJobbra(e)}/>
                 </ReactCSSTransitionGroup>
-               {/*
-                <DesktopCarousel
-                    selectedSet={this.state.selectedSet}
-                    currentIndex={this.state.currentIndex}
-                    direction={this.state.direction}
-                    kattBalra={this.kattBalra}
-                    kattJobbra={this.kattJobbra}/>
-                    */}
                </MediaQuery>
            </CollectionWrapper>
        )
