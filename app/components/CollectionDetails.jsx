@@ -19,19 +19,19 @@ const Details = styled.div`
         grid-row: sor 1;
         grid-column: oszlop;
         margin-left: 1vw;
-        font-size: 0.5em;
+        font-size: 2em;
     `;
     const DetailsText = styled.p`
         grid-row: sor 2 / span 2;
         grid-column: oszlop;
         margin-left: 1vw;
-        font-size: 0.5em;
+        font-size: 1em;
     `;
     const DetailsCrew = styled.p`
         grid-row: sor 4;
         grid-column: oszlop;
         margin-left: 1vw;
-        font-size: 0.5em;
+        font-size: 1em;
     `;
 
 function CollectionDetails(props) {  

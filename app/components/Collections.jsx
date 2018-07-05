@@ -18,7 +18,7 @@ function importCollection(r) {
   }
 
 // the text for the collections
-import {collectionTexts} from '../text/text.json';
+import {collectionTexts} from '../text/collections.js';
 // mindegyik campaign/lookbookhoz külön const kell!
 //const collectionTexts = require("../text/text.json");
 
@@ -233,7 +233,10 @@ class Collections extends React.Component{
     `;
        return (
            <CollectionWrapper>
-               <CollectionDetails title={this.state.collectionText.title} text={this.state.collectionText.text} crew={Object.prototype.toString.call(this.state.collectionText.crew)==="[object Array]"?this.state.collectionText.crew.join('\n'):this.state.collectionText.crew}/>
+               <CollectionDetails
+                title={this.state.collectionText.title}
+                text={this.state.collectionText.text}
+                crew={Object.prototype.toString.call(this.state.collectionText.crew)==="[object Array]"?this.state.collectionText.crew.join('\n'):this.state.collectionText.crew}/>
                <MediaQuery maxWidth={760}>
                 <Arrow style={{top:"0", left:"0"}} onClick={(e)=>this.kattBalra(e)}>
                     <p>&lt;</p>
