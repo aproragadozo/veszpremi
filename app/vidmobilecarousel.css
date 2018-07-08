@@ -18,15 +18,21 @@ iframe {
 .vidText {
     opacity: 1;
     width: 100%;
-    font-size: 42px;
+    font-size: 8vmin;
     height: 100%;
-    display: table;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 0;
 }
 
 .vidFelirat {
     color: white;
-    display: table-cell;
-    vertical-align: middle;
+    display: block;
     opacity: 1;
     text-align: left;
+    width: 80%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }

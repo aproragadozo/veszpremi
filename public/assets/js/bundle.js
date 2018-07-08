@@ -33089,7 +33089,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, ".vidOverlay {\r\n    text-align: center;\r\n    position: absolute;\r\n    background-color: #1220225c;\r\n    width: 100%;\r\n    height: 88%;\r\n    transition: .3s ease;\r\n    bottom: 12%;\r\n}\r\n\r\niframe {\r\n    width: 100%;\r\n    height: 100%;\r\n    position: absolute;\r\n    bottom: 12%;\r\n}\r\n\r\n.vidText {\r\n    opacity: 1;\r\n    width: 100%;\r\n    font-size: 42px;\r\n    height: 100%;\r\n    display: table;\r\n}\r\n\r\n.vidFelirat {\r\n    color: white;\r\n    display: table-cell;\r\n    vertical-align: middle;\r\n    opacity: 1;\r\n    text-align: left;\r\n}", ""]);
+exports.push([module.i, ".vidOverlay {\r\n    text-align: center;\r\n    position: absolute;\r\n    background-color: #1220225c;\r\n    width: 100%;\r\n    height: 88%;\r\n    transition: .3s ease;\r\n    bottom: 12%;\r\n}\r\n\r\niframe {\r\n    width: 100%;\r\n    height: 100%;\r\n    position: absolute;\r\n    bottom: 12%;\r\n}\r\n\r\n.vidText {\r\n    opacity: 1;\r\n    width: 100%;\r\n    font-size: 8vmin;\r\n    height: 100%;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    flex-direction: row;\r\n    padding: 0;\r\n}\r\n\r\n.vidFelirat {\r\n    color: white;\r\n    display: block;\r\n    opacity: 1;\r\n    text-align: left;\r\n    width: 80%;\r\n    word-wrap: break-word;\r\n    overflow-wrap: break-word;\r\n}", ""]);
 
 // exports
 
