@@ -41,10 +41,9 @@ background-position: center;
 background-repeat: no-repeat;
 
 @media only screen and (min-width: 760px) {
-    grid-template-rows: [top] 80px [meat] 1fr [bottom] 3vmax;
+    grid-template-rows: [top] 110px [meat] 1fr [bottom] 3vmax;
     grid-template-columns: [cal] 23vw repeat(6, [col] 1fr);
     grid-gap: 1.5vmax;
-    grid-row-gap: 3vmax;
 }
 `;
 
