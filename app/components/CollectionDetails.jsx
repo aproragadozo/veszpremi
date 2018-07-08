@@ -13,6 +13,7 @@ const Details = styled.div`
             grid-template-rows: repeat(4, [sor] 1fr);
             grid-template-columns: [oszlop] 1fr;
             grid-gap: 1.5vmax;
+            white-space: pre-line;
         }
     `;
     const DetailsTitle = styled.p`

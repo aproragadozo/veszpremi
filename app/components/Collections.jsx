@@ -236,7 +236,7 @@ class Collections extends React.Component{
                <CollectionDetails
                 title={this.state.collectionText.title}
                 text={this.state.collectionText.text}
-                crew={Object.prototype.toString.call(this.state.collectionText.crew)==="[object Array]"?this.state.collectionText.crew.join('\n'):this.state.collectionText.crew}/>
+                crew={this.state.collectionText.crew}/>
                <MediaQuery maxWidth={760}>
                 <Arrow style={{top:"0", left:"0"}} onClick={(e)=>this.kattBalra(e)}>
                     <p>&lt;</p>
