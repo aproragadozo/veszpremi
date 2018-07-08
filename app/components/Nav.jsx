@@ -153,6 +153,10 @@ class Menu extends React.Component{
           </li>
           
           <li style ={linkStyle}>
+            <Link to="/shop" style={{display: "block"}}>Shop</Link>
+          </li>
+
+          <li style ={linkStyle}>
             <Link to="/contact" style={{display: "block"}}>Contact</Link>
           </li>
           
@@ -266,6 +270,7 @@ class Nav extends React.Component{
             <Dropdown sets={this.props.sets}/>
             <Link to="/press">Press</Link>
             <Link to="/videos">Video</Link>
+            <Link to="/shop">Shop</Link>
             <Link to="/contact">Contact</Link>
             
           </Desktop>
