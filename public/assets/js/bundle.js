@@ -6659,7 +6659,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "@font-face {\r\n    font-family: 'Akzidenz Grotesk';\r\n    src: url('/public/assets/fonts/AkzidenzGroteskBold.ttf') format(\"ttf\");\r\n}\r\n\r\nbody {\r\n    font-weight: bold;\r\n    font-family: 'Akzidenz Grotesk', Arial, Geneva, Verdana, sans-serif;\r\n    color: #443A9E;\r\n}", ""]);
+exports.push([module.i, "@font-face {\r\n    font-family: 'Akzidenz Grotesk';\r\n    src: url('/public/assets/fonts/AkzidenzGrotesk-Bold.otf') format(\"otf\");\r\n}\r\n\r\nbody {\r\n    font-weight: bold;\r\n    font-family: 'Akzidenz Grotesk', Arial, Geneva, Verdana, sans-serif;\r\n    color: #443A9E;\r\n}", ""]);
 
 // exports
 
@@ -30257,7 +30257,7 @@ module.exports = "/assets/img/f420ff36daa604d3ef731fba4cda3eeb.png";
 
 
 var _templateObject = _taggedTemplateLiteral(['\n        grid-row: wrapperNav 3 / span 9;\n        grid-column: wrapperCol 1 / span 6;\n        background-size: cover;\n        background-position: center;\n        background-repeat: no-repeat;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: meat;\n            grid-column: cal / span 7;\n        }\n    '], ['\n        grid-row: wrapperNav 3 / span 9;\n        grid-column: wrapperCol 1 / span 6;\n        background-size: cover;\n        background-position: center;\n        background-repeat: no-repeat;\n\n        @media only screen and (min-width: 760px) {\n            grid-row: meat;\n            grid-column: cal / span 7;\n        }\n    ']),
-    _templateObject2 = _taggedTemplateLiteral(['\n    display: table;\n    text-align: left;\n    \n    grid-row: wrapperNav 3 / span 10;\n    grid-column: wrapperCol 1 / span 5;\n    font-size: 13vmin;\n    color: #443A9E;\n\n    & > div {\n        display: table-cell;\n        vertical-align: middle;\n    }\n\n    @media only screen and (min-width: 760px) {\n        grid-row: meat;\n        grid-column: cal / span 3;\n    }\n'], ['\n    display: table;\n    text-align: left;\n    \n    grid-row: wrapperNav 3 / span 10;\n    grid-column: wrapperCol 1 / span 5;\n    font-size: 13vmin;\n    color: #443A9E;\n\n    & > div {\n        display: table-cell;\n        vertical-align: middle;\n    }\n\n    @media only screen and (min-width: 760px) {\n        grid-row: meat;\n        grid-column: cal / span 3;\n    }\n']);
+    _templateObject2 = _taggedTemplateLiteral(['\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    \n    grid-row: wrapperNav 3 / span 10;\n    grid-column: wrapperCol 1 / span 5;\n    font-size: 13vmin;\n    color: #443A9E;\n    white-space: pre;\n\n    @media only screen and (min-width: 760px) {\n        grid-row: meat;\n        grid-column: cal / span 3;\n    }\n'], ['\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    \n    grid-row: wrapperNav 3 / span 10;\n    grid-column: wrapperCol 1 / span 5;\n    font-size: 13vmin;\n    color: #443A9E;\n    white-space: pre;\n\n    @media only screen and (min-width: 760px) {\n        grid-row: meat;\n        grid-column: cal / span 3;\n    }\n']);
 
 var _styledComponents = __webpack_require__(1);
 
@@ -30281,7 +30281,7 @@ function Home(props) {
             null,
             React.createElement(
                 'div',
-                null,
+                { style: { maxWidth: "50vw" } },
                 props.text
             )
         )

@@ -16,18 +16,15 @@ const HomeImage = styled.div`
     `;
 
     const Text = styled.div`
-    display: table;
-    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     
     grid-row: wrapperNav 3 / span 10;
     grid-column: wrapperCol 1 / span 5;
     font-size: 13vmin;
     color: #443A9E;
-
-    & > div {
-        display: table-cell;
-        vertical-align: middle;
-    }
+    white-space: pre;
 
     @media only screen and (min-width: 760px) {
         grid-row: meat;
@@ -38,7 +35,7 @@ function Home(props){
     return (
         <HomeImage>
             <Text>
-                <div>
+                <div style={{maxWidth: "50vw"}}>
                 {props.text}
                 </div>
             </Text>
