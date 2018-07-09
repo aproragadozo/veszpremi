@@ -36,3 +36,9 @@ iframe {
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
+
+@media screen and (min-width: 760px) {
+    .vidText {
+        font-size: 5vmin;
+    }
+}

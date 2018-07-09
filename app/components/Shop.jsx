@@ -20,7 +20,7 @@ const Rotate = styled.div`
 `;
 
 const ShoeImage = styled.div`
-        grid-row: wrapperNav 3 / span 9;
+        grid-row: wrapperNav 3 / span 10;
 				grid-column: wrapperCol 1 / span 6;
 				background: white;
         background-size: cover;

@@ -5,6 +5,8 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 const background = require('../img/home/background.jpg');
 const spinner = require('../img/home/shoe.png');
 
+import {aboutText} from '../text/about.js';
+
 import 'app/body.css';
 
 import styled from 'styled-components';
@@ -33,7 +35,7 @@ const Wrapper = styled.div`
 height: 96vh;
 max-height: 96vh;
 display: grid;
-grid-template-rows: repeat(11, [wrapperNav] minmax(5vh, 100px)) 1fr [wrapperFooter] minmax(4vmax, 60px);
+grid-template-rows: repeat(11, [wrapperNav] minmax(1vh, 30px)) 1fr [wrapperFooter] minmax(4vmax, 60px);
 grid-template-columns: repeat(6, [wrapperCol] 1fr);
 grid-column-gap: 1vmin;
 background-size: cover;
@@ -55,7 +57,7 @@ class App extends React.Component{
                 <Header/>
                 <Nav sets={szettek}/>
                 <Route exact path="/" render={props => <Home text={`${szettek[szettek.length-1].name}\n`+ "COLLECTION"}/>}/>
-                <Route path="/about" component={About}/>
+                <Route path="/about" render={props => <About brand={`${aboutText.brand}`} main={`${aboutText.main}`} awards={`${aboutText.awards}`} {...props}/>}/>
                 <Route path="/collections/:id/:shoot" component={Collections}/>
                 <Route path="/videos" component={Videos}/>
                 <Route path="/contact" component={ContactPage}/>
