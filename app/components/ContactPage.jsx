@@ -283,6 +283,8 @@ const ContactWrapper = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	background: white;
+	white-space: pre-line;
 
 	@media only screen and (min-width: 760px){
 		width: 100%;
@@ -301,6 +303,7 @@ const DetailsWrapper = styled.div`
 	max-width: 400px;
 	flex-direction: column;
 	order: 2;
+	font-size: 0.8em;
 
 	@media only screen and (min-width: 760px) {
 		left: 1vmax;
@@ -309,6 +312,7 @@ const DetailsWrapper = styled.div`
 		padding-right: 1vmax;
 		position: absolute;
 		max-width: 100%;
+		font-size: 2em;
 	}
 `;
 
@@ -331,7 +335,6 @@ const MapWrapper = styled.div`
 const ContactText1 = styled.div`
 	height: 45%;
 	width: 100%;
-	background-color: #BBB6B2;
 	@media only screen and (min-width: 760px) {
 		height: calc(25% - 0.5vmax);
 		margin-bottom: 1.5vmax;
@@ -339,7 +342,6 @@ const ContactText1 = styled.div`
 `;
 
 const ContactText2 = styled.div`
-	background-color: #bbb6b2;
 	width: 100%;
 	height: 45%;
 	@media only screen and (min-width: 760px) {
@@ -351,22 +353,12 @@ const ContactText2 = styled.div`
 const ContactText3 = styled.div`
 	display: none;
 	@media only screen and (min-width:760px) {
-		background-color: #bbb6b2;
     margin-top: 1.5vmax;
     width: 100%;
 		height: calc(25% - 0.5vmax);
 		display: block;
 	}
 `;
-
-const ContactDetails = () => (
-	<DetailsWrapper>
-		<ContactText1/>
-		<ContactText2/>
-		<ContactText3/>
-	</DetailsWrapper>
-);
-
 class Map extends React.Component{
 	onMapCreated(map) {
 		map.setOptions({
@@ -393,15 +385,23 @@ class Map extends React.Component{
 	}
 }
 
-class ContactPage extends React.Component{
-	render() {
+function ContactPage(props){
 		return (
 			<ContactWrapper>
-				<ContactDetails/>
+				<DetailsWrapper>
+					<ContactText1>
+						<p>{props.one}</p>
+					</ContactText1>
+					<ContactText2>
+						<p>{props.two}</p>
+						</ContactText2>
+					<ContactText3>
+						<p>{props.three}</p>
+					</ContactText3>
+				</DetailsWrapper>
 				<Map/>
 			</ContactWrapper>
 		)
-	}
 }
 
 module.exports = ContactPage;

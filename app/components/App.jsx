@@ -6,6 +6,7 @@ const background = require('../img/home/background.jpg');
 const spinner = require('../img/home/shoe.png');
 
 import {aboutText} from '../text/about.js';
+import {contactText} from '../text/contact.js';
 
 import 'app/body.css';
 
@@ -32,20 +33,20 @@ const szettek = [
 ];
 
 const Wrapper = styled.div`
-height: 96vh;
-max-height: 96vh;
-display: grid;
-grid-template-rows: repeat(11, [wrapperNav] minmax(1vh, 30px)) 1fr [wrapperFooter] minmax(4vmax, 60px);
-grid-template-columns: repeat(6, [wrapperCol] 1fr);
-grid-column-gap: 1vmin;
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+    height: 96vh;
+    max-height: 96vh;
+    display: grid;
+    grid-template-rows: repeat(11, [wrapperNav] minmax(1vh, 30px)) 1fr [wrapperFooter] minmax(4vmax, 60px);
+    grid-template-columns: repeat(6, [wrapperCol] 1fr);
+    grid-column-gap: 1vmin;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-@media only screen and (min-width: 760px) {
-    grid-template-rows: [top] 110px [meat] 1fr [bottom] 3vmax;
-    grid-template-columns: [cal] 23vw repeat(6, [col] 1fr);
-    grid-gap: 1.5vmax;
+    @media only screen and (min-width: 760px) {
+        grid-template-rows: [top] 110px [meat] 1fr [bottom] 3vmax;
+        grid-template-columns: [cal] 23vw repeat(6, [col] 1fr);
+        grid-gap: 1.5vmax;
 }
 `;
 
@@ -60,7 +61,7 @@ class App extends React.Component{
                 <Route path="/about" render={props => <About brand={`${aboutText.brand}`} main={`${aboutText.main}`} awards={`${aboutText.awards}`} {...props}/>}/>
                 <Route path="/collections/:id/:shoot" component={Collections}/>
                 <Route path="/videos" component={Videos}/>
-                <Route path="/contact" component={ContactPage}/>
+                <Route path="/contact" render={props => <ContactPage one={`${contactText.one}`} two={`${contactText.two}`} three={`${contactText.three}`} {...props}/>}/>
                 <Route path="/press" component={Press}/>
                 <Route path="/shop" render={props => <Shop spinner={`${spinner}`} {...props}/>}/>
                 <Footer/>
