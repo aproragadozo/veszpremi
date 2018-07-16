@@ -3,7 +3,7 @@ var {Link} = require('react-router-dom');
 
 import styled from 'styled-components';
 
-const DropdownButton = styled(Link)`
+const DropdownButton = styled.div`
   background-color: transparent;
   font-size: 0.9vw;
   display: inline-block;
@@ -12,6 +12,8 @@ const DropdownButton = styled(Link)`
   color: #443A9E;
   text-transform: uppercase;
   text-decoration: none;
+  grid-row: row;
+  line-height: 4vw;
 `;
 
 const Menu = styled.ul`
@@ -95,7 +97,7 @@ const MenuItems = ({sets}) => (
 class Dropdown extends React.Component {
   render() {
     return (
-        <DropdownButton to={`/collections/${this.props.sets[0].name}`}>Collections
+        <DropdownButton>Collections
           <MenuItems sets={this.props.sets}/>
         </DropdownButton>
     )

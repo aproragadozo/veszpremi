@@ -16,7 +16,7 @@ const NavWrapper = styled.div`
     justify-content: start;
     z-index: 5;
 
-    >a {
+    >a{
       display: flex;
       justify-content: center;
       align-items: center;
@@ -32,7 +32,27 @@ const NavWrapper = styled.div`
       font-weight: normal;
       max-height: 8vmin;
     }
-    >a:hover {
+    >div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: right;
+      flex: 1 2 5vmin;
+      justify-self: start;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition-property: font-weight, background-color;
+      transition-duration: 0.3s;
+      background-color: transparent;
+      opacity: 0.8;
+      font-weight: normal;
+      max-height: 8vmin;
+    }
+    >a:hover{
+      background-color: #f1f1f1;
+      font-weight: bold;
+    }
+    >div:hover {
       background-color: #f1f1f1;
       font-weight: bold;
     }
@@ -46,6 +66,16 @@ const NavWrapper = styled.div`
       grid-column: col 3 / span 4;
 
       >a {
+        grid-row: row;
+        display: inline-block;
+        background-color: #050505;
+        font-size: 0.9vw;
+        flex: none;
+        max-height: initial;
+        justify-self: auto;
+        position: relative;
+      }
+      >div {
         grid-row: row;
         display: inline-block;
         background-color: #050505;

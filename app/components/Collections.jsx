@@ -44,6 +44,24 @@ const _17sslookbook = importCollection(require.context('../img/collections/17ss/
 const _LAYERScampaign = importCollection(require.context('../img/collections/LAYERS/campaign', false, /\.(png|jpe?g|svg)$/));
 const _LAYERSlookbook = importCollection(require.context('../img/collections/LAYERS/lookbook', false, /\.(png|jpe?g|svg)$/));
 
+const CollectionWrapper = styled.div`
+    display: grid;
+    grid-column: wrapperCol 1 / span 6;
+    grid-row: wrapperNav 3 / span 10;
+    grid-template-rows: [sor] 1fr;
+    grid-template-columns: [oszlop] 1fr;
+    position: relative;
+    background: white;
+
+    @media only screen and (min-width: 760px) {
+    grid-row: meat;
+    grid-column: cal / span 7;
+    grid-template-columns: [details] 35vw repeat(4, [meatCol] 1fr);
+    grid-template-rows: [sorr] 1fr;
+    grid-gap: 1.5vmax;
+    }
+`;
+
 class Collections extends React.Component{
     constructor(props){
        super(props);
@@ -215,22 +233,6 @@ class Collections extends React.Component{
     }
 
    render() {
-    var CollectionWrapper = styled.div`
-        display: grid;
-        grid-column: wrapperCol 1 / span 6;
-        grid-row: wrapperNav 3 / span 10;
-        grid-template-rows: [sor] 1fr;
-        grid-template-columns: [oszlop] 1fr;
-        position: relative;
-
-    @media only screen and (min-width: 760px) {
-        grid-row: meat;
-        grid-column: cal / span 7;
-        grid-template-columns: [details] 35vw repeat(4, [meatCol] 1fr);
-        grid-template-rows: [sorr] 1fr;
-        grid-gap: 1.5vmax;
-    }
-    `;
        return (
            <CollectionWrapper>
                <CollectionDetails
