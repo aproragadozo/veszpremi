@@ -1,25 +1,26 @@
 var React = require('react');
+var {Link} = require('react-router-dom');
 
 import styled from 'styled-components';
 
 const HomeImage = styled.div`
-        grid-row: wrapperNav 3 / span 9;
-        grid-column: wrapperCol 1 / span 6;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+    grid-row: wrapperNav 3 / span 9;
+    grid-column: wrapperCol 1 / span 6;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-        @media only screen and (min-width: 760px) {
-            grid-row: meat;
-            grid-column: cal / span 7;
-        }
-    `;
+    @media only screen and (min-width: 760px) {
+        grid-row: meat;
+        grid-column: cal / span 7;
+    }
+`;
 
-    const Text = styled.div`
+const Text = styled(Link)`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    
+
     grid-row: wrapperNav 3 / span 10;
     grid-column: wrapperCol 1 / span 5;
     font-size: 13vmin;
@@ -34,7 +35,7 @@ const HomeImage = styled.div`
 function Home(props){
     return (
         <HomeImage>
-            <Text>
+            <Text to={props.destination}>
                 <div style={{maxWidth: "50vw"}}>
                 {props.text}
                 </div>

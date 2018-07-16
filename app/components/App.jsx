@@ -1,6 +1,22 @@
 var React = require('react');
 
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+// trying to solve the "cannot GET anything" problem with createBrowserHistory
+// if such a thing as 'history' exists
+// import {createBrowserHistory} from 'history';
+// or 'browserHistory'
+import {HashRouter as Router, Route, useRouterHistory} from 'react-router-dom';
+
+/*
+// still the 'history' hack
+const history = useRouterHistory(createBroswerHistory)({
+    basename: "/"
+});
+// you'll have to add this as well, if you're going down this road: <Router history={history}>
+ I'm not sure about any of this, but this piece seems the fishiest
+history.listen(location => {
+    history.push('super/url');
+})
+*/
 
 const background = require('../img/home/background.jpg');
 const spinner = require('../img/home/shoe.png');
@@ -57,7 +73,7 @@ class App extends React.Component{
             <Wrapper style={{backgroundImage: `url(${background})`}}>
                 <Header/>
                 <Nav sets={szettek}/>
-                <Route exact path="/" render={props => <Home text={`${szettek[szettek.length-1].name}\n`+ "COLLECTION"}/>}/>
+                <Route exact path="/" render={props => <Home text={`${szettek[szettek.length-1].name}\n`+ "COLLECTION"} destination={"/collections/_" + `${szettek[szettek.length-1].name}` + "/" + `${szettek[szettek.length-1].sets[0]}`}/>}/>
                 <Route path="/about" render={props => <About brand={`${aboutText.brand}`} main={`${aboutText.main}`} awards={`${aboutText.awards}`} {...props}/>}/>
                 <Route path="/collections/:id/:shoot" component={Collections}/>
                 <Route path="/videos" component={Videos}/>
