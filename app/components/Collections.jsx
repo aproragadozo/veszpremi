@@ -57,7 +57,7 @@ const CollectionWrapper = styled.div`
     grid-row: meat;
     grid-column: cal / span 7;
     grid-template-columns: [details] 35vw repeat(4, [meatCol] 1fr);
-    grid-template-rows: [sorr] 1fr;
+    grid-template-rows: [sorr] minmax(60vh, 800px);
     grid-gap: 1.5vmax;
     }
 `;

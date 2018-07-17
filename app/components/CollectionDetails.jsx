@@ -23,13 +23,13 @@ const Details = styled.div`
         font-size: 2em;
     `;
     const DetailsText = styled.p`
-        grid-row: sor 2 / span 2;
+        grid-row: sor 2;
         grid-column: oszlop;
         margin-left: 1vw;
         font-size: 1em;
     `;
     const DetailsCrew = styled.p`
-        grid-row: sor 4;
+        grid-row: sor 3;
         grid-column: oszlop;
         margin-left: 1vw;
         font-size: 1em;
