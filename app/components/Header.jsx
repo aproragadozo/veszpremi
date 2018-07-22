@@ -32,7 +32,6 @@ const Logo = styled(Link)`
 `;
 class Header extends React.Component{
   render(){
-    console.log(veszpremiLogo);
     return (
         <Top>
           <Logo to={"/"}>

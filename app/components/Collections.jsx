@@ -116,14 +116,77 @@ class Collections extends React.Component{
             },
             selectedSet: [],
             collectionText: {},
-            currentIndex: 0,
+            gallery: [],
+            currentIndex: 1,
+            galleryIndex: 0,
             direction: ""
        }
         this.findCurrent = this.findCurrent.bind(this);
        // handlers moved up from DesktopCarousel
         this.kattBalra = this.kattBalra.bind(this);
         this.kattJobbra = this.kattJobbra.bind(this);
+        this.galleryBalra = this.galleryBalra.bind(this);
+        this.galleryJobbra = this.galleryJobbra.bind(this);
         this.circleIndex = this.circleIndex.bind(this);
+        this.populateGallery = this.populateGallery.bind(this);
+    }
+
+    galleryBalra(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        let index = this.state.galleryIndex;
+        let gallery = this.state.gallery;
+        let length = gallery.length;
+        
+        if (index < 1) {
+          index = length-1;
+        }
+        else {
+          index--;
+        }
+    
+        if(window.innerWidth < 760) {
+            this.setState({
+                galleryIndex: index,
+                direction: 'kisBalra'
+              })
+        }
+        else {
+            this.setState({
+                galleryIndex: index,
+                direction: 'nagyBalra'
+              })
+        }
+    }
+
+    galleryJobbra(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        let index = this.state.galleryIndex;
+        let gallery = this.state.gallery;
+        let length = gallery.length;
+        
+        if (index === length) {
+            index = -1;
+          }
+          else {
+              ++index;
+          }
+          
+          if(window.innerWidth < 760) {
+              this.setState({
+                  galleryIndex: index,
+                  direction: 'kisJobbra'
+                  })
+          }
+          else {
+              this.setState({
+                  galleryIndex: index,
+                  direction: 'nagyJobbra'
+                })
+          }
     }
 
     kattBalra(e) {
@@ -204,9 +267,27 @@ class Collections extends React.Component{
         let textVar = listVar+"text";
         let selectedSet = this.state.sets[reallySelected][shoot][listVar];
         let collectionText = this.state.texts[textToReallyShow][shoot][textVar];
-        
-        this.setState((prevState) => ({selectedSet: selectedSet, collectionText: collectionText}));
+        // creating an array that contains the selected set plus the matching collection text
+        let gallery = selectedSet.slice(0);
+        gallery.push(collectionText);
+        this.setState((prevState) => ({selectedSet: selectedSet, collectionText: collectionText, gallery: gallery}));
     };
+
+    populateGallery(){
+        let photosOnly = this.state.gallery.slice(0, -1);
+        let images = photosOnly.map((elem, index) => (
+            <img className="mobilcenter" src={elem} key={elem}/>
+        ))
+        // adding the text back
+        images.push(
+            <div style={{width: "100%", height: "100%"}}>
+                <p>{this.state.collectionText.title}</p>
+                <p>{this.state.collectionText.text}</p>
+                <p>{this.state.collectionText.crew}</p>
+            </div>
+        );
+        return images;
+    }
     componentWillReceiveProps(nextProps) {
         if(nextProps.location != this.props.location) {
             // chop off "/collections/"
@@ -224,7 +305,9 @@ class Collections extends React.Component{
             // console.log(textToReallyShow);
             let selectedSet = this.state.sets[reallySelected][newShoot][newListVar];
             let collectionText = this.state.texts[textToReallyShow][newShoot][newTextVar];
-            this.setState((prevState) => ({selectedSet: selectedSet, collectionText: collectionText}));
+            let gallery = selectedSet.slice(0);
+            gallery.push(collectionText);
+            this.setState((prevState) => ({selectedSet: selectedSet, collectionText: collectionText, gallery: gallery}));
             // console.log(nextProps.location.pathname.substr(13));
         }
     }
@@ -240,10 +323,10 @@ class Collections extends React.Component{
                 text={this.state.collectionText.text}
                 crew={this.state.collectionText.crew}/>
                <MediaQuery maxWidth={760}>
-                <Arrow style={{top:"0", left:"0"}} onClick={(e)=>this.kattBalra(e)}>
+                <Arrow style={{top:"0", left:"0"}} onClick={(e)=>this.galleryBalra(e)}>
                     <p>&lt;</p>
                 </Arrow>
-                <Arrow style={{top:"0", left:"85%"}} onClick={(e)=>this.kattJobbra(e)}>
+                <Arrow style={{top:"0", left:"85%"}} onClick={(e)=>this.galleryJobbra(e)}>
                     <p>&gt;</p>
                 </Arrow>
 
@@ -253,9 +336,14 @@ class Collections extends React.Component{
                     transitionLeaveTimeout={1000}
                     component='div'
                     style={{position:"relative", width:"100%", height: "100%", display: "inline-block", overflow:"hidden"}}>
+                    {
+                        this.populateGallery()[this.state.galleryIndex]
+                    }
+                    {/*
                     <img className="mobilcenter"
                         key={this.state.currentIndex}
                         src={this.state.selectedSet[this.circleIndex(this.state.currentIndex)]}/>
+                    */}
                 </ReactCSSTransitionGroup>
                </MediaQuery>
                <MediaQuery minWidth={760}>
@@ -271,12 +359,12 @@ class Collections extends React.Component{
                         marginLeft: "1vmax",
                         transition: "all 1s ease-out"}}>
                     
-                    <img className="bal" key={this.state.currentIndex}
+                    <img className="bal" key={this.state.selectedSet[this.circleIndex(this.state.currentIndex)]}
                         src={this.state.selectedSet[this.circleIndex(this.state.currentIndex)]}
                         onClick={(e)=>this.kattBalra(e)}/>
-                    <img className="center" key={this.state.currentIndex+1}
+                    <img className="center" key={this.state.selectedSet[this.circleIndex(this.state.currentIndex+1)]}
                         src={this.state.selectedSet[this.circleIndex(this.state.currentIndex+1)]}/>
-                    <img className="jobb" key={this.state.currentIndex+2}
+                    <img className="jobb" key={this.state.selectedSet[this.circleIndex(this.state.currentIndex+2)]}
                         src={this.state.selectedSet[this.circleIndex(this.state.currentIndex+2)]}
                         onClick={(e)=>this.kattJobbra(e)}/>
                 </ReactCSSTransitionGroup>

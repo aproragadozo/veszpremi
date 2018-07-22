@@ -29678,7 +29678,6 @@ var Header = function (_React$Component) {
   _createClass(Header, [{
     key: 'render',
     value: function render() {
-      console.log(veszpremiLogo);
       return React.createElement(
         Top,
         null,
@@ -30566,18 +30565,79 @@ var Collections = function (_React$Component) {
             },
             selectedSet: [],
             collectionText: {},
-            currentIndex: 0,
+            gallery: [],
+            currentIndex: 1,
+            galleryIndex: 0,
             direction: ""
         };
         _this.findCurrent = _this.findCurrent.bind(_this);
         // handlers moved up from DesktopCarousel
         _this.kattBalra = _this.kattBalra.bind(_this);
         _this.kattJobbra = _this.kattJobbra.bind(_this);
+        _this.galleryBalra = _this.galleryBalra.bind(_this);
+        _this.galleryJobbra = _this.galleryJobbra.bind(_this);
         _this.circleIndex = _this.circleIndex.bind(_this);
+        _this.populateGallery = _this.populateGallery.bind(_this);
         return _this;
     }
 
     _createClass(Collections, [{
+        key: 'galleryBalra',
+        value: function galleryBalra(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            var index = this.state.galleryIndex;
+            var gallery = this.state.gallery;
+            var length = gallery.length;
+
+            if (index < 1) {
+                index = length - 1;
+            } else {
+                index--;
+            }
+
+            if (window.innerWidth < 760) {
+                this.setState({
+                    galleryIndex: index,
+                    direction: 'kisBalra'
+                });
+            } else {
+                this.setState({
+                    galleryIndex: index,
+                    direction: 'nagyBalra'
+                });
+            }
+        }
+    }, {
+        key: 'galleryJobbra',
+        value: function galleryJobbra(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            var index = this.state.galleryIndex;
+            var gallery = this.state.gallery;
+            var length = gallery.length;
+
+            if (index === length) {
+                index = -1;
+            } else {
+                ++index;
+            }
+
+            if (window.innerWidth < 760) {
+                this.setState({
+                    galleryIndex: index,
+                    direction: 'kisJobbra'
+                });
+            } else {
+                this.setState({
+                    galleryIndex: index,
+                    direction: 'nagyJobbra'
+                });
+            }
+        }
+    }, {
         key: 'kattBalra',
         value: function kattBalra(e) {
             e.preventDefault();
@@ -30659,10 +30719,41 @@ var Collections = function (_React$Component) {
             var textVar = listVar + "text";
             var selectedSet = this.state.sets[reallySelected][shoot][listVar];
             var collectionText = this.state.texts[textToReallyShow][shoot][textVar];
-
+            // creating an array that contains the selected set plus the matching collection text
+            var gallery = selectedSet.slice(0);
+            gallery.push(collectionText);
             this.setState(function (prevState) {
-                return { selectedSet: selectedSet, collectionText: collectionText };
+                return { selectedSet: selectedSet, collectionText: collectionText, gallery: gallery };
             });
+        }
+    }, {
+        key: 'populateGallery',
+        value: function populateGallery() {
+            var photosOnly = this.state.gallery.slice(0, -1);
+            var images = photosOnly.map(function (elem, index) {
+                return React.createElement('img', { className: 'mobilcenter', src: elem, key: elem });
+            });
+            // adding the text back
+            images.push(React.createElement(
+                'div',
+                { style: { width: "100%", height: "100%" } },
+                React.createElement(
+                    'p',
+                    null,
+                    this.state.collectionText.title
+                ),
+                React.createElement(
+                    'p',
+                    null,
+                    this.state.collectionText.text
+                ),
+                React.createElement(
+                    'p',
+                    null,
+                    this.state.collectionText.crew
+                )
+            ));
+            return images;
         }
     }, {
         key: 'componentWillReceiveProps',
@@ -30687,8 +30778,10 @@ var Collections = function (_React$Component) {
                 // console.log(textToReallyShow);
                 var selectedSet = this.state.sets[reallySelected][newShoot][newListVar];
                 var collectionText = this.state.texts[textToReallyShow][newShoot][newTextVar];
+                var gallery = selectedSet.slice(0);
+                gallery.push(collectionText);
                 this.setState(function (prevState) {
-                    return { selectedSet: selectedSet, collectionText: collectionText };
+                    return { selectedSet: selectedSet, collectionText: collectionText, gallery: gallery };
                 });
                 // console.log(nextProps.location.pathname.substr(13));
             }
@@ -30716,7 +30809,7 @@ var Collections = function (_React$Component) {
                     React.createElement(
                         Arrow,
                         { style: { top: "0", left: "0" }, onClick: function onClick(e) {
-                                return _this2.kattBalra(e);
+                                return _this2.galleryBalra(e);
                             } },
                         React.createElement(
                             'p',
@@ -30727,7 +30820,7 @@ var Collections = function (_React$Component) {
                     React.createElement(
                         Arrow,
                         { style: { top: "0", left: "85%" }, onClick: function onClick(e) {
-                                return _this2.kattJobbra(e);
+                                return _this2.galleryJobbra(e);
                             } },
                         React.createElement(
                             'p',
@@ -30743,9 +30836,7 @@ var Collections = function (_React$Component) {
                             transitionLeaveTimeout: 1000,
                             component: 'div',
                             style: { position: "relative", width: "100%", height: "100%", display: "inline-block", overflow: "hidden" } },
-                        React.createElement('img', { className: 'mobilcenter',
-                            key: this.state.currentIndex,
-                            src: this.state.selectedSet[this.circleIndex(this.state.currentIndex)] })
+                        this.populateGallery()[this.state.galleryIndex]
                     )
                 ),
                 React.createElement(
@@ -30764,14 +30855,14 @@ var Collections = function (_React$Component) {
                                 gridColumn: "meatCol 1 / span 4",
                                 marginLeft: "1vmax",
                                 transition: "all 1s ease-out" } },
-                        React.createElement('img', { className: 'bal', key: this.state.currentIndex,
+                        React.createElement('img', { className: 'bal', key: this.state.selectedSet[this.circleIndex(this.state.currentIndex)],
                             src: this.state.selectedSet[this.circleIndex(this.state.currentIndex)],
                             onClick: function onClick(e) {
                                 return _this2.kattBalra(e);
                             } }),
-                        React.createElement('img', { className: 'center', key: this.state.currentIndex + 1,
+                        React.createElement('img', { className: 'center', key: this.state.selectedSet[this.circleIndex(this.state.currentIndex + 1)],
                             src: this.state.selectedSet[this.circleIndex(this.state.currentIndex + 1)] }),
-                        React.createElement('img', { className: 'jobb', key: this.state.currentIndex + 2,
+                        React.createElement('img', { className: 'jobb', key: this.state.selectedSet[this.circleIndex(this.state.currentIndex + 2)],
                             src: this.state.selectedSet[this.circleIndex(this.state.currentIndex + 2)],
                             onClick: function onClick(e) {
                                 return _this2.kattJobbra(e);
