@@ -139,6 +139,8 @@ class Collections extends React.Component{
         let gallery = this.state.gallery;
         let length = gallery.length;
         
+        console.log("The left event handler says the gallery is this long: " + String(length));
+
         if (index < 1) {
           index = length-1;
         }
@@ -167,6 +169,8 @@ class Collections extends React.Component{
         let index = this.state.galleryIndex;
         let gallery = this.state.gallery;
         let length = gallery.length;
+
+        console.log("The right event handler says the gallery is this long: " + String(length));
         
         if (index === length) {
             index = -1;
@@ -270,6 +274,7 @@ class Collections extends React.Component{
         // creating an array that contains the selected set plus the matching collection text
         let gallery = selectedSet.slice(0);
         gallery.push(collectionText);
+        console.log("The mount says the gallery is this long: " + String(gallery.length));
         this.setState((prevState) => ({selectedSet: selectedSet, collectionText: collectionText, gallery: gallery}));
     };
 

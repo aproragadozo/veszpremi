@@ -30591,6 +30591,8 @@ var Collections = function (_React$Component) {
             var gallery = this.state.gallery;
             var length = gallery.length;
 
+            console.log("The left event handler says the gallery is this long: " + String(length));
+
             if (index < 1) {
                 index = length - 1;
             } else {
@@ -30618,6 +30620,8 @@ var Collections = function (_React$Component) {
             var index = this.state.galleryIndex;
             var gallery = this.state.gallery;
             var length = gallery.length;
+
+            console.log("The right event handler says the gallery is this long: " + String(length));
 
             if (index === length) {
                 index = -1;
@@ -30722,6 +30726,7 @@ var Collections = function (_React$Component) {
             // creating an array that contains the selected set plus the matching collection text
             var gallery = selectedSet.slice(0);
             gallery.push(collectionText);
+            console.log("The mount says the gallery is this long: " + String(gallery.length));
             this.setState(function (prevState) {
                 return { selectedSet: selectedSet, collectionText: collectionText, gallery: gallery };
             });
