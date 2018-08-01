@@ -19,7 +19,7 @@
     display: inline-block;
     position: absolute;
     transition: all 1s ease-out;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     width: 100vw;
     height: 100vw;
@@ -32,10 +32,10 @@
     display: inline-block;
     position: absolute;
     transition: all 1s ease-out;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     width: 100vw;
-    /*height: 100vw;*/
+    height: 100vw;
     z-index: 0;
 }
 

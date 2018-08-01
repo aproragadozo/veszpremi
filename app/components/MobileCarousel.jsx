@@ -40,7 +40,7 @@ class MobileCarousel extends React.Component{
           transitionEnterTimeout={1000}
           transitionLeaveTimeout={1000}
           component='div'
-          style={{position:"relative", width:"100%", height: "100%", display: "inline-block", overflow:"hidden"}}>
+          style={{position:"relative", width:"100vw", height: "100%", display: "inline-block", overflow:"auto"}}>
           <img className="mobilbal"
             key={this.props.currentIndex}
             src={this.props.selectedSet[this.circleIndex(this.props.currentIndex)]}/>

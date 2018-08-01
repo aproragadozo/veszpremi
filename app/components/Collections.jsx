@@ -44,6 +44,9 @@ const _17sslookbook = importCollection(require.context('../img/collections/17ss/
 const _LAYERScampaign = importCollection(require.context('../img/collections/LAYERS/campaign', false, /\.(png|jpe?g|svg)$/));
 const _LAYERSlookbook = importCollection(require.context('../img/collections/LAYERS/lookbook', false, /\.(png|jpe?g|svg)$/));
 
+// npm plugin to generate unique keys for the collection photos
+const uuidv4 = require('uuid/v4');
+
 const CollectionWrapper = styled.div`
     display: grid;
     grid-column: wrapperCol 1 / span 6;
