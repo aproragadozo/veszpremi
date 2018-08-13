@@ -4,7 +4,7 @@ var React = require('react');
 // if such a thing as 'history' exists
 // import {createBrowserHistory} from 'history';
 // or 'browserHistory'
-import {HashRouter as Router, Route, useRouterHistory} from 'react-router-dom';
+import {HashRouter as Router, Route, withRouter, useRouterHistory} from 'react-router-dom';
 
 /*
 // still the 'history' hack
@@ -68,9 +68,10 @@ const Wrapper = styled.div`
 
 class App extends React.Component{
    render() {
+       console.log("alma: " + window.location.hash);
        return (
-        <Router>
-            <Wrapper style={{backgroundImage: `url(${background})`}}>
+        <Router >
+            <Wrapper style={{backgroundImage: window.location.hash == "#/"?`url(${background})`: undefined}}>
                 <Header/>
                 <Nav sets={szettek}/>
                 <Route exact path="/" render={props => <Home text={`${szettek[szettek.length-1].name}\n`+ "COLLECTION"} destination={"/collections/_" + `${szettek[szettek.length-1].name}` + "/" + `${szettek[szettek.length-1].sets[0]}`}/>}/>
