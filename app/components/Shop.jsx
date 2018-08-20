@@ -40,9 +40,11 @@ const ShoeImage = styled.div`
 function Shop(props){
     return (
 			<ShoeImage>
+        {/*
 				<Rotate>
 					<img src={props.spinner} style={{maxWidth: "30vw"}}/>
 				</Rotate>
+        */}
 				<p style={{fontSize: "13vmin", textTransform: "uppercase", position: "absolute", textAlign: "center"}}>Webshop coming soon</p>
 			</ShoeImage>
     )

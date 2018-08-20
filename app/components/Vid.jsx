@@ -99,11 +99,13 @@ class Vid extends React.Component {
 		<VidContainer className={this.props.className} >
 			<MediaQuery maxWidth={760}>
 				<iframe className="vidFrame" src={`${this.props.content.source}?modestbranding=1&rel=0&frameborder=0`} allowFullScreen></iframe>
+				{/*
   			<div className={'vidOverlay' + ' ' + 'mobil'}>
     			<div className="vidText">
       			<p className="vidFelirat">{this.props.content.felirat}</p>
     			</div>
   			</div>
+				*/}
 			</MediaQuery>
 			<MediaQuery minWidth={760}>
 				<iframe className="vidFrame" src={`${this.props.content.source}?modestbranding=1&rel=0&frameborder=0`} allowFullScreen></iframe>
