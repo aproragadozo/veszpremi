@@ -52,7 +52,7 @@ const VidGenerator = ({things}) => (
   </div>
 );
 // external list for text overlays
-const feliratok = ["LAYERS collection", "Kulissza: Veszprémi Gabriella", "Lúcia tojásai", "Mercedes Benz Fashion Week 2018"];
+const feliratok = ["LAYERS collection", "Kulissza: Veszprémi Gabriella", "Lúcia tojásai", "Mercedes Benz Fashion Week 2018", "MB FW CE 2018 InStyle interview"];
 
 class Videos extends React.Component {
   constructor(props) {
@@ -83,6 +83,12 @@ class Videos extends React.Component {
           source: 'https://www.youtube.com/embed/HpbrvKhyCIE',
           url: 'https://www.youtube.com/watch?v=HpbrvKhyCIE',
           felirat: "Mercedes Benz Fashion Week 2018"
+        },
+        {
+          id: 'mercedes-instyle',
+          source: 'https://www.youtube.com/embed/150R6B262As',
+          url: 'https://www.youtube.com/embed/150R6B262As',
+          felirat: "MB FW CE 2018 InStyle interview"
         }
       ],
       direction: "",
