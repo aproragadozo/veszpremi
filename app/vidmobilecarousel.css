@@ -39,5 +39,6 @@ iframe {
 @media screen and (min-width: 760px) {
     .vidText {
         font-size: 4vmin;
+        align-items: center;
     }
 }
