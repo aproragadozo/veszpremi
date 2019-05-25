@@ -31,12 +31,9 @@
     padding: 16px 32px;
     text-transform: uppercase;
     font-weight: bold;
-}
-
-.cardText>a {
     text-decoration: none;
+    display: block;
 }
-
 
 /*
 .cardContainer:hover .cardImage {
