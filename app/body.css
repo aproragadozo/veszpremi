@@ -7,4 +7,7 @@ body {
     font-weight: bold;
     font-family: 'Akzidenz Grotesk', Arial, Geneva, Verdana, sans-serif;
     color: #443A9E;
+    width: 100%;
+    height: 100%;
+    margin: 0;
 }
